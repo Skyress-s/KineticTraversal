@@ -24,9 +24,11 @@ public class Wallrunning : MonoBehaviour
     private bool deactivated;
 
     //jump portion
-    public float jumpForce;
+    public float jumpForce, upwardsForce;
 
     public bool wallrunning;
+
+    public RaycastHit globalHit;
 
     public InputInfoCenter IIC;
 
@@ -74,13 +76,15 @@ public class Wallrunning : MonoBehaviour
             //Debug.Log("right");
         }
 
-        //bool b = false;
-        //if (hit.collider != null)
-        //{
-        //    b = true;
-        //}
-        //Debug.Log(b);
-
+        if (hit.collider != null)
+        {
+            globalHit = hit;
+        }
+        else
+        {
+            var emptyHit = new RaycastHit();
+            globalHit =emptyHit;
+        }
 
         //if hit is somthing and player is not grounded, porceed
         if (hit.collider != null && IIC.grounded._isgrounded == false)
@@ -116,7 +120,11 @@ public class Wallrunning : MonoBehaviour
         Debug.Log("jump");
         wallrunning = false;
         var dir = Camera.transform.forward;
-        rb.AddForce(dir * jumpForce, ForceMode.VelocityChange);
+        var n = globalHit.normal;
+        var c = dir + n;
+        c = c.normalized;
+
+        rb.AddForce(c * jumpForce + Vector3.up * upwardsForce, ForceMode.VelocityChange);
         StartCoroutine(WallrunCooldown());
     }
 
@@ -142,8 +150,11 @@ public class Wallrunning : MonoBehaviour
         lerpYForce = Mathf.Clamp(lerpYForce, 0f, 1f);
 
 
-        //cancels out the y velocity
-        rb.AddForce(new Vector3(0, -(rb.velocity.y) * lerpYForce, 0), ForceMode.VelocityChange);
+        //cancels out the -y velocity
+        var v = rb.velocity.y;
+        if (v > 0) v = 0f;
+
+        rb.AddForce(new Vector3(0, -v * lerpYForce, 0), ForceMode.VelocityChange);
 
         //the xz portion of the code
         Vector3 vAlongWall = Vector3.Cross(Vector3.up, hit.normal);

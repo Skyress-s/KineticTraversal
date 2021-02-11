@@ -4934,13 +4934,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a85521144b5ec40a3e74ba59c67839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayD: 2
+  rayD: 1
   Camera: {fileID: 5957378948052881388}
   lerpYForce: 0
   activatedLastFrame: 0
   speedBoostCap: 15
   BoostAcceleration: 0.2
-  jumpForce: 20
+  jumpForce: 10
+  upwardsForce: 5
   wallrunning: 0
   IIC: {fileID: 5957378947494417628}
 --- !u!4 &5957378947340813955
