@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+public abstract class Enemy
+{
+    public int hp = 5;
+    public string name;
+
+    public void Die()
+    {
+    }
+}
+
+public class StrongEnemy : Enemy
+{
+    public StrongEnemy()
+    {
+        hp = 20;
+        name = "Goblin";
+    }
+}
+
+public class WeakEnemy : Enemy
+{
+    public WeakEnemy()
+    {
+        hp = 10;
+        name = "Dwarf";
+    }
+
+    public void RunAway()
+    {
+
+    }
+}
+
+public class Game{
+    public void Tick()
+    {
+        StrongEnemy a = new StrongEnemy();
+        WeakEnemy b = new WeakEnemy();
+
+        a = new Enemy();
+
+        List<WeakEnemy> listOfEnemies = new List<Enemy>();
+        listOfEnemies.Add(a);
+        listOfEnemies.Add(b);
+
+        b.RunAway();
+
+        foreach (Enemy e in listOfEnemies) 
+        {
+            e
+        }
+
+    }
+}
