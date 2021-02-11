@@ -1,0 +1,7 @@
+- [x] Basic Movment
+- [ ] Sprint
+- [x] Low/high jump
+- [x] Extensive Grapplinghook 
+- [ ] Wallrunning
+- [x] Sliding
+- [ ] airstrafe

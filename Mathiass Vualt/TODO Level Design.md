@@ -1,0 +1,3 @@
+- [x] make an acceptable test level
+- [ ] Make a tutorial lvl for each game mechanic [[Tutoral Levels]]
+- [ ] 

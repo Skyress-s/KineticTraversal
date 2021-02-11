@@ -4941,7 +4941,10 @@ MonoBehaviour:
   speedBoostCap: 15
   BoostAcceleration: 0.2
   jumpForce: 10
+<<<<<<< HEAD
   upwardsForce: 5
+=======
+>>>>>>> ac7d3c9d3e5bbf9b0f502cd180a1563e8c037da9
   wallrunning: 0
   IIC: {fileID: 5957378947494417628}
 --- !u!4 &5957378947340813955
