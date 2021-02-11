@@ -4940,7 +4940,7 @@ MonoBehaviour:
   activatedLastFrame: 0
   speedBoostCap: 15
   BoostAcceleration: 0.2
-  jumpForce: 20
+  jumpForce: 10
   wallrunning: 0
   IIC: {fileID: 5957378947494417628}
 --- !u!4 &5957378947340813955
