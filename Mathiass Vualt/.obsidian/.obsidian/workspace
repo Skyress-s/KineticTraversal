@@ -1,33 +1,30 @@
 {
   "main": {
-    "id": "218ca696ca5d7b71",
+    "id": "fe0ca94f6c3a76c5",
     "type": "split",
     "children": [
       {
-        "id": "40fa92edac065612",
+        "id": "7106255f84e58305",
         "type": "leaf",
         "active": true,
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "TODO Technical.md",
-            "mode": "preview"
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "c02d829333277122",
+    "id": "b1465c01bdd6dee5",
     "type": "split",
     "children": [
       {
-        "id": "06bcd44244f5746b",
+        "id": "46d2fed42ef86f20",
         "type": "tabs",
         "children": [
           {
-            "id": "2c4b2bf0447cf939",
+            "id": "fd7b6a0bafc83bf3",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +32,7 @@
             }
           },
           {
-            "id": "b16364fcf4beab63",
+            "id": "bc30e59f6894b368",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -56,25 +53,24 @@
     "width": 300
   },
   "right": {
-    "id": "51c9f2074339c9ce",
+    "id": "bbc8ead7662d3ebf",
     "type": "split",
     "children": [
       {
-        "id": "fe1be488f9ae5dd0",
+        "id": "78439345f281aba8",
         "type": "tabs",
         "children": [
           {
-            "id": "065f4e7439c269fa",
+            "id": "f9073554eb821e68",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO Technical.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               }
             }
           }
@@ -82,18 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "lastOpenFiles": [
-    "TODO Technical.md",
-    "MainCharachter.md",
-    "Ideas Charts.md",
-    "Tutoral Levels.md",
-    "TODO Visual.md",
-    "Kinetic Game.md",
-    "TODO Level Design.md",
-    "Untitled.md",
-    "Bjerkely Stream ideer.md",
-    "Test.md"
-  ]
+  "lastOpenFiles": []
 }

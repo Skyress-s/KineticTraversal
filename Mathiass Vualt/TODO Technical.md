@@ -3,7 +3,7 @@ Ground Movment
 - [x] Fix so that ground movment is properly capped
 
 other
-- [x] [x] Physics ray collision
+- [x] Physics ray collision
 - [x] Make grapplingphysics more consistent
 - [x] temp GH returning mode
 	- [x] Though make the rotatian lerp
@@ -17,6 +17,8 @@ Scriptableobjects
 Sliding
 - [x] temperairy sliding
 - [ ] make sliding more refined
+- [ ] Better animation
+- [ ] Crouncing while in air
 
 Wallrunning
 - [x] Wallrunning
@@ -28,7 +30,7 @@ Wallrunning
 
 Air Control
 - [ ] Make airstrafing easier to do
-- [ ] Make s stop more rapidly
+- [x] Make s stop more rapidly
 - [ ] Make more WASD control in air
 
 Weapons

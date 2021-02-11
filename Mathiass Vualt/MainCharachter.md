@@ -8,6 +8,11 @@ names:
 Tunk
 Lightning
 (Stone) Ward
+Peridoic table like names 
+- Wolfram
+	- Fram
+- Olf
+- 
 
 
 

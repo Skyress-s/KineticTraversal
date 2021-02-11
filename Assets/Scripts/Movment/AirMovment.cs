@@ -21,7 +21,7 @@ public class AirMovment : MonoBehaviour
             //v = v.normalized;
 
 
-            rb.AddForce(-v * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(-v.normalized * v.magnitude * 10f * Time.deltaTime, ForceMode.VelocityChange);
         }
     }
 }

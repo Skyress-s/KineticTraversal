@@ -24,7 +24,7 @@ public class Wallrunning : MonoBehaviour
     private bool deactivated;
 
     //jump portion
-    public float jumpForce, upwardsForce;
+    public float jumpForce, upwardsForce, minimumSpeed;
 
     public bool wallrunning;
 
@@ -89,13 +89,18 @@ public class Wallrunning : MonoBehaviour
         //if hit is somthing and player is not grounded, porceed
         if (hit.collider != null && IIC.grounded._isgrounded == false)
         {
-            //Debug.Log("Primary hit hit somthing");
-            Wallrun(hit);
-            StickToWall(hit);
+            //if speed is to low, do not wallrun
+            var heyAgusta = rb.velocity;
+            heyAgusta.y = 0f;
+            if (heyAgusta.magnitude > minimumSpeed)
+            {
+                Wallrun(hit);
+                StickToWall(hit);
 
-            //sets the wallrunning bool to active (gives info if wallrunning or not)
-            wallrunning = true;
-
+                //sets the wallrunning bool to active (gives info if wallrunning or not)
+                wallrunning = true;
+            }
+            
         }
         else if (activatedLastFrame == true) // what todo on exit of wallrun
         {
