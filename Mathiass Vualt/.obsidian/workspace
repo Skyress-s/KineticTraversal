@@ -11,7 +11,7 @@
           "type": "markdown",
           "state": {
             "file": "TODO Technical.md",
-            "mode": "preview"
+            "mode": "source"
           }
         }
       }
@@ -86,10 +86,10 @@
   },
   "lastOpenFiles": [
     "TODO Technical.md",
+    "TODO Visual.md",
     "MainCharachter.md",
     "Ideas Charts.md",
     "Tutoral Levels.md",
-    "TODO Visual.md",
     "Kinetic Game.md",
     "TODO Level Design.md",
     "Untitled.md",

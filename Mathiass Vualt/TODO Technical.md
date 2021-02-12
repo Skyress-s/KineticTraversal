@@ -24,14 +24,17 @@ Wallrunning
 - [x] Wallrunning
 - [x] Make the player stick more to the wall
 - [ ] Refine Wallrunning further
-- [ ] Must have a certian speed to wallrun
-- [ ] jumping off wals should be more in direction for momentum
-- [ ] do not slow upwards momuntum when entering wallrun
+- [x] Must have a certian speed to wallrun
+- [x] jumping off wals should be more in direction for momentum
+- [x] do not slow upwards momuntum when entering wallrun
 
 Air Control
 - [ ] Make airstrafing easier to do
 - [x] Make s stop more rapidly
+	- [ ] Make the button used be relative to the direction
 - [ ] Make more WASD control in air
+- [ ] Remake Airstrafe?
+	- [ ] Airstrafe key? instead of AD? ask people
 
 Weapons
 - [x] Small delay when rotating weapons

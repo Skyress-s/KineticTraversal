@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.32463646, g: 0.38522723, b: 0.47502965, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: b0048ba43241f3145adb2dd3192c73b7,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -4845,14 +4846,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a85521144b5ec40a3e74ba59c67839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayD: 2
+  rayD: 1.3
   Camera: {fileID: 6047523575592440558}
   lerpYForce: 0
   activatedLastFrame: 0
   speedBoostCap: 15
   BoostAcceleration: 0.2
-  jumpForce: 20
-  upwardsForce: 5
+  jumpForce: 10
+  upwardsForce: 9
   minimumSpeed: 9
   wallrunning: 0
   IIC: {fileID: 6047523576148543966}
@@ -5027,6 +5028,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e239cdc1feb7042b40107aabcdab4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bernt: 'Masee Verdi :) '
+  IIC: {fileID: 6047523576148543966}
+  Bernt1: 58
+  Bernt2: 133
 --- !u!114 &6047523575731723257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5458,6 +5463,7 @@ MonoBehaviour:
   grounded: {fileID: 6047523575731723141}
   grapplingHookStates: {fileID: 6047523576666963862}
   infoSliding: {fileID: 6047523575731723263}
+  input: {x: 0, y: 0}
 --- !u!1 &6047523576148543967
 GameObject:
   m_ObjectHideFlags: 0

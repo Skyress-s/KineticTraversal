@@ -11,6 +11,8 @@ Lightning
 Peridoic table like names 
 - Wolfram
 	- Fram
+- Tungsten
+- 
 - Olf
 - 
 

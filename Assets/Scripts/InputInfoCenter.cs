@@ -9,15 +9,13 @@ public class InputInfoCenter : MonoBehaviour
     public GrapplingHookStates grapplingHookStates;
 
     public Sliding infoSliding;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public Vector2 input;
+
     void Update()
     {
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
         
     }
 }

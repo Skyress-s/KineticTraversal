@@ -18,9 +18,11 @@ Other
 Rope
 - [x] implement rope V1
 - [ ] Further improvemnt? Other rope style
+- [ ] Tilt towards grapple point
 
 Characther
 - [ ] Hand is grapplinghook? rework as a stone version? Made of vines?
+- [ ] GH animation when walking, not just camera
 
 Animations
 - [ ] Make more animations for the charachter
