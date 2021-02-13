@@ -22,10 +22,56 @@ public class AirMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //first gets the angle between velocity and input
-        //GetAngleDifference();
+        if (IIC.grounded._isgrounded == false && IIC.input.magnitude > 0.1f) // player has to be airborne and inputting somthing for this to work
+        {
+            //first gets the angle between velocity and input
+            GetAngleDifference();
 
-        SslowDown();
+            if (GetAngleDifference() < Bernt1) // what todo if in range of Bernt1
+            {
+                Debug.Log("airstrafing");
+                Airstrafe();
+            }
+            else if (GetAngleDifference() < Bernt2) // what todo if in range of Bernt2
+            {
+                Debug.Log("Change direction slowly");
+                SideChangeDirection();
+            }
+            else // what todo if over range of Bernt2 (third range)
+            {
+                Debug.Log("airbrake");
+                AirBrake();
+            }
+        }
+    }
+
+    void Airstrafe() // makes the player airstrafe
+    {
+
+        //defines the input vector
+        var wi = IIC.worldInput;
+        //rb.AddForce(v * 10f * Time.deltaTime, ForceMode.VelocityChange);
+
+        var velocity = rb.velocity;
+        velocity.y = 0f;
+
+        Vector3 v = wi * velocity.magnitude;
+        v.y = rb.velocity.y;
+        rb.velocity = v;
+    }
+
+    void SideChangeDirection()  // makes the player slowly change direction towards the worldinput vector
+    {
+        var velocity = rb.velocity;
+        velocity.y = 0f;
+        var v = Vector3.RotateTowards(velocity, IIC.worldInput, (Mathf.PI /8) * Time.deltaTime, 0f);
+        v.y = rb.velocity.y;
+        rb.velocity = v;
+    }
+
+    void AirBrake() // makes the player lose momentum quickly in air
+    {
+        rb.AddForce(IIC.worldInput * 1f, ForceMode.VelocityChange);
     }
 
     float GetAngleDifference()
@@ -53,7 +99,7 @@ public class AirMovment : MonoBehaviour
         var angle = Vector3.Angle(velocity, input);
 
         //Debug.Log(signedAngle);
-        return signedAngle;
+        return angle;
     }
 
     void SslowDown()

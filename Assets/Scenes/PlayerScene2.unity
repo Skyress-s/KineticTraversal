@@ -5030,8 +5030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bernt: 'Masee Verdi :) '
   IIC: {fileID: 6047523576148543966}
-  Bernt1: 58
-  Bernt2: 133
+  Bernt1: 25
+  Bernt2: 123
 --- !u!114 &6047523575731723257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5464,6 +5464,7 @@ MonoBehaviour:
   grapplingHookStates: {fileID: 6047523576666963862}
   infoSliding: {fileID: 6047523575731723263}
   input: {x: 0, y: 0}
+  worldInput: {x: 0, y: 0, z: 0}
 --- !u!1 &6047523576148543967
 GameObject:
   m_ObjectHideFlags: 0
