@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TODO Technical.md",
-            "mode": "source"
+            "file": "TODO Visual.md",
+            "mode": "preview"
           }
         }
       }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO Technical.md",
+                "file": "TODO Visual.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,13 +85,13 @@
     "width": 300
   },
   "lastOpenFiles": [
-    "TODO Technical.md",
     "TODO Visual.md",
+    "TODO Level Design.md",
+    "TODO Technical.md",
+    "Kinetic Game.md",
     "MainCharachter.md",
     "Ideas Charts.md",
     "Tutoral Levels.md",
-    "Kinetic Game.md",
-    "TODO Level Design.md",
     "Untitled.md",
     "Bjerkely Stream ideer.md",
     "Test.md"

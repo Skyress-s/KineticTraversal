@@ -20,7 +20,7 @@ public class AirMovment : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (IIC.grounded._isgrounded == false && IIC.input.magnitude > 0.1f) // player has to be airborne and inputting somthing for this to work
         {
@@ -64,7 +64,7 @@ public class AirMovment : MonoBehaviour
     {
         var velocity = rb.velocity;
         velocity.y = 0f;
-        var v = Vector3.RotateTowards(velocity, IIC.worldInput, (Mathf.PI /8) * Time.deltaTime, 0f);
+        var v = Vector3.RotateTowards(velocity, IIC.worldInput, (Mathf.PI /150), 0f);
         v.y = rb.velocity.y;
         rb.velocity = v;
     }
