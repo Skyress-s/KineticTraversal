@@ -5568,6 +5568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6047523576602516344}
   - component: {fileID: 6047523576602516345}
+  - component: {fileID: 6047523576602516347}
   m_Layer: 0
   m_Name: DebugController
   m_TagString: Untagged
@@ -5575,6 +5576,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6047523576602516347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047523576602516346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55255f4cda5bd104ebd40531babfaeaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 6047523575731723149}
 --- !u!33 &6047523576666963856
 MeshFilter:
   m_ObjectHideFlags: 0
