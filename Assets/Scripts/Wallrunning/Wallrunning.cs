@@ -92,10 +92,11 @@ public class Wallrunning : MonoBehaviour
             //if speed is to low, do not wallrun
             var heyAgusta = rb.velocity;
             heyAgusta.y = 0f;
-            if (heyAgusta.magnitude > minimumSpeed)
+            if (heyAgusta.magnitude > minimumSpeed) // what todo if wallrun requierments are met
             {
                 Wallrun(hit);
                 StickToWall(hit);
+                TempDisableAirControl(false);
 
                 //sets the wallrunning bool to active (gives info if wallrunning or not)
                 wallrunning = true;
@@ -106,6 +107,7 @@ public class Wallrunning : MonoBehaviour
         {
             OnExit();
             //Debug.Log("exit");
+            TempDisableAirControl(true);
         }
         else // sets wallrunning bool to false (gives info if wallrunning or not)
         {
@@ -114,6 +116,15 @@ public class Wallrunning : MonoBehaviour
 
         //Debug.Log(hit.collider.gameObject.GetHashCode());
 
+    }
+
+    /// <summary>
+    /// Turn the airControl script on and off with a bool
+    /// </summary>
+    /// <param name="b">if b is true enable, if false, disable</param>
+    void TempDisableAirControl(bool b)
+    {
+        gameObject.GetComponent<AirMovment>().enabled = b;
     }
     
     void StickToWall(RaycastHit hit)
@@ -136,7 +147,7 @@ public class Wallrunning : MonoBehaviour
     private IEnumerator WallrunCooldown()
     {
         deactivated = true;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.3f);
         deactivated = false;
     }
 

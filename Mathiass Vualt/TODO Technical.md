@@ -27,6 +27,7 @@ Wallrunning
 - [x] Must have a certian speed to wallrun
 - [x] jumping off wals should be more in direction for momentum
 - [x] do not slow upwards momuntum when entering wallrun
+- [ ] do use inputvector or aristafe if wallrunning
 
 Air Control
 - [ ] Make airstrafing easier to do
