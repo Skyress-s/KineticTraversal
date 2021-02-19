@@ -9,6 +9,7 @@ GrapplingHook
 - [x] Add a textured version
 - [x] implement particles for hitting
 - [ ] implement particleeffects for firiring
+- [ ] Tilt towards grapple point
 
 Other
 - [ ] Improve Impact particle effect, more like sparts not flares
@@ -18,7 +19,7 @@ Other
 Rope
 - [x] implement rope V1
 - [ ] Further improvemnt? Other rope style
-- [ ] Tilt towards grapple point
+
 
 Characther
 - [ ] Hand is grapplinghook? rework as a stone version? Made of vines?

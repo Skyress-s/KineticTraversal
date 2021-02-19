@@ -13,5 +13,6 @@ public class TestScriptableObject : ScriptableObject
     public float holdSpaceForce;
 
     public float coyoteMargin;
+
         
 }

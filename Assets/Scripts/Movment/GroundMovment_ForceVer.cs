@@ -60,12 +60,12 @@ public class GroundMovment_ForceVer : MonoBehaviour
     {
         // if left/right or/and forward/backwards counter move it
         if (x > -0.5f && x < 0.5f){
-            rb.AddForce(Time.deltaTime * -xMag * RemoveYComponent(CameraTrans.right) * counterMovIntensity,
+            rb.AddForce(Time.deltaTime * -xMag * RemoveYComponent(CameraTrans.right).normalized * counterMovIntensity,
                 ForceMode.VelocityChange);
         }
 
         if (y > -0.5f && y < 0.5f){
-            rb.AddForce(Time.deltaTime * -yMag * RemoveYComponent(CameraTrans.forward) * counterMovIntensity,
+            rb.AddForce(Time.deltaTime * -yMag * RemoveYComponent(CameraTrans.forward).normalized * counterMovIntensity,
                 ForceMode.VelocityChange);
         }
     }

@@ -1,6 +1,7 @@
 Ground Movment
 - [x] Basic Ground Movment
 - [x] Fix so that ground movment is properly capped
+- [x] Fix Countermovment so that is works when you look down
 
 other
 - [x] Physics ray collision
@@ -30,12 +31,12 @@ Wallrunning
 - [ ] do use inputvector or aristafe if wallrunning
 
 Air Control
-- [ ] Make airstrafing easier to do
+- [x] Make airstrafing easier to do
 - [x] Make s stop more rapidly
-	- [ ] Make the button used be relative to the direction
-- [ ] Make more WASD control in air
-- [ ] Remake Airstrafe?
-	- [ ] Airstrafe key? instead of AD? ask people
+	- [x] Make the button used be relative to the direction
+- [x] Make more WASD control in air
+- [x] Remake Airstrafe?
+	- [x] Airstrafe key? instead of AD? ask people
 
 Weapons
 - [x] Small delay when rotating weapons

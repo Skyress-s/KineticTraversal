@@ -10,6 +10,8 @@ public class InputInfoCenter : MonoBehaviour
 
     public Sliding infoSliding;
 
+    public GameObject hook;
+
     public Vector2 input;
 
     public Vector3 worldInput;
