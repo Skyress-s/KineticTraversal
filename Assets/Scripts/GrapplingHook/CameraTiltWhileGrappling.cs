@@ -15,19 +15,38 @@ public class CameraTiltWhileGrappling : MonoBehaviour
 
     void Update()
     {
+        //if (IIC.grapplingHookStates.currentState.ToString() == "hooked")
+        //{
+        //    var v = hook.transform.position - transform.position;
+        //    v = v.normalized;
+        //    // TODO convert to localSpace
+
+        //    var resultVector = Vector3.Lerp(Vector3.up, v, 1f);
+
+        //    Quaternion q = Quaternion.LookRotation(resultVector, Vector3.up);
+
+        //    transform.localRotation = q;
+
+        //    //Debug.DrawRay(transform.position, v*10f, Color.yellow, 1f
+        //}
+        //else
+        //{
+        //    transform.localRotation = Quaternion.identity;
+        //}
+
         if (IIC.grapplingHookStates.currentState.ToString() == "hooked")
         {
-            var v = hook.transform.position - transform.position;
-            v = v.normalized;
-            // TODO convert to localSpace
+            var hook = IIC.hook.transform.position - transform.position;
+            hook = hook.normalized;
 
-            var resultVector = Vector3.Lerp(Vector3.up, v, 0.5f);
+            // finds the world forwards direction
+            var up = transform.up;
 
-            Quaternion q = Quaternion.LookRotation(resultVector, Vector3.up);
+            var interpelated = Vector3.Lerp(up, hook, 0.1f); //1 is hook and 0 is local Up
 
-            transform.localRotation = q;
+            //var q = Quaternion.LookRotation(in)
+            Debug.Log(interpelated);
 
-            //Debug.DrawRay(transform.position, v*10f, Color.yellow, 1f
         }
     }
 }
