@@ -9,7 +9,8 @@ GrapplingHook
 - [x] Add a textured version
 - [x] implement particles for hitting
 - [ ] implement particleeffects for firiring
-- [ ] Tilt towards grapple point
+- [x] Tilt towards grapple point
+- [x] Smoth the Tild when starting and ending
 
 Other
 - [ ] Improve Impact particle effect, more like sparts not flares

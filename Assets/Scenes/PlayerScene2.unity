@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32463646, g: 0.38522723, b: 0.47502965, a: 1}
+  m_IndirectSpecularColor: {r: 0.03542759, g: 0.16060217, b: 0.48678985, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: b0048ba43241f3145adb2dd3192c73b7,
+  m_LightingDataAsset: {fileID: 112000002, guid: b24ea547d891baa4b8fa15070950bb67,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -7779,8 +7779,8 @@ Transform:
   m_Children:
   - {fileID: 6047523575758096491}
   - {fileID: 6047523575585772438}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 6047523576688241500}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6047523575534152418
 MonoBehaviour:
@@ -7789,7 +7789,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047523575534152428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 148ab6ca44baccc4ba172cba3aa38036, type: 3}
   m_Name: 
@@ -7829,7 +7829,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047523575534152428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e34277309a12374a84caf1d0070579b, type: 3}
   m_Name: 
@@ -7846,6 +7846,7 @@ GameObject:
   - component: {fileID: 6047523575534152417}
   - component: {fileID: 6047523575534152418}
   - component: {fileID: 6047523575534152419}
+  - component: {fileID: 6047523575534152429}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: Untagged
@@ -7853,6 +7854,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6047523575534152429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047523575534152428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef74dbdc4ad99c145984926c2fc9c4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensetivity: 250
+  rotationOnX: 0
+  rotationOnY: 0
 --- !u!114 &6047523575585772427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8006,7 +8022,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6047523576688241500}
+  m_Father: {fileID: 6047523576224496623}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6047523575592440559
@@ -8776,7 +8792,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6047523576688241500}
+  - {fileID: 6047523575592440558}
   m_Father: {fileID: 6047523575585772438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9017,9 +9033,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6047523575592440558}
-  m_Father: {fileID: 6047523576224496623}
-  m_RootOrder: 0
+  - {fileID: 6047523575534152417}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6047523576688241501
 GameObject:
@@ -9031,6 +9047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6047523576688241500}
   - component: {fileID: 6047523576688241502}
+  - component: {fileID: 6047523576688241503}
   m_Layer: 0
   m_Name: GrapplingHookAnimations
   m_TagString: Untagged
@@ -9051,6 +9068,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IIC: {fileID: 6047523576148543966}
+  Parent: {fileID: 6047523575534152428}
+  StartCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.6376476
+      outSlope: 4.6376476
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07722422
+    - serializedVersion: 3
+      time: 0.29564622
+      value: 0.8086942
+      inSlope: 1.5903262
+      outSlope: 1.5903262
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.72524947
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17899756
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  EndCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.5060031
+      outSlope: -0.5060031
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5794848
+      value: 0.7067789
+      inSlope: -1.0933741
+      outSlope: -1.0933741
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.6807452
+      outSlope: -1.6807452
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6047523576688241503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047523576688241501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e34277309a12374a84caf1d0070579b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 6047523575731723137}
 --- !u!2083052967 &6047523576729318568
 VisualEffect:
   m_ObjectHideFlags: 0

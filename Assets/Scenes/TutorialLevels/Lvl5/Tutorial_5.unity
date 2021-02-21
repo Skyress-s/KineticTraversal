@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.62
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: b4d1e1180d6b45d4eaa6f6b684d18e2b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0ff23603c187cd146bc65bf76e851175, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 178618481}
-  m_IndirectSpecularColor: {r: 0.37635523, g: 0.1872001, b: 0.49233812, a: 1}
+  m_IndirectSpecularColor: {r: 0.33023995, g: 0.27770907, b: 0.5998673, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: b0048ba43241f3145adb2dd3192c73b7,
+  m_LightingDataAsset: {fileID: 112000004, guid: b0048ba43241f3145adb2dd3192c73b7,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -276,11 +276,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: 46c4cc1ad53c82042bca6285479b2049,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00a2c183dde92ae4ea9cbf717b39cbd3, type: 2}
+    - target: {fileID: -7029948723529949830, guid: 46c4cc1ad53c82042bca6285479b2049,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7023974396876390944, guid: 46c4cc1ad53c82042bca6285479b2049,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fcedf5cbc8d3d804bad2f7f32407bb4c, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 46c4cc1ad53c82042bca6285479b2049,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bad05884fe687644faa2c96f8e98f157, type: 2}
+    - target: {fileID: -4292154010595695564, guid: 46c4cc1ad53c82042bca6285479b2049,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: -2268138116939433651, guid: 46c4cc1ad53c82042bca6285479b2049,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -311,6 +331,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fcedf5cbc8d3d804bad2f7f32407bb4c, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 46c4cc1ad53c82042bca6285479b2049,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bad05884fe687644faa2c96f8e98f157, type: 2}
     - target: {fileID: 7339356831882890532, guid: 46c4cc1ad53c82042bca6285479b2049,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

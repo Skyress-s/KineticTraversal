@@ -6,47 +6,54 @@ public class CameraTiltWhileGrappling : MonoBehaviour
 {
     public InputInfoCenter IIC;
 
-    private GameObject hook;
+    private Vector3 hook;
+
+    public GameObject Parent;
+
+    public AnimationCurve StartCurve, EndCurve;
+
+    private float startTime;
+
+    private float endTime;
 
     void Start()
     {
-        hook = IIC.hook;    
+         
     }
 
     void Update()
     {
-        //if (IIC.grapplingHookStates.currentState.ToString() == "hooked")
-        //{
-        //    var v = hook.transform.position - transform.position;
-        //    v = v.normalized;
-        //    // TODO convert to localSpace
-
-        //    var resultVector = Vector3.Lerp(Vector3.up, v, 1f);
-
-        //    Quaternion q = Quaternion.LookRotation(resultVector, Vector3.up);
-
-        //    transform.localRotation = q;
-
-        //    //Debug.DrawRay(transform.position, v*10f, Color.yellow, 1f
-        //}
-        //else
-        //{
-        //    transform.localRotation = Quaternion.identity;
-        //}
+        
 
         if (IIC.grapplingHookStates.currentState.ToString() == "hooked")
         {
-            var hook = IIC.hook.transform.position - transform.position;
+            endTime = 0f;
+
+            hook = IIC.hook.transform.position - transform.position;
             hook = hook.normalized;
 
-            // finds the world forwards direction
-            var up = transform.up;
 
-            var interpelated = Vector3.Lerp(up, hook, 0.1f); //1 is hook and 0 is local Up
+            //adds to the time
+            startTime += Time.deltaTime;
 
-            //var q = Quaternion.LookRotation(in)
-            Debug.Log(interpelated);
+            startTime = Mathf.Clamp(startTime, 0f, 1f);
 
+            var v2 = Vector3.Slerp(Vector3.up, hook, StartCurve.Evaluate(startTime) * 0.1f);
+            transform.up = v2;
+
+            
+        }
+        else
+        {
+            transform.localRotation = Quaternion.identity;
+            startTime = 0f;
+
+            endTime += Time.deltaTime;
+
+            endTime = Mathf.Clamp(endTime, 0f, 1f);
+
+            var v = Vector3.Slerp(Vector3.up, hook, EndCurve.Evaluate(endTime) * 0.1f);
+            transform.up = v;
         }
     }
 }
