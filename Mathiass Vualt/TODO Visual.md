@@ -4,6 +4,9 @@ Wallrunning
 - [x] Animation
 - [x] Works for both sides
 
+Platform
+- [ ] make a basic platform Prefab - keep it simple
+
 GrapplingHook
 - [x] implement Hook 3d model
 - [x] Add a textured version
@@ -28,7 +31,9 @@ Characther
 
 Animations
 - [ ] Make more animations for the charachter
-- [ ] 
+
+
+[[Floating Cylinder]]
 
 
 

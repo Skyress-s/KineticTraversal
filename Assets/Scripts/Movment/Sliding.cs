@@ -22,7 +22,7 @@ public class Sliding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.C)/* && infoCenterData.grounded._isgrounded*/)
+        if (Input.GetKey(KeyCode.LeftControl)/* && infoCenterData.grounded._isgrounded*/)
         {
             sliding = true;
             cc.height = 1f;

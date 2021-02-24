@@ -24,7 +24,7 @@ public class Wallrunning : MonoBehaviour
     private bool deactivated;
 
     //jump portion
-    public float jumpForce, upwardsForce, minimumSpeed;
+    public float jumpForce, jumpUpwardsForce, minimumSpeed;
 
     public bool wallrunning;
 
@@ -140,7 +140,7 @@ public class Wallrunning : MonoBehaviour
         var c = dir + n;
         c = c.normalized;
 
-        rb.AddForce(c * jumpForce + Vector3.up * upwardsForce, ForceMode.VelocityChange);
+        rb.AddForce(c * jumpForce + Vector3.up * jumpUpwardsForce, ForceMode.VelocityChange);
         StartCoroutine(WallrunCooldown());
     }
 

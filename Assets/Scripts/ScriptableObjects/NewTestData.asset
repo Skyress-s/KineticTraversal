@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: NewTestData
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  jumpForce: 6
+  jumpForce: 8
   holdSpaceForce: 0.2
   coyoteMargin: 0

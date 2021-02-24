@@ -4,12 +4,15 @@ Ground Movment
 - [x] Fix Countermovment so that is works when you look down
 
 other
+- [ ] 
+
+Grapplinghook
 - [x] Physics ray collision
 - [x] Make grapplingphysics more consistent
 - [x] temp GH returning mode
-	- [x] Though make the rotatian lerp
-- [x] Though make the rotatian lerp
 - [x] Simple GH animations
+- [ ] check if object if grappeable, if not => bounce random off
+- [ ] make hook follow object that it is hooked to
 
 Scriptableobjects
 - Make all variables use it?
@@ -19,16 +22,28 @@ Sliding
 - [x] temperairy sliding
 - [ ] make sliding more refined
 - [ ] Better animation
-- [ ] Crouncing while in air
+- [x] Crouncing while in air
+- [ ] toggle sliding
+- [ ] use CTRL to slide
+
+Settings Menu
+- [ ] sensitivity
+- [ ] settings window -> Seperate scene?
+- [x] Esc stops the game
+- [ ] crouch/sliding key
+	- [ ] Toggle sliding
+- [ ] 
 
 Wallrunning
 - [x] Wallrunning
 - [x] Make the player stick more to the wall
-- [ ] Refine Wallrunning further
+- [x] Refine Wallrunning further
 - [x] Must have a certian speed to wallrun
 - [x] jumping off wals should be more in direction for momentum
 - [x] do not slow upwards momuntum when entering wallrun
-- [ ] do use inputvector or aristafe if wallrunning
+- [x] do use inputvector or aristafe if wallrunning
+- [ ] Make if holding away from wall, falloff?
+- [ ] can look compleatly 180 degrees while wallrunning
 
 Air Control
 - [x] Make airstrafing easier to do

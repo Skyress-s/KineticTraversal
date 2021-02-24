@@ -18,16 +18,22 @@ public class ChangeTimeScale : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             t += interval;
+            SetNewTimeScale();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
             t -= interval;
+            SetNewTimeScale();
         }
 
         if (t < 0.01f)
         {
             t = 0.1f;
         }
+    }
+
+    void SetNewTimeScale()
+    {
         Time.timeScale = t;
     }
 }
