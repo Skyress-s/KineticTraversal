@@ -53,10 +53,6 @@ public class Wallrunning : MonoBehaviour
             return;
         }
 
-        //casts the raycasts
-        //WallDetection(true, cooldownBool);
-        //WallDetection(false, cooldownBool);
-
         RaycastHit hitRight = WallDetectionV2(true);
         
         RaycastHit hitLeft = WallDetectionV2(false);
@@ -186,6 +182,11 @@ public class Wallrunning : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Shoots out a ray to see if it hits something
+    /// </summary>
+    /// <param name="b">true shoots the ray to the right</param>
+    /// <returns></returns>
     RaycastHit WallDetectionV2(bool b)
     {
         var right = 0;

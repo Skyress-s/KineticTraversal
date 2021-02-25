@@ -16,6 +16,10 @@ public class CameraTiltWhileGrappling : MonoBehaviour
 
     private float endTime;
 
+    [Tooltip("How much the camera should tilt when hooked to something")]
+    [Range(0f, 1f)]
+    public float tiltAmount;
+
     void Start()
     {
          
@@ -38,7 +42,7 @@ public class CameraTiltWhileGrappling : MonoBehaviour
 
             startTime = Mathf.Clamp(startTime, 0f, 1f);
 
-            var v2 = Vector3.Slerp(Vector3.up, hook, StartCurve.Evaluate(startTime) * 0.1f);
+            var v2 = Vector3.Slerp(Vector3.up, hook, StartCurve.Evaluate(startTime) * tiltAmount);
             transform.up = v2;
 
             
@@ -52,7 +56,7 @@ public class CameraTiltWhileGrappling : MonoBehaviour
 
             endTime = Mathf.Clamp(endTime, 0f, 1f);
 
-            var v = Vector3.Slerp(Vector3.up, hook, EndCurve.Evaluate(endTime) * 0.1f);
+            var v = Vector3.Slerp(Vector3.up, hook, EndCurve.Evaluate(endTime) * tiltAmount);
             transform.up = v;
         }
     }
