@@ -14,6 +14,7 @@ GrapplingHook
 - [ ] implement particleeffects for firiring
 - [x] Tilt towards grapple point
 - [x] Smoth the Tild when starting and ending
+- [ ] mabye increase/decrease FOV i relation to speed?
 
 Other
 - [ ] Improve Impact particle effect, more like sparts not flares

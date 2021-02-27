@@ -25,7 +25,7 @@ Sliding
 - [ ] Better animation
 - [x] Crouncing while in air
 - [ ] toggle sliding
-- [ ] use CTRL to slide
+- [x] use CTRL to slide
 
 Settings Menu
 - [ ] sensitivity
@@ -44,7 +44,7 @@ Wallrunning
 - [x] do not slow upwards momuntum when entering wallrun
 - [x] do use inputvector or aristafe if wallrunning
 - [ ] Make if holding away from wall, falloff?
-- [ ] can look compleatly 180 degrees while wallrunning
+- [x] can look compleatly 180 degrees while wallrunning
 
 Air Control
 - [x] Make airstrafing easier to do

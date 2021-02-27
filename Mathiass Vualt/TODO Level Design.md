@@ -1,6 +1,8 @@
 - [x] make an acceptable test level
-- [ ] Make a tutorial lvl for each game mechanic [[Tutoral Levels]]
+- [x] Make a tutorial lvl for each game mechanic [[Tutoral Levels]]
 - [ ] make more building blocks -> walls, more platforms, cieling, objects that moves
+	- [ ] walls
+	- [ ] 
 - [ ] is the scale of all the props to big at this point?
 
 

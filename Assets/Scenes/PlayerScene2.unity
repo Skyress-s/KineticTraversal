@@ -9118,6 +9118,7 @@ MonoBehaviour:
   minimumSpeed: 9
   wallrunning: 0
   IIC: {fileID: 6047523576148543966}
+  currentWallrunState: 0
 --- !u!4 &6047523575731723137
 Transform:
   m_ObjectHideFlags: 0
@@ -10048,14 +10049,14 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.07722422
     - serializedVersion: 3
-      time: 0.29564622
-      value: 0.8086942
-      inSlope: 1.5903262
-      outSlope: 1.5903262
-      tangentMode: 34
+      time: 0.24431989
+      value: 0.80037564
+      inSlope: 0.9165809
+      outSlope: 0.9165809
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.21808636
     - serializedVersion: 3
       time: 0.72524947
       value: 1
@@ -10083,26 +10084,35 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.5060031
-      outSlope: -0.5060031
+      inSlope: -0.7704164
+      outSlope: -0.7704164
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5794848
-      value: 0.7067789
-      inSlope: -1.0933741
-      outSlope: -1.0933741
+      time: 0.5027636
+      value: 0.6126627
+      inSlope: -1.7653136
+      outSlope: -1.7653136
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.7247259
+      value: 0
+      inSlope: -0.19830327
+      outSlope: -0.008604727
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.18479253
+      outWeight: 0.9933645
+    - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.6807452
-      outSlope: -1.6807452
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -10110,6 +10120,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  tiltAmount: 0.164
 --- !u!114 &6047523576688241503
 MonoBehaviour:
   m_ObjectHideFlags: 0

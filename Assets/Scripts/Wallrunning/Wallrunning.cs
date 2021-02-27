@@ -12,8 +12,6 @@ public class Wallrunning : MonoBehaviour
 
     public float lerpYForce;
 
-    public bool activatedLastFrame;
-
     private int sideDeterming; // 1 is right and -1 is left
     
     //for xz portion
@@ -21,7 +19,6 @@ public class Wallrunning : MonoBehaviour
 
     public float BoostAcceleration;
 
-    private bool deactivated;
 
     //jump portion
     public float jumpForce, jumpUpwardsForce, minimumSpeed;
@@ -32,11 +29,22 @@ public class Wallrunning : MonoBehaviour
 
     public InputInfoCenter IIC;
 
+    public float detachTime;
+
+    public enum WallrunStates
+    {
+        walldetect,
+        wallrun,
+        exit,
+        cooldown
+    }
+
+    public WallrunStates currentWallrunState;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        deactivated = false;
     }
 
     private void Update()
@@ -48,16 +56,35 @@ public class Wallrunning : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (deactivated == true)
+        // new method
+        switch (currentWallrunState)
         {
-            return;
+            case (WallrunStates.walldetect):
+                DetectWall();
+                break;
+            case (WallrunStates.wallrun):
+                Wallrunn();
+                break;
+            case (WallrunStates.exit):
+                //dad
+                break;
+            case (WallrunStates.cooldown):
+                CooldownFromWallrun();
+                break;
         }
 
-        RaycastHit hitRight = WallDetectionV2(true);
-        
-        RaycastHit hitLeft = WallDetectionV2(false);
+        //old method
+    }
 
-        RaycastHit hit = new RaycastHit(); //the primary hit to uses further on :^)
+    void DetectWall()
+    {
+        //sets the wallrun variable for animation to false
+        wallrunning = false;
+
+        //checks left and right side of player
+        RaycastHit hitRight = WallDetectionV2(true);
+        RaycastHit hitLeft = WallDetectionV2(false);
+        RaycastHit hit = new RaycastHit(); //the primary hit to use further on :^)
 
         if (hitLeft.collider != null)
         {
@@ -75,43 +102,68 @@ public class Wallrunning : MonoBehaviour
         if (hit.collider != null)
         {
             globalHit = hit;
+            currentWallrunState = WallrunStates.wallrun;
         }
         else
         {
             var emptyHit = new RaycastHit();
-            globalHit =emptyHit;
+            globalHit = emptyHit;
         }
 
-        //if hit is somthing and player is not grounded, porceed
-        if (hit.collider != null && IIC.grounded._isgrounded == false)
+    }
+    void Wallrunn()
+    {
+        // if player is on the ground, do not wallrun, and return to walldetect
+        if (IIC.grounded._isgrounded)
         {
+            currentWallrunState = WallrunStates.cooldown;
+            detachTime = Time.time;
+            return;
+        }
+
+        //shoots out a new ray -> in hit.normal dir to check i close enough to wall
+        var hit = new RaycastHit();
+        if (Physics.Raycast(transform.position, -globalHit.normal, out hit, rayD))
+        {
+            //the object it hits is the new global hit
+            globalHit = hit;
+
             //if speed is to low, do not wallrun
             var heyAgusta = rb.velocity;
             heyAgusta.y = 0f;
             if (heyAgusta.magnitude > minimumSpeed) // what todo if wallrun requierments are met
             {
-                Wallrun(hit);
-                StickToWall(hit);
+                Wallrun(globalHit);
+                StickToWall(globalHit);
                 TempDisableAirControl(false);
 
                 //sets the wallrunning bool to active (gives info if wallrunning or not)
                 wallrunning = true;
             }
-            
         }
-        else if (activatedLastFrame == true) // what todo on exit of wallrun
+        else
         {
-            OnExit();
-            //Debug.Log("exit");
+            currentWallrunState = WallrunStates.cooldown;
+            detachTime = Time.time;
+        }
+    }
+    void JumpOffWall()
+    {
+
+    }
+    void CooldownFromWallrun()
+    {
+        wallrunning = false;
+        lerpYForce = 0f;
+        if (Time.time > detachTime + 0.1)
+        {
             TempDisableAirControl(true);
         }
-        else // sets wallrunning bool to false (gives info if wallrunning or not)
+
+        if (Time.time > detachTime + 0.4)
         {
-            wallrunning = false;
+            currentWallrunState = WallrunStates.walldetect;
         }
-
-        //Debug.Log(hit.collider.gameObject.GetHashCode());
-
     }
 
     /// <summary>
@@ -125,7 +177,9 @@ public class Wallrunning : MonoBehaviour
     
     void StickToWall(RaycastHit hit)
     {
-        rb.AddForce(-hit.normal * 1f, ForceMode.VelocityChange);
+        
+            rb.AddForce(-hit.normal * 1f, ForceMode.VelocityChange);
+        
     }
     void OnJump()
     {
@@ -137,20 +191,10 @@ public class Wallrunning : MonoBehaviour
         c = c.normalized;
 
         rb.AddForce(c * jumpForce + Vector3.up * jumpUpwardsForce, ForceMode.VelocityChange);
-        StartCoroutine(WallrunCooldown());
-    }
 
-    private IEnumerator WallrunCooldown()
-    {
-        deactivated = true;
-        yield return new WaitForSeconds(0.3f);
-        deactivated = false;
-    }
-
-    void OnExit()
-    {
-        activatedLastFrame = false;
-        lerpYForce = 0f;
+        //sets the current wallrunning state to WallrunCooldown
+        detachTime = Time.time;
+        currentWallrunState = WallrunStates.cooldown;
     }
 
     void Wallrun(RaycastHit hit)
@@ -202,45 +246,11 @@ public class Wallrunning : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, v * right, out hit, rayD))
         {
-            //updates activatedLastFrame
-            activatedLastFrame = true;
-
             return hit;
         }
         else
         {
             return hit;
-        }
-    }
-
-    void WallDetection(bool b, bool cd)
-    {
-        if (cd == true) return;
-      
-
-        var right = 0;
-        if (b == true) right = 1;
-        else right = -1;
-
-        var v = Camera.right;
-        v.y = 0f;
-        v = v.normalized;
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, v * right, out hit, rayD))
-        {
-            //increases the y force
-            lerpYForce += Time.fixedDeltaTime/2f;
-
-            //cancelse out the y velocity
-            rb.AddForce(new Vector3(0, -(rb.velocity.y) * lerpYForce, 0), ForceMode.VelocityChange);
-
-            //updated bool activatedLastFrame
-            activatedLastFrame = true;
-        }
-        else if (activatedLastFrame == true)
-        {
-            activatedLastFrame = false;
         }
     }
 
