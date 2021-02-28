@@ -7,6 +7,8 @@ public class DebugResetPlayer : MonoBehaviour
     public GameObject Player;
     private Rigidbody rb;
 
+    public InputInfoCenter IIC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class DebugResetPlayer : MonoBehaviour
         {
             Player.transform.position = Vector3.zero;
             rb.velocity = Vector3.zero;
+
+            IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;
         }
     }
 }

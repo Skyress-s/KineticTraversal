@@ -161,7 +161,7 @@ Material:
     - _CloudsShadowColor: {r: 0.28034887, g: 0.6066925, b: 0.9433962, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EquatorColor: {r: 0.4198113, g: 0.7613409, b: 1, a: 1}
+    - _EquatorColor: {r: 0.18094799, g: 0.8728079, b: 0.88699996, a: 1}
     - _GroundColor: {r: 0.010064116, g: 0, b: 0.5471698, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
     - _SkyColor: {r: 0.1318975, g: 0.41752905, b: 0.7169812, a: 1}

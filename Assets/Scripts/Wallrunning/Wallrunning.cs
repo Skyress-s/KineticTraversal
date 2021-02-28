@@ -155,12 +155,12 @@ public class Wallrunning : MonoBehaviour
     {
         wallrunning = false;
         lerpYForce = 0f;
-        if (Time.time > detachTime + 0.1)
+        if (Time.time > detachTime + 0.3f)
         {
             TempDisableAirControl(true);
         }
 
-        if (Time.time > detachTime + 0.4)
+        if (Time.time > detachTime + 0.4f)
         {
             currentWallrunState = WallrunStates.walldetect;
         }

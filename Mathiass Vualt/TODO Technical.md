@@ -2,18 +2,22 @@ Ground Movment
 - [x] Basic Ground Movment
 - [x] Fix so that ground movment is properly capped
 - [x] Fix Countermovment so that is works when you look down
+- [ ] Have some control when sliding
 
-other
-
-- [ ] 
+Bugs
+- [ ] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
 
 Grapplinghook
 - [x] Physics ray collision
 - [x] Make grapplingphysics more consistent
 - [x] temp GH returning mode
 - [x] Simple GH animations
-- [ ] check if object if grappeable, if not => bounce random off
+- [ ] Can be made more optimal
+	- [x] check if object if grappeable, if not => bounce random off
 - [ ] make hook follow object that it is hooked to
+- [x] Maxdistance
+- [x] cant refil meter in air
+
 
 Scriptableobjects
 - Make all variables use it?

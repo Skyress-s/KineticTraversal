@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sliding : MonoBehaviour
 {
-    public InputInfoCenter infoCenterData;
+    public InputInfoCenter IIC;
 
     public bool sliding;
 
@@ -22,7 +22,7 @@ public class Sliding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl)/* && infoCenterData.grounded._isgrounded*/)
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.C))/* && infoCenterData.grounded._isgrounded*/
         {
             sliding = true;
             cc.height = 1f;

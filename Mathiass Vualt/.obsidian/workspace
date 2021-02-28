@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TODO Visual.md",
-            "mode": "source"
+            "file": "TODO Technical.md",
+            "mode": "preview"
           }
         }
       }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO Visual.md",
+                "file": "TODO Technical.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,9 +85,9 @@
     "width": 300
   },
   "lastOpenFiles": [
+    "TODO Technical.md",
     "TODO Visual.md",
     "TODO Level Design.md",
-    "TODO Technical.md",
     "MainCharachter.md",
     "Kinetic Game.md",
     "Ideas Charts.md",

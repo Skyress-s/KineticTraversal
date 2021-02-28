@@ -10,7 +10,8 @@ public class GrapplingHookStates : MonoBehaviour
         fire,
         travling,
         hooked,
-        returning
+        returning,
+        knockoff
     }
 
     public GHStates currentState;
@@ -26,18 +27,23 @@ public class GrapplingHookStates : MonoBehaviour
     //Ray Collision
     public float maxRayDistance;
 
+    public RaycastHit globalHit;
+
     //Return d for distance to hand
     private float d;
+    [Space]
+    public float hookMaxDistance;
 
 
     //layermask
     private int layerMask;
 
     //visual effekt
-    [SerializeField]
+    [SerializeField][Space]
     private VisualEffect visualEffect;
 
     //animation
+    [Space]
     public Animator animator;
 
     void Start()
@@ -49,6 +55,8 @@ public class GrapplingHookStates : MonoBehaviour
         //some layer mask magic, SEBSELEB EXPLAIN
         layerMask = 1 << 8;
         layerMask = ~layerMask; // inverts the bitmask
+
+        onEnter = true;
     }
 
     
@@ -74,6 +82,9 @@ public class GrapplingHookStates : MonoBehaviour
                 break;
             case (GHStates.returning):
                 IsReturning();
+                break;
+            case (GHStates.knockoff):
+                KnockOff();
                 break;
         }
 
@@ -109,15 +120,13 @@ public class GrapplingHookStates : MonoBehaviour
         AnimReturned(false);
 
     }
-
+    
     void IsTraveling()
     {
-        //go to next phase if it has collided
-        /*if (Collided._isColided == true)
+        if ((transform.position - handPos.position).magnitude > hookMaxDistance)
         {
-            rb.isKinematic = true;
-            currentState = GHStates.hooked;
-        }*/
+            ReturningMiddleStep();
+        }
 
         //option to return hook
         if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -134,22 +143,36 @@ public class GrapplingHookStates : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, rb.velocity.normalized, out hit, maxRayDistance, layerMask))
         {
-            rb.isKinematic = true;
-            transform.position = hit.point;
+            
+            globalHit = hit;
+            if (hit.collider.tag == "NotHookable")
+            {
+                //Debug.Log("not hookable");
+                currentState = GHStates.knockoff;
 
-            var rot = Quaternion.LookRotation(-hit.normal);
-            //Debug.Log(rot);
-
-            //activates the hooked VFX
-            ActivateHookedVFX();
-
-            //activates the IsHooked animation bool
-            AnimHooked(true);
+            }
+            else
+            {
 
 
-            //transform.rotation = Quaternion.Euler(hit.normal);
-            transform.rotation = rot;
-            currentState = GHStates.hooked;
+
+                rb.isKinematic = true;
+                transform.position = hit.point;
+
+                var rot = Quaternion.LookRotation(-hit.normal);
+                //Debug.Log(rot);
+
+                //activates the hooked VFX
+                ActivateHookedVFX();
+
+                //activates the IsHooked animation bool
+                AnimHooked(true);
+
+
+                //transform.rotation = Quaternion.Euler(hit.normal);
+                transform.rotation = rot;
+                currentState = GHStates.hooked;
+            }
         }
         
 
@@ -180,13 +203,14 @@ public class GrapplingHookStates : MonoBehaviour
     public float returnTime;
 
     public float rotLerpTime;
-
     private Quaternion q;
     void IsReturning()
     {
         //makes the hook kinematic so it dosent do wierd stuff
         rb.isKinematic = true;
 
+        //sets the globalHit = null since it dosent have one anymore
+        globalHit = new RaycastHit();
 
         // returning code
 
@@ -210,6 +234,39 @@ public class GrapplingHookStates : MonoBehaviour
 
         //Sets the Animation to the returning state
         AnimHooked(false);
+    }
+
+    private bool onEnter;
+    [Tooltip("how fast the hook is luanced in the normal direction")]
+    public float normalSpeed;
+    [Tooltip("how fast the hook it rotated")]
+    public float rotationSpeed;
+    void KnockOff()
+    {
+        //On enter
+        if (onEnter)
+        {
+            onEnter = false;
+            var randomDirection = Random.onUnitSphere + globalHit.normal * normalSpeed;
+            rb.velocity = randomDirection * 10f;
+            rb.AddTorque(Random.insideUnitSphere * rotationSpeed, ForceMode.VelocityChange);
+
+            //sets the animation to hooked
+            AnimHooked(true);
+
+            //activates the collider so it sits on the ground
+            gameObject.GetComponent<BoxCollider>().enabled = transform;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            ReturningMiddleStep();
+            onEnter = true;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+
+
     }
 
     void ActivateHookedVFX()

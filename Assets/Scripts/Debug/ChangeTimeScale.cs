@@ -5,7 +5,8 @@ using UnityEngine;
 public class ChangeTimeScale : MonoBehaviour
 {
     private float t;
-    // Start is called before the first frame update
+
+      // Start is called before the first frame update
     void Start()
     {
         t = 1f;
