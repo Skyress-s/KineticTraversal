@@ -7,14 +7,20 @@ Wallrunning
 Platform
 - [ ] make a basic platform Prefab - keep it simple
 
-GrapplingHook
+# GrapplingHook
 - [x] implement Hook 3d model
 - [x] Add a textured version
 - [x] implement particles for hitting
 - [ ] implement particleeffects for firiring
+- [ ] implement particle effects for reciving? (mabye)
 - [x] Tilt towards grapple point
 - [x] Smoth the Tild when starting and ending
 - [ ] mabye increase/decrease FOV i relation to speed?
+- [ ] particle effeft when the grapplinghhok get knocked off
+## Rope
+- [ ] make it veins?
+- [ ] Particle effect for fireing, kanskje gjøre det til blader? isteden for sparks?
+
 
 Other
 - [ ] Improve Impact particle effect, more like sparts not flares

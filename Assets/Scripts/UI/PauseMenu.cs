@@ -2,12 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused;
 
     public GameObject PauseMenuUI;
+
+    public GameObject SettingsMenuUI;
+
+    public GameObject HUDUI;
+
+    public GameObject LevelSelectUI;
+
+    public UpdateVariables UpdateVariablesScript;
+
+
+    private void Start()
+    {
+        gameIsPaused = false;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -26,23 +41,51 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
+        SettingsMenuUI.SetActive(false);
+        LevelSelectUI.SetActive(false);
+        HUDUI.SetActive(true);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        UpdateVariables();
     }
 
     void Pause()
     {
         PauseMenuUI.SetActive(true);
+        HUDUI.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
 
-    public void LoadSettings()
+    public void OpenSettings()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
-        //Brackeys encouruges to use a varible for this, and not hard code it aka "Menu"
+        //disables pause menu
+        PauseMenuUI.SetActive(false);
+        SettingsMenuUI.SetActive(true);
+        LevelSelectUI.SetActive(false);
     }
+
+    public void OpenPauseMenu()
+    {
+        PauseMenuUI.SetActive(true);
+        SettingsMenuUI.SetActive(false);
+        LevelSelectUI.SetActive(false);
+    }
+
+    public void OpenLevelSelect()
+    {
+        PauseMenuUI.SetActive(false);
+        SettingsMenuUI.SetActive(false);
+        LevelSelectUI.SetActive(true);
+    }
+
+    public void UpdateVariables()
+    {
+        //UpdateVariablesScript.DoUpdateVariables();
+        UpdateVariablesScript.FromSettingsUIToIngameSO();
+        UpdateVariablesScript.FromIngameSOToGame();
+    }
+
     /// <summary>
     /// Quits the game
     /// </summary>
@@ -51,5 +94,13 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
+    }
+
+    public void OpenLevel(int i)
+    {
+        Debug.Log("Loading level "+ i);
+        Resume();
+        SceneManager.LoadScene(i);
+        SceneManager.LoadScene(0, LoadSceneMode.Additive);
     }
 }

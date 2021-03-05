@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Sliding : MonoBehaviour
 {
+    public enum SlidingMode
+    {
+        toggle,
+        hold
+    }
+
+    public SlidingMode currentSlidingMode;
+
+    public KeyCode SlidingKey;
+
     public InputInfoCenter IIC;
 
     public bool sliding;
@@ -11,28 +21,97 @@ public class Sliding : MonoBehaviour
     private CapsuleCollider cc;
     private float orgHeight;
 
+    private Rigidbody rb;
+
+    [Header("Change direction")]
+    [Space] [SerializeField] [Tooltip("how fast the change in direction should happen")]
+    private float slidingChangeVelocity;
+
 
     // Start is called before the first frame update
     void Start()
     {
         cc = GetComponent<CapsuleCollider>();
         orgHeight = cc.height;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.C))/* && infoCenterData.grounded._isgrounded*/
+        switch (currentSlidingMode)
         {
-            sliding = true;
-            cc.height = 1f;
-            cc.center = new Vector3(0f, 0.3f, 0f);
+            case SlidingMode.hold:
+                HoldSlidingMode();
+                break;
+            case SlidingMode.toggle:
+                ToggleSlidingMode();
+                break;
+        }
+    }
+
+    void ToggleSlidingMode()
+    {
+        if (Input.GetKeyDown(SlidingKey))
+        {
+            if (sliding)
+            {
+                Stand();
+            }
+            else
+            {
+                Slide();
+            }
+        }
+    }
+
+    void HoldSlidingMode()
+    {
+        KeyCode s = (KeyCode)'c';
+        Debug.Log(s + "s");
+        Debug.Log(KeyCode.C);
+
+        if (Input.GetKey(SlidingKey))/* && infoCenterData.grounded._isgrounded*/
+        {
+            Slide();
         }
         else
         {
-            sliding = false;
-            cc.height = orgHeight;
-            cc.center = new Vector3(0f, 0, 0f);
+            Stand();
+        }
+    }
+
+    void Slide()
+    {
+        sliding = true;
+        cc.height = 1f;
+        cc.center = new Vector3(0f, 0.3f, 0f);
+    }
+
+    void Stand()
+    {
+        sliding = false;
+        cc.height = orgHeight;
+        cc.center = new Vector3(0f, 0, 0f);
+    }
+
+
+    private void FixedUpdate()
+    {
+        if (sliding && IIC.input.sqrMagnitude > 0.1f)
+        {
+            //Debug.Log("activated");
+
+            //stores the y value for later use
+            var yStored = rb.velocity.y;
+            //creates a version of the velocity wit y=0
+            var rby = rb.velocity;
+            rby.y = 0f;
+
+            var var = Vector3.RotateTowards(rby, IIC.worldInput, Mathf.Deg2Rad * slidingChangeVelocity, 0);
+            
+            var.y = yStored;
+            rb.velocity = var;
         }
     }
 }

@@ -106,6 +106,9 @@ public class GrapplingHookStates : MonoBehaviour
         //sets the animation to the returned state
         AnimReturned(true);
 
+        //makes sure to hook isnt parentet to anything
+        transform.parent = null;
+
     }
 
     void IsFireing()
@@ -178,11 +181,24 @@ public class GrapplingHookStates : MonoBehaviour
 
     }
 
+    private bool isHookedEnter;
     void IsHooked()
     {
+        if (isHookedEnter == false) //enter
+        {
+            isHookedEnter = true;
+
+            //parent = global hit, makes it so that hook follow roation and movment to the obj its hooked to
+            transform.parent = globalHit.collider.transform;
+        }
+        
+
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             ReturningMiddleStep();
+            isHookedEnter = false;
+            transform.parent = null;
         }
     }
 
@@ -275,7 +291,7 @@ public class GrapplingHookStates : MonoBehaviour
     }
 
     //animation section
-    void AnimHooked(bool b)
+    public void AnimHooked(bool b)
     {
         animator.SetBool("IsHooked", b);
     }

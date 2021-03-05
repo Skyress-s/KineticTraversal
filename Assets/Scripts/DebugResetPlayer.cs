@@ -20,10 +20,16 @@ public class DebugResetPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            Player.transform.position = Vector3.zero;
-            rb.velocity = Vector3.zero;
-
-            IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;
+            ResetPlayer();
         }
+    }
+
+    public void ResetPlayer()
+    {
+        Player.transform.position = Vector3.zero;
+        rb.velocity = Vector3.zero;
+
+        IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;
+        IIC.grapplingHookStates.AnimHooked(false);
     }
 }

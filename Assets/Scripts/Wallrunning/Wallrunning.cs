@@ -160,7 +160,7 @@ public class Wallrunning : MonoBehaviour
             TempDisableAirControl(true);
         }
 
-        if (Time.time > detachTime + 0.4f)
+        if (Time.time > detachTime + 0.3f)
         {
             currentWallrunState = WallrunStates.walldetect;
         }

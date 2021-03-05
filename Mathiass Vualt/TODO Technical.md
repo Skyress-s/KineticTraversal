@@ -2,7 +2,7 @@ Ground Movment
 - [x] Basic Ground Movment
 - [x] Fix so that ground movment is properly capped
 - [x] Fix Countermovment so that is works when you look down
-- [ ] Have some control when sliding
+
 
 Bugs
 - [ ] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
@@ -14,7 +14,7 @@ Grapplinghook
 - [x] Simple GH animations
 - [ ] Can be made more optimal
 	- [x] check if object if grappeable, if not => bounce random off
-- [ ] make hook follow object that it is hooked to
+- [x] make hook follow object that it is hooked to
 - [x] Maxdistance
 - [x] cant refil meter in air
 
@@ -28,16 +28,18 @@ Sliding
 - [ ] make sliding more refined
 - [ ] Better animation
 - [x] Crouncing while in air
-- [ ] toggle sliding
+- [x] toggle sliding
 - [x] use CTRL to slide
+- [x] Have some control when sliding
 
 Settings Menu
-- [ ] sensitivity
-- [ ] settings window -> Seperate scene?
+- [x] sensitivity
 - [x] Esc stops the game
-- [ ] crouch/sliding key
-	- [ ] Toggle sliding
-- [ ] 
+- [ ] Cant Set CTRL to a Key
+	- [x] crouch/sliding key
+		- [x] Toggle sliding
+- [x] Menu Selecting levels
+- [x] Save SettingsBetween Levels (Scripable Object?)
 
 Wallrunning
 - [x] Wallrunning
@@ -57,6 +59,7 @@ Air Control
 - [x] Make more WASD control in air
 - [x] Remake Airstrafe?
 	- [x] Airstrafe key? instead of AD? ask people
+- [x] Some control if low speeds in air
 
 Weapons
 - [x] Small delay when rotating weapons

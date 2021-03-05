@@ -13,6 +13,13 @@ public class AirMovment : MonoBehaviour
 
     [Range(0f, 180f)]
     public float Bernt1, Bernt2;
+
+    [Header("Low speed add force")]
+    [Space][Tooltip("is speed is under this value, will add a weak force to move the player in air")]
+    public float initalizeAddSpeed;
+    public float lowSpeedAddForce;
+    [Tooltip("how much time player can be in the air before this function wont run")]
+    public float airTimeLimit;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,6 +29,7 @@ public class AirMovment : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // change the direction on the air -> air stafe system 2.0
         if (IIC.grounded._isgrounded == false && IIC.input.magnitude > 0.1f) // player has to be airborne and inputting somthing for this to work
         {
             //first gets the angle between velocity and input
@@ -29,18 +37,27 @@ public class AirMovment : MonoBehaviour
 
             if (GetAngleDifference() < Bernt1) // what todo if in range of Bernt1
             {
-                Debug.Log("airstrafing");
+                //Debug.Log("airstrafing");
                 Airstrafe();
             }
             else if (GetAngleDifference() < Bernt2) // what todo if in range of Bernt2
             {
-                Debug.Log("Change direction slowly");
+                //Debug.Log("Change direction slowly");
                 SideChangeDirection();
             }
             else // what todo if over range of Bernt2 (third range)
             {
-                Debug.Log("airbrake");
+                //Debug.Log("airbrake");
                 AirBrake();
+            }
+
+            //add force if speed is low enough system
+            var rby = rb.velocity;
+            rby.y = 0f;
+            if (rby.sqrMagnitude < initalizeAddSpeed * initalizeAddSpeed &&
+                IIC.AirTime.airTime < airTimeLimit)
+            {
+                rb.AddForce(IIC.worldInput * lowSpeedAddForce, ForceMode.VelocityChange);
             }
         }
     }
@@ -100,19 +117,5 @@ public class AirMovment : MonoBehaviour
 
         //Debug.Log(signedAngle);
         return angle;
-    }
-
-    void SslowDown()
-    {
-        if (Input.GetKey(KeyCode.S))
-        {
-            var v = rb.velocity;
-            v.y = 0f;
-            //v = v.normalized;
-
-
-            rb.AddForce(-v.normalized * v.magnitude * 5f * Time.deltaTime, ForceMode.VelocityChange);
-        }
-
     }
 }

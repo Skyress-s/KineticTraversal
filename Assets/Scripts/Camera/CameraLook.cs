@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
-    public float mouseSensetivity;
+    public float sensetivity;
 
     public float rotationOnX;
 
@@ -19,8 +19,8 @@ public class CameraLook : MonoBehaviour
     void LateUpdate()
     {
         //Taking mouse input
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensetivity;
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensetivity;
+        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensetivity;
+        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensetivity;
 
         //Rotate camera up and down
         rotationOnX -= mouseY;
