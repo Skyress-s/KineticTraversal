@@ -1,4 +1,8 @@
-Ground Movment
+# idunno
+- [ ] start using unity input system?
+	- [ ] is it worth it to start using this?
+
+## Ground Movment
 - [x] Basic Ground Movment
 - [x] Fix so that ground movment is properly capped
 - [x] Fix Countermovment so that is works when you look down
