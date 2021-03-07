@@ -8,9 +8,11 @@ public class GHIsCollided : MonoBehaviour
 
     public GrapplingHookStates States;
 
+    public InputInfoCenter IIC;
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (IIC.controls.Player.Shoot.triggered)
         {
             _isColided = false;
         }

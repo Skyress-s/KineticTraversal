@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public InputInfoCenter IIC;
+
     public static bool gameIsPaused;
 
     public GameObject PauseMenuUI;
@@ -25,7 +27,7 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (IIC.controls.Player.Pause.triggered)
         {
             if (gameIsPaused)
             {
@@ -40,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     
     public void Resume()
     {
+        LockMouse();
         PauseMenuUI.SetActive(false);
         SettingsMenuUI.SetActive(false);
         LevelSelectUI.SetActive(false);
@@ -51,6 +54,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        FreeMouse();
         PauseMenuUI.SetActive(true);
         HUDUI.SetActive(false);
         Time.timeScale = 0f;
@@ -102,5 +106,17 @@ public class PauseMenu : MonoBehaviour
         Resume();
         SceneManager.LoadScene(i);
         SceneManager.LoadScene(0, LoadSceneMode.Additive);
+    }
+
+    public void LockMouse()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void FreeMouse()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

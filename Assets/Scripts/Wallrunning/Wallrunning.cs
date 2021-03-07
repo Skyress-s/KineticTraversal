@@ -49,7 +49,7 @@ public class Wallrunning : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && wallrunning == true)
+        if (IIC.controls.Player.Jump.triggered && wallrunning == true)
         {
             OnJump();
         }

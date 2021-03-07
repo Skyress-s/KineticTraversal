@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GroundMovment_ForceVer : MonoBehaviour
 {
+
+
     private Transform CameraTrans;
 
     private Rigidbody rb;
@@ -22,7 +24,7 @@ public class GroundMovment_ForceVer : MonoBehaviour
 
     private float maxSpeedStored;
 
-    public InputInfoCenter inputInfoCenter;
+    public InputInfoCenter IIC;
 
 
     // Start is called before the first frame update
@@ -40,12 +42,14 @@ public class GroundMovment_ForceVer : MonoBehaviour
         y = 0f;
 
         //Gets the Input
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
+        //x = Input.GetAxisRaw("Horizontal");
+        //y = Input.GetAxisRaw("Vertical");
+        x = IIC.input.x;
+        y = IIC.input.y;
 
         if (Grounded._isgrounded)
         {
-            if (inputInfoCenter.infoSliding.sliding == true)
+            if (IIC.infoSliding.sliding == true)
             {
                 return;
             }
@@ -89,7 +93,7 @@ public class GroundMovment_ForceVer : MonoBehaviour
         CounterMovment();
 
         //implements sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (IIC.holdSprint)
         {
             maxSpeed = maxSpeedStored * sprintMultiplier;
         }

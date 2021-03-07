@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DebugResetPlayer : MonoBehaviour
 {
@@ -9,16 +10,19 @@ public class DebugResetPlayer : MonoBehaviour
 
     public InputInfoCenter IIC;
 
+    private Keyboard kb;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = Player.GetComponent<Rigidbody>();
+        kb = InputSystem.GetDevice<Keyboard>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (kb.tKey.wasPressedThisFrame)
         {
             ResetPlayer();
         }

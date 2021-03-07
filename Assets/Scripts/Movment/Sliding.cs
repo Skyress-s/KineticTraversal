@@ -52,7 +52,7 @@ public class Sliding : MonoBehaviour
 
     void ToggleSlidingMode()
     {
-        if (Input.GetKeyDown(SlidingKey))
+        if (IIC.controls.Player.Slide.triggered) //Input.GetKeyDown(SlidingKey)
         {
             if (sliding)
             {
@@ -67,11 +67,7 @@ public class Sliding : MonoBehaviour
 
     void HoldSlidingMode()
     {
-        KeyCode s = (KeyCode)'c';
-        Debug.Log(s + "s");
-        Debug.Log(KeyCode.C);
-
-        if (Input.GetKey(SlidingKey))/* && infoCenterData.grounded._isgrounded*/
+        if (IIC.holdSlide) //Input.GetKey(SlidingKey)
         {
             Slide();
         }

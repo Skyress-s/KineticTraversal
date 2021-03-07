@@ -14,6 +14,8 @@ public class GrapplingHookStates : MonoBehaviour
         knockoff
     }
 
+    public InputInfoCenter IIC;
+
     public GHStates currentState;
 
     public Transform handPos;
@@ -97,7 +99,7 @@ public class GrapplingHookStates : MonoBehaviour
         rb.isKinematic = true;
 
         //check if the player fires
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (IIC.controls.Player.Shoot.triggered)
         {
             currentState = GHStates.fire;
 
@@ -132,7 +134,7 @@ public class GrapplingHookStates : MonoBehaviour
         }
 
         //option to return hook
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (IIC.controls.Player.Shoot.triggered)
         {
             AnimHooked(true);
             ReturningMiddleStep();
@@ -194,7 +196,7 @@ public class GrapplingHookStates : MonoBehaviour
         
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (IIC.controls.Player.Shoot.triggered)
         {
             ReturningMiddleStep();
             isHookedEnter = false;
@@ -275,7 +277,7 @@ public class GrapplingHookStates : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (IIC.controls.Player.Shoot.triggered)
         {
             ReturningMiddleStep();
             onEnter = true;

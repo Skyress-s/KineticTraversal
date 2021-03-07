@@ -9,6 +9,8 @@ public class MovmentAnimation : MonoBehaviour
     public IsGrounded grounded;
 
     public Wallrunning WallrunningScript;
+
+    public InputInfoCenter IIC;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,8 @@ public class MovmentAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var x = Input.GetAxisRaw("Horizontal");
-        var y = Input.GetAxisRaw("Vertical");
+        var x = IIC.input.x;
+        var y = IIC.input.y;
 
         var c = Mathf.Abs(x) + Mathf.Abs(y);
         //Debug.Log(c);
@@ -37,14 +39,14 @@ public class MovmentAnimation : MonoBehaviour
         }
 
         //if grounded and running
-        if (Input.GetKey(KeyCode.LeftShift) && grounded._isgrounded)
+        if (IIC.holdSprint && grounded._isgrounded)
         {
             //Animator.SetBool("Run", true);
             Animator.speed = 2;
         }
 
         //is not running
-        else if (Input.GetKey(KeyCode.LeftShift) == false || grounded._isgrounded == false)
+        else if (IIC.holdSprint == false || grounded._isgrounded == false)
         {
             Animator.speed = 1;
         }

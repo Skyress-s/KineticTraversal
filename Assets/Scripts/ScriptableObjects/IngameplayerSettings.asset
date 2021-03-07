@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: IngameplayerSettings
   m_EditorClassIdentifier: 
   HasLoadedDeafualt: 0
-  sensetivity: 250
+  sensetivity: 20
   SlidingMode: 1
   CrouchKey: 99

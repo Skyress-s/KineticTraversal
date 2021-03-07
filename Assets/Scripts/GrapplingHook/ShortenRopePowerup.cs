@@ -14,7 +14,7 @@ public class ShortenRopePowerup : MonoBehaviour
 
     private float n;
 
-    public InputInfoCenter InfoCenter;
+    public InputInfoCenter IIC;
 
     
     // Start is called before the first frame update
@@ -27,24 +27,24 @@ public class ShortenRopePowerup : MonoBehaviour
     void Update()
     {
         //reset guage is you hit ground 
-        if (InfoCenter.grounded._isgrounded)
+        if (IIC.grounded._isgrounded)
         {
             guage = n;
         }
 
-        if (InfoCenter.grapplingHookStates.currentState.ToString() == "hooked")
+        if (IIC.grapplingHookStates.currentState.ToString() == "hooked")
         {
             
             if (guage > 0)
             {
                 //shortenRope
-                if (Input.GetKey(KeyCode.LeftShift))
+                if (IIC.holdShortenRope)
                 {
                     ShortenRope();
                 }
 
                 // Lengthen rope
-                if (Input.GetKey(KeyCode.Space))
+                if (IIC.holdLengthenRope)
                 {
                     LengthenRope();
                 }
@@ -63,11 +63,10 @@ public class ShortenRopePowerup : MonoBehaviour
     void ShortenRope()
     {
         // Shorten rope
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            GH.originalDist += -sensetivity * Time.deltaTime;
-            guage -= Time.deltaTime;
-        }
+        
+        GH.originalDist += -sensetivity * Time.deltaTime;
+        guage -= Time.deltaTime;
+        
     }
 
     void LengthenRope()

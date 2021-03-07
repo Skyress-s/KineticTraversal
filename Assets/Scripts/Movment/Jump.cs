@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Jump : MonoBehaviour
 {
+    private PlayerControl controls;
+
     //implementet sciptable object for jumping
     public TestScriptableObject TSO;
 
@@ -14,9 +17,12 @@ public class Jump : MonoBehaviour
     private bool hoverJumpPhase;
 
     private float airTime;
+
+    public InputInfoCenter IIC;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        controls = new PlayerControl();
         rb = GetComponent<Rigidbody>();
         _grounded = GetComponent<IsGrounded>();
     }
@@ -30,28 +36,28 @@ public class Jump : MonoBehaviour
         //Debug.Log(airTime);
 
         // Check if jump is "all systems go"
-        if (Input.GetKeyDown(KeyCode.Space) && _grounded._isgrounded == true) {
-            DoJump();
-            
-        }
-
-        //add coyoteJump functionality
-        if (Input.GetKeyDown(KeyCode.Space) && _grounded._isgrounded == false && airTime < TSO.coyoteMargin)
+        if (controls.Player.Jump.triggered && _grounded._isgrounded == true)
         {
             DoJump();
         }
+
+        //add coyoteJump functionality
+        if (controls.Player.Jump.triggered && _grounded._isgrounded == false && airTime < TSO.coyoteMargin)
+        {
+            DoJump();
+        }
+
     }
 
     private void FixedUpdate()
     {
-                
 
         //if holding down space, push the player higher up
-        if (Input.GetKey(KeyCode.Space) && hoverJumpPhase)
+        if (IIC.holdJump && hoverJumpPhase)
         {
             rb.AddForce(new Vector3(0, TSO.holdSpaceForce, 0), ForceMode.VelocityChange);
         }
-        
+
 
         //disables hover jump phase if velociy.y < 0
         if (rb.velocity.y < -1f)
@@ -101,6 +107,15 @@ public class Jump : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         go.enabled = true;
         airTime = TSO.coyoteMargin + 1f;  //sets the airtime to somthing higher than coyote margin
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
 
