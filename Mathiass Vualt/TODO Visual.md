@@ -5,7 +5,7 @@ Wallrunning
 - [x] Works for both sides
 
 Platform
-- [ ] make a basic platform Prefab - keep it simple
+- [x] make a basic platform Prefab - keep it simple
 
 # GrapplingHook
 - [x] implement Hook 3d model
@@ -13,13 +13,17 @@ Platform
 - [x] implement particles for hitting
 - [ ] implement particleeffects for firiring
 - [ ] implement particle effects for reciving? (mabye)
+- [ ] Screen shake/anim for recining and firing
 - [x] Tilt towards grapple point
 - [x] Smoth the Tild when starting and ending
 - [ ] mabye increase/decrease FOV i relation to speed?
 - [ ] particle effeft when the grapplinghhok get knocked off
+	- [ ] Screen shade/anim too?
 ## Rope
 - [ ] make it veins?
 - [ ] Particle effect for fireing, kanskje gjøre det til blader? isteden for sparks?
+- [x] implement rope V1
+- [ ] Further improvemnt? Other rope style
 
 
 Other
@@ -27,14 +31,21 @@ Other
 - [ ] Fix Decal on Particles
 - [ ] implement other effects
 
-Rope
-- [x] implement rope V1
-- [ ] Further improvemnt? Other rope style
-
-
 Characther
 - [ ] Hand is grapplinghook? rework as a stone version? Made of vines?
 - [ ] GH animation when walking, not just camera
+- [ ] implement model with animations
+	- [ ] Finalize Model
+	- [ ] Finalize arms used for ingame?
+		- [ ] Mabye make some of the chest/abdomen visable too?
+	- [ ] Walk
+		- [ ] WASD dependent
+	- [ ] Run
+	- [ ] Jump
+	- [ ] In air
+	- [ ] Wallrun
+	- [ ] Land
+	- [ ] Slide
 
 Animations
 - [ ] Make more animations for the charachter

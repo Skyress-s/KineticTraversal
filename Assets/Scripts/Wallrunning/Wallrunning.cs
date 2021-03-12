@@ -40,7 +40,11 @@ public class Wallrunning : MonoBehaviour
     }
 
     public WallrunStates currentWallrunState;
-
+    
+    [SerializeField]
+    private float disableAircontrolTime;
+    [SerializeField]
+    private float disableWallrunTime;
 
     private void Start()
     {
@@ -155,12 +159,12 @@ public class Wallrunning : MonoBehaviour
     {
         wallrunning = false;
         lerpYForce = 0f;
-        if (Time.time > detachTime + 0.3f)
+        if (Time.time > detachTime + disableAircontrolTime) // how long to disable air control
         {
             TempDisableAirControl(true);
         }
 
-        if (Time.time > detachTime + 0.3f)
+        if (Time.time > detachTime + disableWallrunTime) // how long to disable wallrunning
         {
             currentWallrunState = WallrunStates.walldetect;
         }

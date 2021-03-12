@@ -14,7 +14,7 @@ public class Jump : MonoBehaviour
 
     private IsGrounded _grounded;
 
-    private bool hoverJumpPhase;
+    public bool hoverJumpPhase;
 
     private float airTime;
 
@@ -52,8 +52,9 @@ public class Jump : MonoBehaviour
     private void FixedUpdate()
     {
 
+
         //if holding down space, push the player higher up
-        if (IIC.holdJump && hoverJumpPhase)
+        if (IIC.holdJump && hoverJumpPhase == true)
         {
             rb.AddForce(new Vector3(0, TSO.holdSpaceForce, 0), ForceMode.VelocityChange);
         }
@@ -61,6 +62,10 @@ public class Jump : MonoBehaviour
 
         //disables hover jump phase if velociy.y < 0
         if (rb.velocity.y < -1f)
+        {
+            hoverJumpPhase = false;
+        }
+        if (IIC.wallrunning.wallrunning == true) // if wallrunning disable hoverun phase
         {
             hoverJumpPhase = false;
         }

@@ -42,7 +42,8 @@ public class MovmentAnimation : MonoBehaviour
         if (IIC.holdSprint && grounded._isgrounded)
         {
             //Animator.SetBool("Run", true);
-            Animator.speed = 2;
+            //Animator.speed = 2;
+            Animator.speed = 1;
         }
 
         //is not running

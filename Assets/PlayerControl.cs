@@ -237,6 +237,17 @@ public class @PlayerControl : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a81fe342-a63b-4851-b8ee-e614d84f026e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9d6892f2-3441-4f18-863b-5fd03114855a"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",

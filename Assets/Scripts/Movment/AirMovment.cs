@@ -20,6 +20,15 @@ public class AirMovment : MonoBehaviour
     public float lowSpeedAddForce;
     [Tooltip("how much time player can be in the air before this function wont run")]
     public float airTimeLimit;
+
+    
+    [Header("SideChangeDirection")]
+    
+    public float sideChangeAmoundt;
+    [Header("AirBrake")]
+    [SerializeField][Range(0f,10f)]
+    private float airBrakeForce;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,8 +51,9 @@ public class AirMovment : MonoBehaviour
             }
             else if (GetAngleDifference() < Bernt2) // what todo if in range of Bernt2
             {
-                //Debug.Log("Change direction slowly");
+                Debug.Log("Change direction slowly");
                 SideChangeDirection();
+                //SideChangePosition();
             }
             else // what todo if over range of Bernt2 (third range)
             {
@@ -81,14 +91,21 @@ public class AirMovment : MonoBehaviour
     {
         var velocity = rb.velocity;
         velocity.y = 0f;
-        var v = Vector3.RotateTowards(velocity, IIC.worldInput, (Mathf.PI /150), 0f);
+        var v = Vector3.RotateTowards(velocity, IIC.worldInput, Mathf.PI * (1f / 150f) * sideChangeAmoundt, 0f);
         v.y = rb.velocity.y;
         rb.velocity = v;
     }
 
+    void SideChangePosition() //sligtly changes the position of the player in air to give a bit more control
+    {
+        var pos = transform.position;
+        var newPos = pos + IIC.worldInput * 0.1f;
+        transform.position = newPos;
+    }
+
     void AirBrake() // makes the player lose momentum quickly in air
     {
-        rb.AddForce(IIC.worldInput * 1f, ForceMode.VelocityChange);
+        rb.AddForce(IIC.worldInput * airBrakeForce, ForceMode.VelocityChange);
     }
 
     float GetAngleDifference()

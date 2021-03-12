@@ -20,7 +20,7 @@ public class GroundMovment_ForceVer : MonoBehaviour
     
 
     //Movment Values
-    public float maxSpeed, sprintMultiplier, counterMovIntensity, speedCapIntensity;
+    public float maxSpeed, /*sprintMultiplier,*/ counterMovIntensity, speedCapIntensity;
 
     private float maxSpeedStored;
 
@@ -93,14 +93,14 @@ public class GroundMovment_ForceVer : MonoBehaviour
         CounterMovment();
 
         //implements sprinting
-        if (IIC.holdSprint)
-        {
-            maxSpeed = maxSpeedStored * sprintMultiplier;
-        }
-        else
-        {
-            maxSpeed = maxSpeedStored;
-        }
+        //if (IIC.holdSprint)
+        //{
+        //    maxSpeed = maxSpeedStored * sprintMultiplier;
+        //}
+        //else
+        //{
+        //    maxSpeed = maxSpeedStored;
+        //}
 
         ////if maxspeed is reached, make input = 0
         //if (x > 0 && xMag > maxSpeed) x = 0;

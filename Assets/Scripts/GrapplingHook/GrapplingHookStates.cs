@@ -41,10 +41,13 @@ public class GrapplingHookStates : MonoBehaviour
     private int layerMask;
 
     //visual effekt
+    [Header("VFX")]
     [SerializeField][Space]
     private VisualEffect visualEffect;
+    public HookVFX hookVFX;
 
     //animation
+    [Header("Animation")]
     [Space]
     public Animator animator;
 
@@ -124,6 +127,8 @@ public class GrapplingHookStates : MonoBehaviour
         //sets the animation to the returned bool off
         AnimReturned(false);
 
+        //activates the fire VFX
+        PlayVFX(1);
     }
     
     void IsTraveling()
@@ -168,7 +173,8 @@ public class GrapplingHookStates : MonoBehaviour
                 //Debug.Log(rot);
 
                 //activates the hooked VFX
-                ActivateHookedVFX();
+                //ActivateHookedVFX();
+                PlayVFX(0);
 
                 //activates the IsHooked animation bool
                 AnimHooked(true);
@@ -275,6 +281,8 @@ public class GrapplingHookStates : MonoBehaviour
             //activates the collider so it sits on the ground
             gameObject.GetComponent<BoxCollider>().enabled = transform;
 
+            //playes the VFX 
+            PlayVFX(2);
         }
 
         if (IIC.controls.Player.Shoot.triggered)
@@ -290,6 +298,11 @@ public class GrapplingHookStates : MonoBehaviour
     void ActivateHookedVFX()
     {
         visualEffect.Play();
+    }
+
+    void PlayVFX(int i)
+    {
+        hookVFX.PlayAnimation(i);
     }
 
     //animation section

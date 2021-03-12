@@ -21,6 +21,10 @@ public class InputInfoCenter : MonoBehaviour
 
     public AirTime AirTime;
 
+    public Wallrunning wallrunning;
+
+    [Header("Unity New Input System")]
+
     public bool holdJump;
 
     public bool holdSprint;

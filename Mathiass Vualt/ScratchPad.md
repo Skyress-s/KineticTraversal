@@ -1,0 +1,6 @@
+- fortsatt glitch med å wallrunne i luften
+- Forandrer retning for fort i lufter med AD
+- Wallrunn treffer skjeiv kant of deaktiverer wallrun på begynnelsen av wallrun
+- Sebseleb ideer
+	- fjern running
+	- gjør at space er glide og hopp (fjerne hopping)

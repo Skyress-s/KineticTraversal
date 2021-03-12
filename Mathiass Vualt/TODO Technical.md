@@ -1,17 +1,22 @@
-# idunno
-- [ ] start using unity input system?
-	- [ ] is it worth it to start using this?
+# Technical
+- [x] start using unity input system?
+	- [x] is it worth it to start using this?
 
 ## Ground Movment
 - [x] Basic Ground Movment
 - [x] Fix so that ground movment is properly capped
 - [x] Fix Countermovment so that is works when you look down
+- [x] Remove Sprinting
+	- [ ] Not fulle removed, just disabled
+- [ ] Test Sebastians [[ScratchPad]] ideas
+	- [ ] Space is Glide and or jump
+	- [ ] Remove Jump
 
 
-Bugs
+## Bugs
 - [ ] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
 
-Grapplinghook
+## Grapplinghook
 - [x] Physics ray collision
 - [x] Make grapplingphysics more consistent
 - [x] temp GH returning mode
@@ -23,11 +28,11 @@ Grapplinghook
 - [x] cant refil meter in air
 
 
-Scriptableobjects
+## Scriptableobjects
 - Make all variables use it?
 - Make only the infocenter use it?
 
-Sliding
+## Sliding
 - [x] temperairy sliding
 - [ ] make sliding more refined
 - [ ] Better animation
@@ -36,16 +41,16 @@ Sliding
 - [x] use CTRL to slide
 - [x] Have some control when sliding
 
-Settings Menu
+## Settings Menu
 - [x] sensitivity
 - [x] Esc stops the game
 - [ ] Cant Set CTRL to a Key
-	- [x] crouch/sliding key
-		- [x] Toggle sliding
-- [x] Menu Selecting levels
-- [x] Save SettingsBetween Levels (Scripable Object?)
+	- [ ] crouch/sliding key
+		- [ ] Toggle sliding
+- [ ] Menu Selecting levels
+- [ ] Save SettingsBetween Levels (Scripable Object?)
 
-Wallrunning
+## Wallrunning
 - [x] Wallrunning
 - [x] Make the player stick more to the wall
 - [x] Refine Wallrunning further
@@ -55,8 +60,9 @@ Wallrunning
 - [x] do use inputvector or aristafe if wallrunning
 - [ ] Make if holding away from wall, falloff?
 - [x] can look compleatly 180 degrees while wallrunning
+- [ ] Fix disabling wallrunning on start of wallrun[[EarlyStartWallrunGlitch]]
 
-Air Control
+## Air Control
 - [x] Make airstrafing easier to do
 - [x] Make s stop more rapidly
 	- [x] Make the button used be relative to the direction
@@ -64,10 +70,13 @@ Air Control
 - [x] Remake Airstrafe?
 	- [x] Airstrafe key? instead of AD? ask people
 - [x] Some control if low speeds in air
+- [ ] Too much control in air
+- [ ] Disable while grappled/reduced?
+- [ ] Float for airbrake func
 
-Weapons
+## Weapons
 - [x] Small delay when rotating weapons
-	- [x] Made is more pleasing
+	- [x] Made it more pleasing
 	- [x] Try with it rotating TOWARDS the rotation of the player not after it
 	- [x] rotation is not smooth all the time, due to framerates i think
 - [x] Make an alt version for the turning animation, utylizing position rather than rotation
