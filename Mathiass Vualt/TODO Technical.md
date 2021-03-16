@@ -26,6 +26,7 @@
 - [x] make hook follow object that it is hooked to
 - [x] Maxdistance
 - [x] cant refil meter in air
+- [ ] hook is hooked to far from object sometimes
 
 
 ## Scriptableobjects
@@ -60,7 +61,8 @@
 - [x] do use inputvector or aristafe if wallrunning
 - [ ] Make if holding away from wall, falloff?
 - [x] can look compleatly 180 degrees while wallrunning
-- [ ] Fix disabling wallrunning on start of wallrun[[EarlyStartWallrunGlitch]]
+- [x] Fix disabling wallrunning on start of wallrun[[EarlyStartWallrunGlitch]]
+- [x] fix bug where you can use aircontrol the moment you jump off wall
 
 ## Air Control
 - [x] Make airstrafing easier to do
@@ -72,7 +74,7 @@
 - [x] Some control if low speeds in air
 - [ ] Too much control in air
 - [ ] Disable while grappled/reduced?
-- [ ] Float for airbrake func
+- [x] Float for airbrake func
 
 ## Weapons
 - [x] Small delay when rotating weapons

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class HookVFX : MonoBehaviour
 {
-    public VisualEffect VFXObject;
+    public GameObject KnockoffPrefab;
 
     public VisualEffect[] VFX_Array;
 
@@ -27,7 +27,7 @@ public class HookVFX : MonoBehaviour
 
         if (kb.rightArrowKey.wasPressedThisFrame)
         {
-            PlayAnimation(n);
+            PlayAnimation(n, transform.position, transform.rotation);
         }
 
         
@@ -35,15 +35,26 @@ public class HookVFX : MonoBehaviour
     }
 
 
+    public void PlayKnockoffVFX(Vector3 pos, Quaternion rot, Transform parent)
+    {
+        var con = Instantiate(KnockoffPrefab, pos, rot);
+        con.transform.parent = parent;
+    }
+
     /// <summary>
     /// 
     /// </summary>
     /// <param name="i">0 - Hooked, 1 - Fire</param>
-    public void PlayAnimation(int i)
+    public void PlayAnimation(int i, Vector3 pos, Quaternion rot)
     {
-        //VFXObject.visualEffectAsset = VFX_Array[i];
-        //VFXObject.Play();
-        VFX_Array[i].Play();
+        if (i == 2)
+        {
+            //Instantiate(KnockoffPrefab, pos, rot);
+        }
+        else
+        {
+            VFX_Array[i].Play();
+        }       
     }
 
     

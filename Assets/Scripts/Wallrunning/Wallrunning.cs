@@ -31,6 +31,9 @@ public class Wallrunning : MonoBehaviour
 
     public float detachTime;
 
+    [Header("ColliderTrigger segment")]
+    public ColliderTrigger ct;
+
     public enum WallrunStates
     {
         walldetect,
@@ -64,23 +67,28 @@ public class Wallrunning : MonoBehaviour
         switch (currentWallrunState)
         {
             case (WallrunStates.walldetect):
-                DetectWall();
+                DetectWallState();
                 break;
             case (WallrunStates.wallrun):
-                Wallrunn();
+                WallrunState();
                 break;
             case (WallrunStates.exit):
                 //dad
                 break;
             case (WallrunStates.cooldown):
-                CooldownFromWallrun();
+                CooldownState();
                 break;
         }
 
         //old method
     }
 
-    void DetectWall()
+    void DetectWallWithTrigger()
+    {
+        
+    }
+
+    void DetectWallState()
     {
         //sets the wallrun variable for animation to false
         wallrunning = false;
@@ -115,7 +123,7 @@ public class Wallrunning : MonoBehaviour
         }
 
     }
-    void Wallrunn()
+    void WallrunState()
     {
         // if player is on the ground, do not wallrun, and return to walldetect
         if (IIC.grounded._isgrounded)
@@ -127,7 +135,7 @@ public class Wallrunning : MonoBehaviour
 
         //shoots out a new ray -> in hit.normal dir to check i close enough to wall
         var hit = new RaycastHit();
-        if (Physics.Raycast(transform.position, -globalHit.normal, out hit, rayD))
+        if (Physics.Raycast(transform.position, -globalHit.normal, out hit, rayD) || ct.isTriggerd == true)
         {
             //the object it hits is the new global hit
             globalHit = hit;
@@ -151,11 +159,8 @@ public class Wallrunning : MonoBehaviour
             detachTime = Time.time;
         }
     }
-    void JumpOffWall()
-    {
-
-    }
-    void CooldownFromWallrun()
+    
+    void CooldownState()
     {
         wallrunning = false;
         lerpYForce = 0f;
@@ -187,7 +192,7 @@ public class Wallrunning : MonoBehaviour
     }
     void OnJump()
     {
-        Debug.Log("jump");
+        //Debug.Log("walljump");
         wallrunning = false;
         var dir = Camera.transform.forward;
         var n = globalHit.normal;

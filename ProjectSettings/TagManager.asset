@@ -15,8 +15,8 @@ TagManager:
   - 
   - 
   - Weapon
-  - NotHookable
-  - 
+  - Player
+  - WallrunTrigger
   - 
   - 
   - 

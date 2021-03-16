@@ -6,11 +6,12 @@
       {
         "id": "40fa92edac065612",
         "type": "leaf",
+        "dimension": 59.589041095890416,
         "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "TODO Technical.md",
+            "file": "TODO Level Design.md",
             "mode": "source"
           }
         }
@@ -18,11 +19,12 @@
       {
         "id": "534c8d3937fdd930",
         "type": "leaf",
+        "dimension": 40.41095890410959,
         "state": {
           "type": "markdown",
           "state": {
             "file": "ScratchPad.md",
-            "mode": "source"
+            "mode": "preview"
           }
         }
       }
@@ -80,7 +82,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TODO Technical.md",
+                "file": "TODO Level Design.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,14 +98,14 @@
     "width": 300
   },
   "lastOpenFiles": [
-    "TODO Technical.md",
-    "EarlyStartWallrunGlitch.md",
-    "ScratchPad.md",
-    "Kinetic Game.md",
     "TODO Level Design.md",
-    "Untitled.md",
-    "TODO Visual.md",
     "Tutoral Levels.md",
+    "TODO Visual.md",
+    "TODO Technical.md",
+    "ScratchPad.md",
+    "EarlyStartWallrunGlitch.md",
+    "Kinetic Game.md",
+    "Untitled.md",
     "MainCharachter.md",
     "Ideas Charts.md"
   ]

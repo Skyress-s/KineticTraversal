@@ -4,8 +4,8 @@
 	- [ ] walls
 	- [ ] more hookable objects
 		- [ ] Color code for hookable objects?
-	- [ ] 
-- [ ] is the scale of all the props to big at this point?
+	- [ ] Boost speed object?
+	- [ ] lever you can pull down by swinging under it?
 
 
 Obsticles

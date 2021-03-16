@@ -15,7 +15,7 @@ public class GrapplingHookStates : MonoBehaviour
     }
 
     public InputInfoCenter IIC;
-
+    private Vector3 storedVelocity;
     public GHStates currentState;
 
     public Transform handPos;
@@ -157,15 +157,14 @@ public class GrapplingHookStates : MonoBehaviour
             globalHit = hit;
             if (hit.collider.tag == "NotHookable")
             {
+                storedVelocity = rb.velocity;
                 //Debug.Log("not hookable");
                 currentState = GHStates.knockoff;
+                
 
             }
             else
             {
-
-
-
                 rb.isKinematic = true;
                 transform.position = hit.point;
 
@@ -270,6 +269,10 @@ public class GrapplingHookStates : MonoBehaviour
         //On enter
         if (onEnter)
         {
+            //playes the VFX 
+            hookVFX.PlayKnockoffVFX(globalHit.point, Quaternion.LookRotation(globalHit.normal, Vector3.Cross(globalHit.normal,
+                storedVelocity)), globalHit.collider.gameObject.transform);
+
             onEnter = false;
             var randomDirection = Random.onUnitSphere + globalHit.normal * normalSpeed;
             rb.velocity = randomDirection * 10f;
@@ -281,8 +284,7 @@ public class GrapplingHookStates : MonoBehaviour
             //activates the collider so it sits on the ground
             gameObject.GetComponent<BoxCollider>().enabled = transform;
 
-            //playes the VFX 
-            PlayVFX(2);
+            
         }
 
         if (IIC.controls.Player.Shoot.triggered)
@@ -302,7 +304,7 @@ public class GrapplingHookStates : MonoBehaviour
 
     void PlayVFX(int i)
     {
-        hookVFX.PlayAnimation(i);
+        hookVFX.PlayAnimation(i, globalHit.point, Quaternion.LookRotation(globalHit.normal));
     }
 
     //animation section

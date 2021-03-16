@@ -44,7 +44,7 @@ public class Jump : MonoBehaviour
         //add coyoteJump functionality
         if (controls.Player.Jump.triggered && _grounded._isgrounded == false && airTime < TSO.coyoteMargin)
         {
-            DoJump();
+            //DoJump();
         }
 
     }

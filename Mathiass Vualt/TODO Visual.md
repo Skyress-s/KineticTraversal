@@ -18,7 +18,8 @@ Platform
 - [x] Smoth the Tild when starting and ending
 - [ ] mabye increase/decrease FOV i relation to speed?
 - [ ] particle effeft when the grapplinghhok get knocked off
-	- [ ] Screen shade/anim too?
+	- Have started work, but have to refine it
+- [ ] Screen shake/anim too?
 ## Rope
 - [ ] make it veins?
 - [ ] Particle effect for fireing, kanskje gjøre det til blader? isteden for sparks?
