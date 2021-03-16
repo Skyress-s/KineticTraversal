@@ -10,7 +10,10 @@ public class DebugResetPlayer : MonoBehaviour
 
     public InputInfoCenter IIC;
 
+    public GameObject hook;
+
     private Keyboard kb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +38,7 @@ public class DebugResetPlayer : MonoBehaviour
 
         IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;
         IIC.grapplingHookStates.AnimHooked(false);
+
+        hook.GetComponent<BoxCollider>().enabled = false;
     }
 }

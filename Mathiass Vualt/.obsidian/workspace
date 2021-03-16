@@ -11,7 +11,7 @@
           "type": "markdown",
           "state": {
             "file": "ScratchPad.md",
-            "mode": "source"
+            "mode": "preview"
           }
         }
       }
@@ -86,6 +86,7 @@
   },
   "lastOpenFiles": [
     "ScratchPad.md",
+    "werid.md",
     "TODO Level Design.md",
     "Tutoral Levels.md",
     "TODO Visual.md",
@@ -93,7 +94,6 @@
     "EarlyStartWallrunGlitch.md",
     "Kinetic Game.md",
     "Untitled.md",
-    "MainCharachter.md",
-    "Ideas Charts.md"
+    "MainCharachter.md"
   ]
 }

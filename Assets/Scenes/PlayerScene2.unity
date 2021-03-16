@@ -11955,6 +11955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 6047523575731723149}
   IIC: {fileID: 6047523576148543966}
+  hook: {fileID: 6047523576666963859}
 --- !u!33 &6047523576666963856
 MeshFilter:
   m_ObjectHideFlags: 0

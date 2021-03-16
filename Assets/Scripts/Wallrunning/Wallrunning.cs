@@ -92,7 +92,7 @@ public class Wallrunning : MonoBehaviour
     {
         //sets the wallrun variable for animation to false
         wallrunning = false;
-
+        
         //checks left and right side of player
         RaycastHit hitRight = WallDetectionV2(true);
         RaycastHit hitLeft = WallDetectionV2(false);
@@ -114,6 +114,7 @@ public class Wallrunning : MonoBehaviour
         if (hit.collider != null)
         {
             globalHit = hit;
+            Debug.Log(hit.collider.gameObject.name);
             currentWallrunState = WallrunStates.wallrun;
         }
         else
