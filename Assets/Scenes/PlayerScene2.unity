@@ -1574,6 +1574,7 @@ GameObject:
   - component: {fileID: 486849075}
   - component: {fileID: 486849074}
   - component: {fileID: 486849073}
+  - component: {fileID: 486849076}
   m_Layer: 5
   m_Name: Level 12
   m_TagString: Untagged
@@ -1644,9 +1645,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 486849076}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1692,6 +1693,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486849071}
   m_CullTransparentMesh: 0
+--- !u!114 &486849076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486849071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 0}
+    scenePath: 
 --- !u!1 &531147735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1720,7 @@ GameObject:
   - component: {fileID: 531147739}
   - component: {fileID: 531147738}
   - component: {fileID: 531147737}
+  - component: {fileID: 531147740}
   m_Layer: 5
   m_Name: Level 6
   m_TagString: Untagged
@@ -1774,9 +1791,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 531147740}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1822,6 +1839,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531147735}
   m_CullTransparentMesh: 0
+--- !u!114 &531147740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531147735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: e213e1d0eb7716a4d95efc87a612cb08, type: 3}
+    scenePath: Assets/Scenes/TutorialLevels/Lvl6/Tutorial_6.unity
 --- !u!1 &578205496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,6 +1866,7 @@ GameObject:
   - component: {fileID: 578205500}
   - component: {fileID: 578205499}
   - component: {fileID: 578205498}
+  - component: {fileID: 578205501}
   m_Layer: 5
   m_Name: Level 1
   m_TagString: Untagged
@@ -1904,13 +1937,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 578205501}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1952,6 +1985,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578205496}
   m_CullTransparentMesh: 0
+--- !u!114 &578205501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578205496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: 752ac8062c107744cada376c33844f28, type: 3}
+    scenePath: Assets/Scenes/TutorialLevels/Lvl1/Tutoral_1.unity
 --- !u!1 &649554191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +2012,7 @@ GameObject:
   - component: {fileID: 649554195}
   - component: {fileID: 649554194}
   - component: {fileID: 649554193}
+  - component: {fileID: 649554196}
   m_Layer: 5
   m_Name: Level 8
   m_TagString: Untagged
@@ -2034,9 +2083,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 649554196}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2082,6 +2131,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649554191}
   m_CullTransparentMesh: 0
+--- !u!114 &649554196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649554191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: f11d573e4e8224346ae35c3a7f505c4b, type: 3}
+    scenePath: Assets/Scenes/StagePack1/Level_2/Level_2.unity
 --- !u!1 &730445115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2288,7 @@ GameObject:
   - component: {fileID: 798622013}
   - component: {fileID: 798622012}
   - component: {fileID: 798622011}
+  - component: {fileID: 798622014}
   m_Layer: 5
   m_Name: Level 7
   m_TagString: Untagged
@@ -2294,9 +2359,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 798622014}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2342,6 +2407,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798622009}
   m_CullTransparentMesh: 0
+--- !u!114 &798622014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798622009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: ce0ecd7b42c8c7643a1567806f3af6dd, type: 3}
+    scenePath: Assets/Scenes/StagePack1/Level_1/level_1.unity
 --- !u!1 &857358894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2746,7 @@ GameObject:
   - component: {fileID: 921691596}
   - component: {fileID: 921691595}
   - component: {fileID: 921691594}
+  - component: {fileID: 921691597}
   m_Layer: 5
   m_Name: Level 3
   m_TagString: Untagged
@@ -2736,9 +2817,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 921691597}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2784,6 +2865,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921691592}
   m_CullTransparentMesh: 0
+--- !u!114 &921691597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921691592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: e15e0b1278fa3f34cab82191e140e291, type: 3}
+    scenePath: Assets/Scenes/TutorialLevels/Lvl3/Tutorial_3.unity
 --- !u!1 &932967493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,6 +2892,7 @@ GameObject:
   - component: {fileID: 932967497}
   - component: {fileID: 932967496}
   - component: {fileID: 932967495}
+  - component: {fileID: 932967498}
   m_Layer: 5
   m_Name: Level 10
   m_TagString: Untagged
@@ -2866,9 +2963,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 932967498}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2914,6 +3011,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932967493}
   m_CullTransparentMesh: 0
+--- !u!114 &932967498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932967493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: 3f1702a9048d5444ea2891a9b4765d87, type: 3}
+    scenePath: Assets/Scenes/StagePack1/Level_4/Level_4.unity
 --- !u!1 &947326739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,6 +3420,7 @@ GameObject:
   - component: {fileID: 1080941915}
   - component: {fileID: 1080941914}
   - component: {fileID: 1080941913}
+  - component: {fileID: 1080941916}
   m_Layer: 5
   m_Name: Level 9
   m_TagString: Untagged
@@ -3378,9 +3491,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 1080941916}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3426,6 +3539,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080941911}
   m_CullTransparentMesh: 0
+--- !u!114 &1080941916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080941911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: 527ca95b9b9a4ad4798e036cd36f0fb3, type: 3}
+    scenePath: Assets/Scenes/StagePack1/Level_3/Level_3.unity
 --- !u!1 &1102692426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3600,6 +3728,7 @@ GameObject:
   - component: {fileID: 1166893815}
   - component: {fileID: 1166893814}
   - component: {fileID: 1166893813}
+  - component: {fileID: 1166893816}
   m_Layer: 5
   m_Name: Level 5
   m_TagString: Untagged
@@ -3670,9 +3799,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 1166893816}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3718,6 +3847,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166893811}
   m_CullTransparentMesh: 0
+--- !u!114 &1166893816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166893811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: af2f434b36af97e41b03faba19eaf89f, type: 3}
+    scenePath: Assets/Scenes/TutorialLevels/Lvl5/Tutorial_5.unity
 --- !u!1 &1209051626
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,6 +4685,11 @@ MonoBehaviour:
   HUDUI: {fileID: 6047523575449367924}
   LevelSelectUI: {fileID: 1220619916}
   UpdateVariablesScript: {fileID: 1290774603}
+  test:
+    sceneAsset: {fileID: 0}
+    scenePath: 
+  test2:
+    m_Handle: 1
 --- !u!114 &1290774603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5557,6 +5706,7 @@ GameObject:
   - component: {fileID: 1674245436}
   - component: {fileID: 1674245435}
   - component: {fileID: 1674245434}
+  - component: {fileID: 1674245437}
   m_Layer: 5
   m_Name: Level 4
   m_TagString: Untagged
@@ -5627,9 +5777,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 1674245437}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5675,6 +5825,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674245432}
   m_CullTransparentMesh: 0
+--- !u!114 &1674245437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674245432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: 1241baed4c84a5a47bd1b59c8960c35e, type: 3}
+    scenePath: Assets/Scenes/TutorialLevels/Lvl4/Tutorial_4.unity
 --- !u!1 &1709884779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5687,6 +5852,7 @@ GameObject:
   - component: {fileID: 1709884783}
   - component: {fileID: 1709884782}
   - component: {fileID: 1709884781}
+  - component: {fileID: 1709884784}
   m_Layer: 5
   m_Name: Level 11
   m_TagString: Untagged
@@ -5757,9 +5923,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 1709884784}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5805,6 +5971,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709884779}
   m_CullTransparentMesh: 0
+--- !u!114 &1709884784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709884779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 0}
+    scenePath: 
 --- !u!1 &1733730353
 GameObject:
   m_ObjectHideFlags: 0
@@ -7145,6 +7326,7 @@ GameObject:
   - component: {fileID: 2107652190}
   - component: {fileID: 2107652189}
   - component: {fileID: 2107652188}
+  - component: {fileID: 2107652191}
   m_Layer: 5
   m_Name: Level 2
   m_TagString: Untagged
@@ -7215,9 +7397,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1290774602}
-        m_MethodName: OpenLevel
-        m_Mode: 3
+      - m_Target: {fileID: 2107652191}
+        m_MethodName: Load
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7263,6 +7445,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107652186}
   m_CullTransparentMesh: 0
+--- !u!114 &2107652191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107652186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028119281e5d5aa49854dfcb60bc1d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad:
+    sceneAsset: {fileID: 102900000, guid: 6d137e946d90e0a40b8cd34b476d46ea, type: 3}
+    scenePath: Assets/Scenes/TutorialLevels/Lvl2/tutoral_2.unity
 --- !u!1 &2111715338
 GameObject:
   m_ObjectHideFlags: 0
