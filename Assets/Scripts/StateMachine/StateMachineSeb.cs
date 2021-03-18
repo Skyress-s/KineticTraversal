@@ -2,26 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StateMachineSeb : MonoBehaviour
 {
+    public PlayerState wallRunState, airState, groundState, slideState;
     public PlayerState activeState;
 
     private void Start()
     {
-        State currentState = GetNextState(State.Locked, Input.Open);
+        wallRunState = new WallrunningState(gameObject);
+        airState = new AirState(gameObject);
+        groundState = new Ground(gameObject);
+        slideState = new SlideState(gameObject);
+
+        activeState = groundState;
     }
 
     private void Update()
     {
-
-        if (UnityEngine.Input.GetKeyDown(KeyCode.Space)) {
-            //gjør dette om til en funksjon :^)
-            activeState.Exit();
-            activeState = new AirState();
-            activeState.Enter();
+        if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame){
+            if(activeState == groundState)
+            {
+                ChangeState(airState);
+            }
         }
-        activeState.Update();  
+        Debug.Log("Active state is: " + activeState.GetName());
+        activeState.Update();
     }
 
     private void FixedUpdate()
@@ -29,37 +36,21 @@ public class StateMachineSeb : MonoBehaviour
         activeState.FixedUpdate();
     }
 
-    enum State { Open, Closed, Locked }
-    enum Input { Open, Close, Lock, Unlock }
-    static State GetNextState(State current, Input input)
+    private void ChangeState(PlayerState next)
     {
-        if (current == State.Closed && input == Input.Open)
-        {
-            return State.Open;
-        }
-        else if (current == State.Open && input == Input.Close)
-        {
-            return State.Closed;
-        }
-        else if (current == State.Closed && input == Input.Lock)
-        {
-            return State.Locked;
-        }
-        else if (current == State.Locked && input == Input.Unlock)
-        {
-            return State.Closed;
-        }
-
-        throw new NotSupportedException($"{current} has no transition on {input}");
-    }
-
-    static void ChangeState(State activeState)
-    {
-
+        activeState.Exit();
+        activeState = next;
+        activeState.Enter();
     }
 
     public abstract class PlayerState
     {
+        protected GameObject gameObject;
+        public PlayerState(GameObject gameObject)
+        {
+            this.gameObject = gameObject;
+        }
+        public abstract string GetName();
         public abstract void Enter();
 
         public abstract void Exit();
@@ -71,6 +62,12 @@ public class StateMachineSeb : MonoBehaviour
 
     public class WallrunningState : PlayerState
     {
+        public WallrunningState(GameObject gameObject) : base(gameObject)
+        {
+        }
+
+        public override string GetName() => "Wallrunning";
+        
         public override void Enter()
         {
             //Play wallrun animation
@@ -93,9 +90,14 @@ public class StateMachineSeb : MonoBehaviour
 
     public class AirState : PlayerState
     {
+        public AirState(GameObject gameObject) : base(gameObject)
+        {
+        }
+
+        public override string GetName() => "Air State";
         public override void Enter()
         {
-            //Play jump animation
+            Debug.Log("Air state was entered");
         }
 
         public override void Exit()
@@ -105,7 +107,8 @@ public class StateMachineSeb : MonoBehaviour
 
         public override void Update()
         {
-            //play wallrun particles
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.one * -9.81f);
+            Debug.Log("We are in the air!!!");
         }
         public override void FixedUpdate()
         {
@@ -115,6 +118,12 @@ public class StateMachineSeb : MonoBehaviour
 
     public class Ground : PlayerState
     {
+        public Ground(GameObject gameObject) : base(gameObject)
+        {
+        }
+
+        public override string GetName() => "Ground State";
+
         public override void Enter()
         {
             // On enter

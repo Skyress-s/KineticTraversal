@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirStateScript : MonoBehaviour
+public class SlideState : StateMachineSeb.PlayerState
 {
-    public class AirState : PlayerState
+    public SlideState(GameObject gameObject) : base(gameObject)
     {
-        public override void Enter()
-        {
-            Debug.Log("Enter Airstate");
-        }
+    }
 
-        public override void Exit()
-        {
-            //release grab joint
-        }
+    public override string GetName() => "Slide";
+    
+    public override void Enter()
+    {
+        //Play wallrun animation
+    }
 
-        public override void Update()
-        {
-            Debug.Log("Update...");
-        }
-        public override void FixedUpdate()
-        {
-            Debug.Log("FixedUpdate...");
-        }
+    public override void Exit()
+    {
+        //release grab joint
+    }
+
+    public override void Update()
+    {
+        //play wallrun particles
+    }
+    public override void FixedUpdate()
+    {
+        //play wallrun particles
     }
 
 }
