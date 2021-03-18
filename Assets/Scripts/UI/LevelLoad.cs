@@ -7,10 +7,11 @@ public class LevelLoad : MonoBehaviour
 {
     public SceneReference levelToLoad;
 
+
     public void Load()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(levelToLoad.ScenePath);
-        SceneManager.LoadScene(0, LoadSceneMode.Additive);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 }

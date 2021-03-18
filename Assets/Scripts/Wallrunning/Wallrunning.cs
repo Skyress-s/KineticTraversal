@@ -79,8 +79,6 @@ public class Wallrunning : MonoBehaviour
                 CooldownState();
                 break;
         }
-
-        //old method
     }
 
     void DetectWallWithTrigger()

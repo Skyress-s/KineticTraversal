@@ -53,25 +53,10 @@ public class MovmentAnimation : MonoBehaviour
         }
 
         //jumping
-        if (grounded._isgrounded == true)
-        {
-            Animator.SetBool("Jump", false);
-        }
-        //not jumping
-        else if (grounded._isgrounded == false)
-        {
-            Animator.SetBool("Jump", true);
-        }
+        Animator.SetBool("Jump", !grounded._isgrounded);
 
         //wallrundetection
-        if (WallrunningScript.wallrunning == true)
-        {
-            Animator.SetBool("Wallrun", true);
-        }
-        else
-        {
-            Animator.SetBool("Wallrun", false);
-        }
+        Animator.SetBool("Wallrun", WallrunningScript.wallrunning);
         
     }
 }
