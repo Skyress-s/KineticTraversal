@@ -21,4 +21,5 @@ glatt bakke
 - kanskje ikke gå like raskt til siden, men bare denne typen rask forover?
 - Plasering a flying cylinders er litt wack
 - Mindre airControl når man grapplinghooker?
+- lage tunnel
 
