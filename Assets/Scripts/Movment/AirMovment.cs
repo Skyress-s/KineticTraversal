@@ -51,7 +51,7 @@ public class AirMovment : MonoBehaviour
             }
             else if (GetAngleDifference() < Bernt2) // what todo if in range of Bernt2
             {
-                Debug.Log("Change direction slowly");
+                //Debug.Log("Change direction slowly");
                 SideChangeDirection();
                 //SideChangePosition();
             }

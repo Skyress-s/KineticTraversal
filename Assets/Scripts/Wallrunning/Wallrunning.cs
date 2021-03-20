@@ -112,7 +112,6 @@ public class Wallrunning : MonoBehaviour
         if (hit.collider != null)
         {
             globalHit = hit;
-            Debug.Log(hit.collider.gameObject.name);
             currentWallrunState = WallrunStates.wallrun;
         }
         else

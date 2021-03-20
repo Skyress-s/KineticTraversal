@@ -63,6 +63,7 @@
 - [x] can look compleatly 180 degrees while wallrunning
 - [x] Fix disabling wallrunning on start of wallrun[[EarlyStartWallrunGlitch]]
 - [x] fix bug where you can use aircontrol the moment you jump off wall
+- [ ] have a buffer phase between detectWallrun and Wallrun of 0.1seconds to improve relaiability
 
 ## Air Control
 - [x] Make airstrafing easier to do

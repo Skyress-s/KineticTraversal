@@ -9,38 +9,49 @@ public class StateMachineSeb : MonoBehaviour
     public PlayerState wallRunState, airState, groundState, slideState;
     public PlayerState activeState;
 
-    public static Dictionary<string, dynamic> scriptDict;
-    
+    public Dictionary<string, dynamic> scriptDict;
 
     public InputInfoCenter IIC;
 
     public GroundMovment_ForceVer groundMov;
 
+    public StateMachineSeb FSM;
+
     private void Start()
     {
-        //scriptDict.Add("ground", IIC.grounded.gameObject.GetComponent<GroundMovment_ForceVer>());
-        //scriptDict.Add("air", IIC.grounded.gameObject.GetComponent<AirMovment>());
+        FSM = gameObject.GetComponent<StateMachineSeb>();
 
+        scriptDict = new Dictionary<string, dynamic>();
+
+        scriptDict.Add("ground", IIC.grounded.gameObject.GetComponent<GroundMovment_ForceVer>());
+        scriptDict.Add("air", IIC.grounded.gameObject.GetComponent<AirMovment>());
+        
         
 
-        wallRunState = new WallrunState(gameObject);
-        airState = new AirState(gameObject);
-        groundState = new GroundState(gameObject);
-        slideState = new SlideState(gameObject);
+        wallRunState = new WallrunState(gameObject, scriptDict, FSM);
+        airState = new AirState(gameObject, scriptDict, FSM);
+        groundState = new GroundState(gameObject, scriptDict, FSM);
+        //slideState = new SlideState(gameObject);
 
 
         activeState = groundState;
     }
+
+    public bool grounded;
+    public bool air;
+    public bool wallrun;
+    public bool slide;
+
 
     private void Update()
     {
         //Gets the bools for what is active
         //priority Slide > ground > Wallrun > Air
 
-        var grounded = IIC.grounded._isgrounded;
-        var air = IIC.AirTime.b_airTime;
-        var slide = IIC.infoSliding.sliding;
-        var wallrun = IIC.wallrunning.wallrunning;
+        grounded = IIC.grounded._isgrounded;
+        air = IIC.AirTime.b_airTime;
+        slide = IIC.infoSliding.sliding;
+        wallrun = IIC.wallrunning.wallrunning;
 
         //need refrences to the other scripts
 
@@ -61,7 +72,7 @@ public class StateMachineSeb : MonoBehaviour
         activeState.FixedUpdate();
     }
 
-    private void ChangeState(PlayerState next)
+    public void ChangeState(PlayerState next)
     {
         activeState.Exit();
         activeState = next;
@@ -71,10 +82,23 @@ public class StateMachineSeb : MonoBehaviour
     public abstract class PlayerState
     {
         protected GameObject gameObject;
-        public PlayerState(GameObject gameObject)
+
+        protected Dictionary<string, dynamic> dictonairy;
+
+        protected StateMachineSeb FSM;
+        public PlayerState(GameObject gameObject, Dictionary<string, dynamic> inputDictonairy, 
+            StateMachineSeb inputFSM)
         {
             this.gameObject = gameObject;
+            dictonairy = inputDictonairy;
+            FSM = inputFSM;
         }
+
+
+        //public PlayerState(GameObject gameObject, Dictionary<string, dynamic> dictonairy)
+        //{
+        //    this.gameObject = gameObject;
+        //}
 
         //protected Dictionary<string, dynamic> dictonairy;
 
@@ -96,10 +120,61 @@ public class StateMachineSeb : MonoBehaviour
 
     public class WallrunState : PlayerState
     {
-        public WallrunState(GameObject gameObject) : base(gameObject) { }
+        Dictionary<string, dynamic> dictonairy;
+
+        StateMachineSeb FSM;
+
+        public WallrunState(GameObject gameObject, Dictionary<string, dynamic> inputDictionary, StateMachineSeb inputFSM) 
+            : base(gameObject, inputDictionary, inputFSM)
+        {
+            dictonairy = inputDictionary;
+            FSM = inputFSM;
+        }
         //public WallrunState(GameObject gameObject, Dictionary<string, dynamic> d) : base(d) { }
+
+
+        public override string GetName() => "Wallrunning222";
         
-        public override string GetName() => "Wallrunning";
+        public override void Enter()
+        {
+            //Play wallrun animation
+            //Debug.Log(gameObject.name + dictonairy);
+        }
+
+        public override void Exit()
+        {
+            //release grab joint
+            FSM.ChangeState(FSM.wallRunState);
+        }
+
+        public override void Update()
+        {
+            //play wallrun particles
+            var air = dictonairy["air"];
+            air.enabled = false;
+        }
+        public override void FixedUpdate()
+        {
+            //play wallrun particles
+        }
+    }
+
+    public class AirState : PlayerState
+    {
+        Dictionary<string, dynamic> dictonairy;
+
+        StateMachineSeb FSM;
+
+        public AirState(GameObject gameObject, Dictionary<string, dynamic> inputDictionary, StateMachineSeb inputFSM) 
+            : base(gameObject, inputDictionary, inputFSM)
+        {
+            dictonairy = inputDictionary;
+            FSM = inputFSM;
+        }
+        //public WallrunState(GameObject gameObject, Dictionary<string, dynamic> d) : base(d) { }
+
+
+        public override string GetName() => "AirState";
         
         public override void Enter()
         {
@@ -115,34 +190,12 @@ public class StateMachineSeb : MonoBehaviour
         public override void Update()
         {
             //play wallrun particles
-        }
-        public override void FixedUpdate()
-        {
-            //play wallrun particles
-        }
-    }
-
-    public class AirState : PlayerState
-    {
-        public AirState(GameObject gameObject) : base(gameObject)
-        {
-        }
-
-        public override string GetName() => "Air State";
-        public override void Enter()
-        {
-            Debug.Log("Air state was entered");
-        }
-
-        public override void Exit()
-        {
-            //release grab joint
-        }
-
-        public override void Update()
-        {
-            //gameObject.GetComponent<Rigidbody>().AddForce(Vector3.one * -9.81f);
-            Debug.Log("We are in the air!!!");
+            //var air = dictonairy["air"];
+            //air.enabled = false;
+            if (!FSM.air)
+            {
+                FSM.ChangeState(FSM.groundState);
+            }
         }
         public override void FixedUpdate()
         {
@@ -152,59 +205,40 @@ public class StateMachineSeb : MonoBehaviour
 
     public class GroundState : PlayerState
     {
-        public GroundState(GameObject gameObject) : base(gameObject)
-        {
-        }
+        Dictionary<string, dynamic> dictonairy;
 
+        StateMachineSeb FSM;
+
+        public GroundState(GameObject gameObject, Dictionary<string, dynamic> inputDictionary, StateMachineSeb inputFSM) 
+            : base(gameObject, inputDictionary, inputFSM)
+        {
+            dictonairy = inputDictionary;
+            FSM = inputFSM;
+        }
+        //public WallrunState(GameObject gameObject, Dictionary<string, dynamic> d) : base(d) { }
+
+
+        public override string GetName() => "GroundState";
         
-
-        public override string GetName() => "Ground State";
-
-        public override void Enter()
-        {
-            // Enable GroundMov
-            //disable everything else
-
-            
-        }
-
-        public override void Update()
-        {
-            // On Update
-        }
-
-        public override void Exit()
-        {
-            // On Exit
-        }
-        public override void FixedUpdate()
-        {
-            //play wallrun particles
-        }
-    }
-
-
-    public class SlideState : PlayerState
-    {
-        public SlideState(GameObject gameObject) : base(gameObject)
-        {
-        }
-
-        public override string GetName() => "SlideState";
-
         public override void Enter()
         {
             //Play wallrun animation
+            //Debug.Log(gameObject.name + dictonairy);
         }
 
         public override void Exit()
         {
             //release grab joint
+
         }
 
         public override void Update()
         {
             //play wallrun particles
+            if (FSM.air)
+            {
+                FSM.ChangeState(FSM.airState);
+            }
         }
         public override void FixedUpdate()
         {

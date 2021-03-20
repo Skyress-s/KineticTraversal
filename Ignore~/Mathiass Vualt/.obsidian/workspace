@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "ScratchPad.md",
+            "file": "TODO Technical.md",
             "mode": "source"
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ScratchPad.md",
+                "file": "TODO Technical.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,12 +85,12 @@
     "width": 300
   },
   "lastOpenFiles": [
+    "TODO Technical.md",
     "ScratchPad.md",
     "werid.md",
     "TODO Level Design.md",
     "Tutoral Levels.md",
     "TODO Visual.md",
-    "TODO Technical.md",
     "EarlyStartWallrunGlitch.md",
     "Kinetic Game.md",
     "Untitled.md",
