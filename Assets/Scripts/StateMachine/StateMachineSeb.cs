@@ -98,8 +98,7 @@ public class StateMachineSeb : MonoBehaviour
     {
         public WallrunState(GameObject gameObject) : base(gameObject) { }
         //public WallrunState(GameObject gameObject, Dictionary<string, dynamic> d) : base(d) { }
-
-
+        
         public override string GetName() => "Wallrunning";
         
         public override void Enter()
