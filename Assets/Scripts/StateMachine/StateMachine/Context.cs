@@ -12,6 +12,9 @@ public class Context : MonoBehaviour
     #endregion
 
 
+    public InputInfoCenter IIC;
+
+
     private PlayerBaseState currentState;
 
     public readonly PlayerGroundState groundState = new PlayerGroundState();
@@ -39,5 +42,7 @@ public class Context : MonoBehaviour
     private void Update()
     {
         currentState.Update(this);
+
+        Debug.Log(currentState);
     }
 }

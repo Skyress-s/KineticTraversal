@@ -1851,7 +1851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 531164288}
   - component: {fileID: 531164289}
-  - component: {fileID: 531164290}
   m_Layer: 0
   m_Name: StateMachine
   m_TagString: Untagged
@@ -1880,30 +1879,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531164287}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a5b45d0a9f62842bf107867d947262, type: 3}
+  m_Script: {fileID: 11500000, guid: 669f2ad209b84d148aa26d922758cdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _script1: {fileID: 0}
+  _script2: {fileID: 0}
+  _script3: {fileID: 0}
   IIC: {fileID: 6047523576148543966}
-  groundMov: {fileID: 0}
-  FSM: {fileID: 0}
-  grounded: 0
-  air: 0
-  wallrun: 0
-  slide: 0
---- !u!114 &531164290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531164287}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e95e29a60004a4289eb49eed40966d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &578205496
 GameObject:
   m_ObjectHideFlags: 0
@@ -11591,6 +11575,7 @@ GameObject:
   - component: {fileID: 6047523575731723257}
   - component: {fileID: 6047523575731723256}
   - component: {fileID: 6047523575731723263}
+  - component: {fileID: 6047523575731723151}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -11613,6 +11598,20 @@ MonoBehaviour:
   IIC: {fileID: 6047523576148543966}
   airTime: 0
   b_airTime: 0
+--- !u!114 &6047523575731723151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047523575731723149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f3048400a16f4499db54089f5378d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 1.3
+  CameraObj: {fileID: 6047523575534152428}
 --- !u!114 &6047523575731723256
 MonoBehaviour:
   m_ObjectHideFlags: 0

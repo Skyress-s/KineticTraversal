@@ -7,22 +7,22 @@ public class PlayerAirState : PlayerBaseState
 {
     public override void EnterState(Context player)
     {
-        Debug.Log("Entering AirState...");
-        player._script2.enabled = true;
+        //Debug.Log("Entering AirState...");
+        //player._script2.enabled = true;
     }
 
     public override void Update(Context player)
     {
-        Debug.Log("In AirState");
-        if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
+        //Debug.Log("In AirState");
+        if (!player.IIC.AirTime.b_airTime)
         {
             player.TransitionToState(player.groundState);
-        }
+        }        
     }
 
     public override void ExitState(Context player)
     {
-        Debug.Log("Exiting Air State");
-        player._script2.enabled = false;
+        //Debug.Log("Exiting Air State");
+        //player._script2.enabled = false;
     }
 }
