@@ -20,7 +20,7 @@ public class InputInfoCenter : MonoBehaviour
     public Vector3 worldInput;
 
     public AirTime AirTime;
-
+    
     public Wallrunning wallrunning;
 
     [Header("Unity New Input System")]

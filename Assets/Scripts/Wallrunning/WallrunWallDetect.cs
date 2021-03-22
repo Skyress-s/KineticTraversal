@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class WallrunWallDetect : MonoBehaviour
 {
+    public bool wallrunning;
+
+    public bool isRightSide;
+
     [SerializeField]
     private float rayDistance;
 
+    public ColliderTrigger CT;
+
     public GameObject CameraObj;
+
+    public RaycastHit globalHit;
 
     RaycastHit WallDetectionV2(bool b)
     {
@@ -33,9 +41,36 @@ public class WallrunWallDetect : MonoBehaviour
             return hit;
         }
     }
+    
+    public void DetectWall()
+    {
+        RaycastHit hit1 = WallDetectionV2(true);
+        RaycastHit hit2 = WallDetectionV2(false);
+
+        if (hit1.collider != null)
+        {
+            globalHit = hit1;
+            isRightSide = true;
+            wallrunning = true;
+        }
+        else if (hit2.collider != null)
+        {
+            globalHit = hit2;
+            isRightSide = false;
+            wallrunning = true;
+        }
+        else
+        {
+            globalHit = new RaycastHit();
+            //isRightSide = false;
+            wallrunning = false;
+        }
+
+        
+    }
+
     private void Update()
     {
-        WallDetectionV2(true);
-        WallDetectionV2(false);
+        DetectWall();
     }
 }

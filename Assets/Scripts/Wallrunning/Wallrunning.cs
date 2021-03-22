@@ -37,6 +37,7 @@ public class Wallrunning : MonoBehaviour
     public enum WallrunStates
     {
         walldetect,
+        buffer,
         wallrun,
         exit,
         cooldown
@@ -48,6 +49,12 @@ public class Wallrunning : MonoBehaviour
     private float disableAircontrolTime;
     [SerializeField]
     private float disableWallrunTime;
+
+    public WallrunWallDetect _WallrunWallDetect;
+
+    [Header("BufferState")][SerializeField]
+    private float bufferDuration;
+    private float currentBufferDuration = 0f;
 
     private void Start()
     {
@@ -69,6 +76,9 @@ public class Wallrunning : MonoBehaviour
             case (WallrunStates.walldetect):
                 DetectWallState();
                 break;
+            case (WallrunStates.buffer):
+                BufferState();
+                break;
             case (WallrunStates.wallrun):
                 WallrunState();
                 break;
@@ -81,55 +91,86 @@ public class Wallrunning : MonoBehaviour
         }
     }
 
-    void DetectWallWithTrigger()
-    {
-        
-    }
-
+   
     void DetectWallState()
     {
-        //sets the wallrun variable for animation to false
-        wallrunning = false;
-        
-        //checks left and right side of player
-        RaycastHit hitRight = WallDetectionV2(true);
-        RaycastHit hitLeft = WallDetectionV2(false);
-        RaycastHit hit = new RaycastHit(); //the primary hit to use further on :^)
+        #region
+        ////sets the wallrun variable for animation to false
+        //wallrunning = false;
 
-        if (hitLeft.collider != null)
-        {
-            hit = hitLeft;
-            sideDeterming = -1;
-            //Debug.Log("left");
-        }
-        else if (hitRight.collider != null)
-        {
-            hit = hitRight;
-            sideDeterming = 1;
-            //Debug.Log("right");
-        }
+        ////checks left and right side of player
+        //RaycastHit hitRight = WallDetectionV2(true);
+        //RaycastHit hitLeft = WallDetectionV2(false);
+        //RaycastHit hit = new RaycastHit(); //the primary hit to use further on :^)
 
-        if (hit.collider != null)
+        //if (hitLeft.collider != null)
+        //{
+        //    hit = hitLeft;
+        //    sideDeterming = -1;
+        //    //Debug.Log("left");
+        //}
+        //else if (hitRight.collider != null)
+        //{
+        //    hit = hitRight;
+        //    sideDeterming = 1;
+        //    //Debug.Log("right");
+        //}
+
+        //if (hit.collider != null)
+        //{
+        //    globalHit = hit;
+        //    currentWallrunState = WallrunStates.wallrun;
+        //}
+        //else
+        //{
+        //    var emptyHit = new RaycastHit();
+        //    globalHit = emptyHit;
+        //}
+        #endregion
+
+        if (_WallrunWallDetect.wallrunning)
         {
-            globalHit = hit;
-            currentWallrunState = WallrunStates.wallrun;
-        }
-        else
-        {
-            var emptyHit = new RaycastHit();
-            globalHit = emptyHit;
+            //on enter 
+            EnterBufferState();
+
         }
 
     }
+
+
+    void EnterBufferState()
+    {
+
+        globalHit = _WallrunWallDetect.globalHit;
+        currentBufferDuration = 0;
+        //resumes to the bufferstate
+        currentWallrunState = WallrunStates.buffer;
+        wallrunning = true;
+    }
+    void BufferState()
+    {
+        currentBufferDuration += Time.deltaTime;
+        if (currentBufferDuration > bufferDuration)
+        {
+            currentWallrunState = WallrunStates.wallrun;
+        }
+
+        Wallrun(globalHit);
+        StickToWall(globalHit);
+        TempDisableAirControl(false);
+
+
+    }
+
     void WallrunState()
     {
-        // if player is on the ground, do not wallrun, and return to walldetect
-        if (IIC.grounded._isgrounded)
-        {
-            currentWallrunState = WallrunStates.cooldown;
-            detachTime = Time.time;
-            return;
-        }
+        //// if player is on the ground, do not wallrun, and return to walldetect
+        //if (IIC.grounded._isgrounded)
+        //{
+        //    currentWallrunState = WallrunStates.cooldown;
+        //    detachTime = Time.time;
+        //    return;
+        //}
 
         //shoots out a new ray -> in hit.normal dir to check i close enough to wall
         var hit = new RaycastHit();
@@ -146,9 +187,6 @@ public class Wallrunning : MonoBehaviour
                 Wallrun(globalHit);
                 StickToWall(globalHit);
                 TempDisableAirControl(false);
-
-                //sets the wallrunning bool to active (gives info if wallrunning or not)
-                wallrunning = true;
             }
         }
         else
@@ -279,7 +317,11 @@ public class Wallrunning : MonoBehaviour
 
     public int DetermineSide()
     {
-        return sideDeterming;
+        int x;
+        if (_WallrunWallDetect.isRightSide) x = 1;
+        else x = -1;
+
+        return x;
     }
 }
 

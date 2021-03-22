@@ -43,6 +43,6 @@ public class Context : MonoBehaviour
     {
         currentState.Update(this);
 
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 }
