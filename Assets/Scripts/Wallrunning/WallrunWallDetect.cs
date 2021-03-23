@@ -69,7 +69,7 @@ public class WallrunWallDetect : MonoBehaviour
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         DetectWall();
     }

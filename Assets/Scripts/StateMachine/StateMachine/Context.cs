@@ -14,6 +14,8 @@ public class Context : MonoBehaviour
 
     public InputInfoCenter IIC;
 
+    public Wallrunning Wallrun2;
+
 
     private PlayerBaseState currentState;
 

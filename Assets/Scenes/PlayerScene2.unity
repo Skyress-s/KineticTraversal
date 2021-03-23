@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000002, guid: 4ee9651800c95974091853b20304172f,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1888,6 +1888,7 @@ MonoBehaviour:
   _script2: {fileID: 0}
   _script3: {fileID: 0}
   IIC: {fileID: 6047523576148543966}
+  Wallrun2: {fileID: 6047523575731723136}
 --- !u!1 &578205496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,8 +3657,8 @@ RectTransform:
   m_Father: {fileID: 1303600070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.44444445, y: 0}
-  m_AnchorMax: {x: 0.44444445, y: 1}
+  m_AnchorMin: {x: 0.47368422, y: 0}
+  m_AnchorMax: {x: 0.47368422, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4289,7 +4290,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.44444445, y: 1}
+  m_AnchorMax: {x: 0.47368422, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5202,7 +5203,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1246290899}
   m_HandleRect: {fileID: 1143999456}
   m_Direction: 0
-  m_MinValue: 10
+  m_MinValue: 5
   m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 50
@@ -11187,7 +11188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 6047523575585772437}
   grounded: {fileID: 6047523575731723141}
-  WallrunningScript: {fileID: 6047523575731723136}
+  wallrunDetectScript: {fileID: 6047523575731723151}
   IIC: {fileID: 6047523576148543966}
 --- !u!95 &6047523575585772437
 Animator:
@@ -11432,8 +11433,8 @@ MonoBehaviour:
   currentWallrunState: 0
   disableAircontrolTime: 0.2
   disableWallrunTime: 0.5
-  _WallrunWallDetect: {fileID: 0}
-  bufferDuration: 0.96
+  _WallrunWallDetect: {fileID: 6047523575731723151}
+  bufferDuration: 0.21
 --- !u!4 &6047523575731723137
 Transform:
   m_ObjectHideFlags: 0
@@ -12091,11 +12092,13 @@ MonoBehaviour:
   grounded: {fileID: 6047523575731723141}
   grapplingHookStates: {fileID: 6047523576666963862}
   infoSliding: {fileID: 6047523575731723263}
+  GroundMovment: {fileID: 6047523575731723258}
+  _AirMovment: {fileID: 6047523575731723256}
   hook: {fileID: 6047523576666963859}
   input: {x: 0, y: 0}
   worldInput: {x: 0, y: 0, z: 0}
   AirTime: {fileID: 6047523575731723150}
-  wallrunning: {fileID: 6047523575731723136}
+  wallrunning: {fileID: 6047523575731723151}
   holdJump: 0
   holdSprint: 0
   holdLengthenRope: 0

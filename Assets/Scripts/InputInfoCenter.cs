@@ -13,6 +13,10 @@ public class InputInfoCenter : MonoBehaviour
 
     public Sliding infoSliding;
 
+    public GroundMovment_ForceVer GroundMovment;
+
+    public AirMovment _AirMovment;
+
     public GameObject hook;
 
     public Vector2 input;
@@ -21,7 +25,7 @@ public class InputInfoCenter : MonoBehaviour
 
     public AirTime AirTime;
     
-    public Wallrunning wallrunning;
+    public WallrunWallDetect wallrunning;
 
     [Header("Unity New Input System")]
 

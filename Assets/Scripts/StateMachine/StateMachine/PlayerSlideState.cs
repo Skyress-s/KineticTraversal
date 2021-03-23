@@ -6,16 +6,21 @@ public class PlayerSlideState : PlayerBaseState
 {
     public override void EnterState(Context player)
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void Update(Context player)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("In SlidingState");
+
+        if (!player.IIC.infoSliding.sliding)
+        {
+            player.TransitionToState(player.groundState);
+        }   
     }
 
     public override void ExitState(Context player)
     {
-        throw new System.NotImplementedException();
+
     }
 }
