@@ -47,16 +47,19 @@ public class GroundMovment_ForceVer : MonoBehaviour
         x = IIC.input.x;
         y = IIC.input.y;
 
-        if (Grounded._isgrounded)
-        {
-            if (IIC.infoSliding.sliding == true)
-            {
-                return;
-            }
+        //if (Grounded._isgrounded)
+        //{
+        //    if (IIC.infoSliding.sliding == true)
+        //    {
+        //        return;
+        //    }
 
-            Movment();
-            SpeedCap();
-        }
+        //    Movment();
+        //    SpeedCap();
+        //}
+
+        Movment();
+        SpeedCap();
 
 
     }

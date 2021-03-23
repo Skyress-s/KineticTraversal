@@ -14,7 +14,7 @@
 
 
 ## Bugs
-- [ ] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
+- [x] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
 
 ## Grapplinghook
 - [x] Physics ray collision

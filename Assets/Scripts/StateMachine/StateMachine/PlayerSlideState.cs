@@ -6,7 +6,9 @@ public class PlayerSlideState : PlayerBaseState
 {
     public override void EnterState(Context player)
     {
+        player.IIC.infoSliding.enabled = true;
 
+        player.IIC.GroundMovment.enabled = false;
     }
 
     public override void Update(Context player)
