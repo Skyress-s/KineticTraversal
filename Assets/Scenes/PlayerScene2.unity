@@ -99,11 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000002, guid: 4ee9651800c95974091853b20304172f,
     type: 2}
-<<<<<<< HEAD
   m_LightingSettings: {fileID: 0}
-=======
-  m_UseShadowmask: 0
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11611,11 +11607,7 @@ MonoBehaviour:
   disableAircontrolTime: 0.2
   disableWallrunTime: 0.5
   _WallrunWallDetect: {fileID: 6047523575731723151}
-<<<<<<< HEAD
   bufferDuration: 0.4
-=======
-  bufferDuration: 0.21
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
 --- !u!4 &6047523575731723137
 Transform:
   m_ObjectHideFlags: 0
@@ -12283,11 +12275,7 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   worldInput: {x: 0, y: 0, z: 0}
   AirTime: {fileID: 6047523575731723150}
-<<<<<<< HEAD
   WallrunDetect: {fileID: 6047523575731723151}
-=======
-  wallrunning: {fileID: 6047523575731723151}
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
   holdJump: 0
   holdSprint: 0
   holdLengthenRope: 0

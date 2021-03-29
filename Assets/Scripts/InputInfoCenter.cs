@@ -25,11 +25,7 @@ public class InputInfoCenter : MonoBehaviour
 
     public AirTime AirTime;
     
-<<<<<<< HEAD
     public WallrunWallDetect WallrunDetect;
-=======
-    public WallrunWallDetect wallrunning;
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
 
     [Header("Unity New Input System")]
 

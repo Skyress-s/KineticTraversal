@@ -187,11 +187,6 @@ public class Wallrunning : MonoBehaviour
                 Wallrun(globalHit);
                 StickToWall(globalHit);
                 TempDisableAirControl(false);
-<<<<<<< HEAD
-            //}
-=======
-            }
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
         }
         else
         {

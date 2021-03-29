@@ -45,22 +45,16 @@ public class GroundMovment_ForceVer : MonoBehaviour
         x = IIC.input.x;
         y = IIC.input.y;
 
-<<<<<<< HEAD
-        /*
-=======
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
         //if (Grounded._isgrounded)
         //{
         //    if (IIC.infoSliding.sliding == true)
         //    {
         //        return;
         //    }
-<<<<<<< HEAD
 
         //    Movment();
         //    SpeedCap();
         //}
-        */
 
         Movment();
         SpeedCap();
@@ -86,17 +80,6 @@ public class GroundMovment_ForceVer : MonoBehaviour
 
             }
         }
-=======
-
-        //    Movment();
-        //    SpeedCap();
-        //}
-
-        Movment();
-        SpeedCap();
-
-
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
     }
     void CounterMovment()
     {

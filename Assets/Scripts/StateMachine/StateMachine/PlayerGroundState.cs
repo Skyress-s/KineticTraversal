@@ -13,11 +13,7 @@ public class PlayerGroundState : PlayerBaseState
         player.IIC.GroundMovment.enabled = true;
         
         player.IIC._AirMovment.enabled = false;
-<<<<<<< HEAD
         player.IIC.WallrunDetect.enabled = false;
-=======
-        player.IIC.wallrunning.enabled = false;
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
         player.Wallrun2.enabled = false;
 
     }

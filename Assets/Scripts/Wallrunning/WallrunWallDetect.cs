@@ -17,13 +17,8 @@ public class WallrunWallDetect : MonoBehaviour
 
     public RaycastHit globalHit;
 
-<<<<<<< HEAD
     private int layermask;
 
-   
-
-=======
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
     RaycastHit WallDetectionV2(bool b)
     {
         var right = 0;
@@ -50,13 +45,7 @@ public class WallrunWallDetect : MonoBehaviour
     }
     
     public void DetectWall()
-<<<<<<< HEAD
     {   
-
-
-=======
-    {
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
         RaycastHit hit1 = WallDetectionV2(true);
         RaycastHit hit2 = WallDetectionV2(false);
 
@@ -79,7 +68,6 @@ public class WallrunWallDetect : MonoBehaviour
             wallrunning = false;
         }
 
-<<<<<<< HEAD
         //final check to se if wall i wallrunable
         if (wallrunning)
         {
@@ -97,13 +85,5 @@ public class WallrunWallDetect : MonoBehaviour
     {
         layermask = 1 << 9; // creates a bitmask, only hits playerlayer
         layermask = ~layermask; // inverses bitmask, hits everything exept playerlayer
-=======
-        
-    }
-
-    private void FixedUpdate()
-    {
-        DetectWall();
->>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
     }
 }
