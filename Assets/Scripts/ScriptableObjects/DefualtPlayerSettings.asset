@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DefualtPlayerSettings
   m_EditorClassIdentifier: 
   HasLoadedDeafualt: 1
-  sensetivity: 20
+  sensetivity: 10
   SlidingMode: 1
   CrouchKey: 99

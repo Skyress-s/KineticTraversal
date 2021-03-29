@@ -13,14 +13,18 @@ public class PlayerGroundState : PlayerBaseState
         player.IIC.GroundMovment.enabled = true;
         
         player.IIC._AirMovment.enabled = false;
+<<<<<<< HEAD
         player.IIC.WallrunDetect.enabled = false;
+=======
+        player.IIC.wallrunning.enabled = false;
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
         player.Wallrun2.enabled = false;
 
     }
 
     public override void Update(Context player)
     {
-        //Debug.Log("In GroundState");
+        Debug.Log("In GroundState");
 
         //if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
         //{

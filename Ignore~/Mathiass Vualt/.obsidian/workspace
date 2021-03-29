@@ -10,8 +10,13 @@
         "state": {
           "type": "markdown",
           "state": {
+<<<<<<< HEAD
             "file": "ChangeDirectionPortal.md",
             "mode": "source"
+=======
+            "file": "TODO Visual.md",
+            "mode": "preview"
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
           }
         }
       }
@@ -69,7 +74,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< HEAD
                 "file": "ChangeDirectionPortal.md",
+=======
+                "file": "TODO Visual.md",
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,15 +94,27 @@
     "width": 300
   },
   "lastOpenFiles": [
+<<<<<<< HEAD
     "ChangeDirectionPortal.md",
     "Untitled.md",
     "Ideas Charts.md",
     "TODO Technical.md",
     "TODO Visual.md",
+=======
+    "TODO Visual.md",
+    "TODO Technical.md",
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
     "TODO Level Design.md",
     "ScratchPad.md",
     "werid.md",
     "Tutoral Levels.md",
+<<<<<<< HEAD
     "EarlyStartWallrunGlitch.md"
+=======
+    "EarlyStartWallrunGlitch.md",
+    "Kinetic Game.md",
+    "Untitled.md",
+    "MainCharachter.md"
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
   ]
 }

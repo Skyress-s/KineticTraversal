@@ -14,7 +14,11 @@ public class PlayerWallrunState : PlayerBaseState
     public override void Update(Context player)
     {
         Debug.Log("In WallrunState");
+<<<<<<< HEAD
         if (!player.IIC.WallrunDetect.wallrunning)
+=======
+        if (!player.IIC.wallrunning.wallrunning)
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
         {
             player.TransitionToState(player.airState);
         }
@@ -22,6 +26,9 @@ public class PlayerWallrunState : PlayerBaseState
 
     public override void ExitState(Context player)
     {
+<<<<<<< HEAD
         player.Wallrun2.currentWallrunState = Wallrunning.WallrunStates.walldetect;
+=======
+>>>>>>> 2530c0655a5d19272e2570d7a60403da8165c159
     }
 }
