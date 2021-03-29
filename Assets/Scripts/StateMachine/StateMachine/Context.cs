@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Context : MonoBehaviour
 {
-    //Scripts to disable
-    #region
-    public Script1 _script1;
-    public Script2 _script2;
-    public Script3 _script3;
-    #endregion
-
+    public GameObject playerGO;
 
     public InputInfoCenter IIC;
+
+    public Wallrunning Wallrun2;
 
 
     private PlayerBaseState currentState;
@@ -21,6 +17,7 @@ public class Context : MonoBehaviour
     public readonly PlayerSlideState slideState = new PlayerSlideState();
     public readonly PlayerAirState airState = new PlayerAirState();
     public readonly PlayerWallrunState wallrunState = new PlayerWallrunState();
+    public readonly PlayerPortalState portalState = new PlayerPortalState();
 
     private void Start()
     {
@@ -43,6 +40,6 @@ public class Context : MonoBehaviour
     {
         currentState.Update(this);
 
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
 }

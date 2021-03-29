@@ -8,7 +8,7 @@ public class MovmentAnimation : MonoBehaviour
 
     public IsGrounded grounded;
 
-    public Wallrunning WallrunningScript;
+    public WallrunWallDetect wallrunDetectScript;
 
     public InputInfoCenter IIC;
     // Start is called before the first frame update
@@ -56,7 +56,7 @@ public class MovmentAnimation : MonoBehaviour
         Animator.SetBool("Jump", !grounded._isgrounded);
 
         //wallrundetection
-        Animator.SetBool("Wallrun", WallrunningScript.wallrunning);
+        Animator.SetBool("Wallrun", wallrunDetectScript.wallrunning);
         
     }
 }

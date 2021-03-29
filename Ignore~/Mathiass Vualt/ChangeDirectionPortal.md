@@ -1,0 +1,3 @@
+a object the player lands in, that they pusae in, giving the player time to look around, and the gets realsed in that direction
+- this would allow for a very sharp change in direction that requires little space
+	- Unlike the obelisk you garpple to, whitch requires a lot of space and distance to the obelisk. if the player gets to close its not enjoyable to use, teh change in direction and timing becomes too fine

@@ -58,7 +58,7 @@ public class GrapplingHookStates : MonoBehaviour
 
         
         //some layer mask magic, SEBSELEB EXPLAIN
-        layerMask = 1 << 8;
+        layerMask = 1 << 8; //creates a bitmask, hits only playerlayer
         layerMask = ~layerMask; // inverts the bitmask
 
         onEnter = true;
@@ -151,7 +151,7 @@ public class GrapplingHookStates : MonoBehaviour
         Debug.DrawRay(transform.position, rb.velocity.normalized * maxRayDistance, Color.red, 10f);
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, rb.velocity.normalized, out hit, maxRayDistance, layerMask))
+        if (Physics.Raycast(transform.position, rb.velocity.normalized, out hit, maxRayDistance, layerMask, QueryTriggerInteraction.Ignore))
         {
             
             globalHit = hit;

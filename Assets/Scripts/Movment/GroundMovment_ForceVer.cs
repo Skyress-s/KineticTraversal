@@ -41,24 +41,47 @@ public class GroundMovment_ForceVer : MonoBehaviour
         x = 0f;
         y = 0f;
 
-        //Gets the Input
-        //x = Input.GetAxisRaw("Horizontal");
-        //y = Input.GetAxisRaw("Vertical");
+        //gets the input
         x = IIC.input.x;
         y = IIC.input.y;
 
-        if (Grounded._isgrounded)
+        /*
+        //if (Grounded._isgrounded)
+        //{
+        //    if (IIC.infoSliding.sliding == true)
+        //    {
+        //        return;
+        //    }
+
+        //    Movment();
+        //    SpeedCap();
+        //}
+        */
+
+        Movment();
+        SpeedCap();
+
+        CorrectForMovingGround();
+    }
+
+    void CorrectForMovingGround()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1))
         {
-            if (IIC.infoSliding.sliding == true)
+            float d = transform.position.y - hit.point.y;
+            d = -(d - 1f);
+
+            //Debug.Log(d);
+            if (d > 0.3f)
             {
-                return;
+                var pos = transform.position;
+                pos.y += d;
+                transform.position = pos;
+                //rb.AddForce(Vector3.up * 6f, ForceMode.VelocityChange);
+
             }
-
-            Movment();
-            SpeedCap();
         }
-
-
     }
     void CounterMovment()
     {

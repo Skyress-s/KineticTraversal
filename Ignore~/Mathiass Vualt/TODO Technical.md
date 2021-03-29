@@ -12,9 +12,11 @@
 	- [ ] Space is Glide and or jump
 	- [ ] Remove Jump
 
+## AirControl
+- [ ] air jump?
 
 ## Bugs
-- [ ] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
+- [x] Sometimes the wallrunning animation repeats in air, og plyer hovers (as if wallrunning) for some time in air while losing XZ momentum
 
 ## Grapplinghook
 - [x] Physics ray collision
@@ -64,6 +66,8 @@
 - [x] Fix disabling wallrunning on start of wallrun[[EarlyStartWallrunGlitch]]
 - [x] fix bug where you can use aircontrol the moment you jump off wall
 - [ ] have a buffer phase between detectWallrun and Wallrun of 0.1seconds to improve relaiability
+- [ ] wallrun boost dosent work (line at line 272)
+- [ ] 
 
 ## Air Control
 - [x] Make airstrafing easier to do

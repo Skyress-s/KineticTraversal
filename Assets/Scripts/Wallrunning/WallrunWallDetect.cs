@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class WallrunWallDetect : MonoBehaviour
 {
+    public bool wallrunning;
+
+    public bool isRightSide;
+
     [SerializeField]
     private float rayDistance;
 
+    public ColliderTrigger CT;
+
     public GameObject CameraObj;
+
+    public RaycastHit globalHit;
+
+    private int layermask;
+
+   
 
     RaycastHit WallDetectionV2(bool b)
     {
@@ -24,7 +36,7 @@ public class WallrunWallDetect : MonoBehaviour
         
         
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, v * right, out hit, rayDistance))
+        if (Physics.Raycast(transform.position, v * right, out hit, rayDistance, layermask, QueryTriggerInteraction.Ignore))
         {
             return hit;
         }
@@ -33,9 +45,49 @@ public class WallrunWallDetect : MonoBehaviour
             return hit;
         }
     }
-    private void Update()
+    
+    public void DetectWall()
+    {   
+
+
+        RaycastHit hit1 = WallDetectionV2(true);
+        RaycastHit hit2 = WallDetectionV2(false);
+
+        if (hit1.collider != null)
+        {
+            globalHit = hit1;
+            isRightSide = true;
+            wallrunning = true;
+        }
+        else if (hit2.collider != null)
+        {
+            globalHit = hit2;
+            isRightSide = false;
+            wallrunning = true;
+        }
+        else
+        {
+            globalHit = new RaycastHit();
+            //isRightSide = false;
+            wallrunning = false;
+        }
+
+        //final check to se if wall i wallrunable
+        if (wallrunning)
+        {
+            //wallrunning = ExperimentalTags.CheckTag(globalHit.collider.gameObject, ExperimentalTags.wallrunable);
+            wallrunning = ExperimentalTags.IsWallrunable(globalHit.collider.gameObject);
+        }       
+    }
+
+    private void FixedUpdate()
     {
-        WallDetectionV2(true);
-        WallDetectionV2(false);
+        DetectWall();
+    }
+
+    private void Awake()
+    {
+        layermask = 1 << 9; // creates a bitmask, only hits playerlayer
+        layermask = ~layermask; // inverses bitmask, hits everything exept playerlayer
     }
 }

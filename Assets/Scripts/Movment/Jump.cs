@@ -65,7 +65,7 @@ public class Jump : MonoBehaviour
         {
             hoverJumpPhase = false;
         }
-        if (IIC.wallrunning.wallrunning == true) // if wallrunning disable hoverun phase
+        if (IIC.WallrunDetect.wallrunning == true) // if wallrunning disable hoverun phase
         {
             hoverJumpPhase = false;
         }
@@ -107,11 +107,17 @@ public class Jump : MonoBehaviour
     //makes a corutine that disables movment for a spit second to that the jumping works properly
     public IEnumerator DisableGroundmovment()
     {
-        var go = GetComponent<GroundMovment_ForceVer>();
-        go.enabled = false;
+        var b = GetComponent<GroundMovment_ForceVer>();
+
+        if (b.enabled == true)
+        {
+        b.enabled = false;
         yield return new WaitForSeconds(0.1f);
-        go.enabled = true;
+        b.enabled = true;
         airTime = TSO.coyoteMargin + 1f;  //sets the airtime to somthing higher than coyote margin
+
+        }
+
     }
 
     private void OnEnable()

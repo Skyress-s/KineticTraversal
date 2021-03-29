@@ -11,18 +11,17 @@ Platform
 - [x] implement Hook 3d model
 - [x] Add a textured version
 - [x] implement particles for hitting
-- [ ] implement particleeffects for firiring
+- [x] implement particleeffects for firiring
 - [ ] implement particle effects for reciving? (mabye)
 - [ ] Screen shake/anim for recining and firing
 - [x] Tilt towards grapple point
 - [x] Smoth the Tild when starting and ending
 - [ ] mabye increase/decrease FOV i relation to speed?
-- [ ] particle effeft when the grapplinghhok get knocked off
+- [x] particle effeft when the grapplinghhok get knocked off
 	- Have started work, but have to refine it
 - [ ] Screen shake/anim too?
 ## Rope
 - [ ] make it veins?
-- [ ] Particle effect for fireing, kanskje gjøre det til blader? isteden for sparks?
 - [x] implement rope V1
 - [ ] Further improvemnt? Other rope style
 

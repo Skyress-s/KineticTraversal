@@ -4,10 +4,13 @@
 	- [ ] walls
 	- [ ] more hookable objects
 		- [ ] Color code for hookable objects?
-	- [ ] Boost speed object?
-	- [ ] lever you can pull down by swinging under it?
+
 
 
 Obsticles
 - [ ] make a thing you hook, then the object moves, and the hook follows suit after the object
 - [ ] other objects to give you speed, bounce pad???
+	- [ ] Ramp Bost object
+- [ ] lever you can pull down by swinging under it?
+- [ ] Timing based Obsticles
+	- Wall that moves forwards and backwards?
