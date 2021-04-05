@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StagePack2/Lvl1/SP2_1.unity
     guid: 4a8e4de2968ed2a49af04e71f27d4767
+  - enabled: 1
+    path: Assets/Scenes/StagePack2/Lvl2/SP2_2.unity
+    guid: b8dd088759962e94fba85692eb72f274
   m_configObjects: {}

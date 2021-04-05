@@ -1728,8 +1728,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad:
-    sceneAsset: {fileID: 102900000, guid: 752ac8062c107744cada376c33844f28, type: 3}
-    scenePath: Assets/Scenes/TutorialLevels/Lvl1/Tutoral_1.unity
+    sceneAsset: {fileID: 102900000, guid: b8dd088759962e94fba85692eb72f274, type: 3}
+    scenePath: Assets/Scenes/StagePack2/Lvl2/SP2_2.unity
 --- !u!1 &531147735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1220619917
 RectTransform:
   m_ObjectHideFlags: 0
