@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasLoadedDeafualt: 1
   sensetivity: 10
-  SlidingMode: 1
+  SlidingMode: 0
   CrouchKey: 99

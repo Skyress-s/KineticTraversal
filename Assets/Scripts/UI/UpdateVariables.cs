@@ -29,9 +29,9 @@ public class UpdateVariables : MonoBehaviour
     {
         //On awake load, the current defualt settings file
         //DoUpdateVariables();
-        LoadVariablesToIngameSettingsSO();
+        //LoadVariablesToIngameSettingsSO();
         FromIngameSOToUI();
-        FromIngameSOToGame();
+        FromIngameSOToInGame();
     }
     
     /// <summary>
@@ -39,27 +39,11 @@ public class UpdateVariables : MonoBehaviour
     /// </summary>
     public void LoadVariablesToIngameSettingsSO()
     {
-        if (OnAwakeSettings.HasLoadedDeafualt == true)
-        {
-            return;
-        }
-        OnAwakeSettings.HasLoadedDeafualt = true;
+        ////games the ingamesettings load the awake settings
+        //IngameSettings.sensetivity = OnAwakeSettings.sensetivity;
+        //IngameSettings.SlidingMode = OnAwakeSettings.SlidingMode;
+        //IngameSettings.CrouchKey = OnAwakeSettings.CrouchKey;
 
-
-        //games the ingamesettings load the awake settings
-        IngameSettings.sensetivity = OnAwakeSettings.sensetivity;
-        IngameSettings.SlidingMode = OnAwakeSettings.SlidingMode;
-        IngameSettings.CrouchKey = OnAwakeSettings.CrouchKey;
-
-        ////applies them to ingame relevant places
-        //cameraLook.sensetivity = OnAwakeSettings.sensetivity;
-        //SlidingScript.currentSlidingMode = OnAwakeSettings.SlidingMode;
-        //SlidingScript.SlidingKey = (KeyCode)OnAwakeSettings.CrouchKey;
-
-        ////applies them to settings UI
-        //sensetivitySlider.value = OnAwakeSettings.sensetivity;
-        //if (OnAwakeSettings.SlidingMode == Sliding.SlidingMode.toggle) ToggleCrouch.isOn = true;
-        //else ToggleCrouch.isOn = false;
     }
     public void FromIngameSOToUI()
     {
@@ -70,7 +54,7 @@ public class UpdateVariables : MonoBehaviour
         
     }
 
-    public void FromSettingsUIToIngameSO()
+    public void FromUIToIngameSO()
     {
         IngameSettings.sensetivity = sensetivitySlider.value;
         char[] var = CrouchKeyInput.text.ToCharArray();
@@ -80,7 +64,7 @@ public class UpdateVariables : MonoBehaviour
 
     }
 
-    public void FromIngameSOToGame()
+    public void FromIngameSOToInGame()
     {
         cameraLook.sensetivity = IngameSettings.sensetivity;
         SlidingScript.SlidingKey = (KeyCode)IngameSettings.CrouchKey;

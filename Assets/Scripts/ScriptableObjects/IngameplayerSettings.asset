@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61831808a618a4143bcefa087f652e3d, type: 3}
   m_Name: IngameplayerSettings
   m_EditorClassIdentifier: 
-  HasLoadedDeafualt: 0
   sensetivity: 10
   SlidingMode: 1
   CrouchKey: 99

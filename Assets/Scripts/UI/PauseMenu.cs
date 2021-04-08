@@ -20,10 +20,6 @@ public class PauseMenu : MonoBehaviour
 
     public UpdateVariables UpdateVariablesScript;
 
-    public SceneReference test;
-
-    public Scene test2;
-
 
     private void Start()
     {
@@ -90,8 +86,8 @@ public class PauseMenu : MonoBehaviour
     public void UpdateVariables()
     {
         //UpdateVariablesScript.DoUpdateVariables();
-        UpdateVariablesScript.FromSettingsUIToIngameSO();
-        UpdateVariablesScript.FromIngameSOToGame();
+        UpdateVariablesScript.FromUIToIngameSO();
+        UpdateVariablesScript.FromIngameSOToInGame();
     }
 
     /// <summary>
@@ -102,11 +98,6 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
-    }
-
-    public void OpenLevelTest(SceneReference level)
-    {
-        
     }
 
     public void OpenLevel(int i)
