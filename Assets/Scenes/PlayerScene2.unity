@@ -1539,8 +1539,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1290774602}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: OpenPauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1290774603}
+        m_TargetAssemblyTypeName: UpdateVariables, Assembly-CSharp
+        m_MethodName: FromUIToJsonAndGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2921,6 +2933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531164288}
   - component: {fileID: 531164289}
+  - component: {fileID: 531164290}
   m_Layer: 0
   m_Name: StateMachine
   m_TagString: Untagged
@@ -2957,6 +2970,19 @@ MonoBehaviour:
   playerGO: {fileID: 6047523575731723149}
   IIC: {fileID: 6047523576148543966}
   Wallrun2: {fileID: 6047523575731723136}
+--- !u!114 &531164290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531164287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776cdd9ac32d7574a89a1c2670506dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSensetivity: 1
 --- !u!1 &531185140
 GameObject:
   m_ObjectHideFlags: 0
@@ -9225,7 +9251,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1590169514
 GameObject:
   m_ObjectHideFlags: 0

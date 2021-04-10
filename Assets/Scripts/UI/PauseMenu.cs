@@ -49,7 +49,12 @@ public class PauseMenu : MonoBehaviour
         HUDUI.SetActive(true);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        UpdateVariables();
+        UpdateVariablesScript.FromUIToJsonAndGame();
+    }
+
+    private void FromUIToJsonThenGame()
+    {
+
     }
 
     void Pause()
@@ -83,12 +88,6 @@ public class PauseMenu : MonoBehaviour
         LevelSelectUI.SetActive(true);
     }
 
-    public void UpdateVariables()
-    {
-        //UpdateVariablesScript.DoUpdateVariables();
-        UpdateVariablesScript.FromUIToIngameSO();
-        UpdateVariablesScript.FromIngameSOToInGame();
-    }
 
     /// <summary>
     /// Quits the game

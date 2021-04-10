@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class SettingsSaveData : MonoBehaviour
 
     public bool crouchToggle;
 
+    
     public string ToJson()
     {
         return JsonUtility.ToJson(this);
@@ -17,8 +19,9 @@ public class SettingsSaveData : MonoBehaviour
     public void LoadFromJson(string a_Json)
     {
         JsonUtility.FromJsonOverwrite(a_Json, this);
+        
     }
-
+    
 }
 
 public interface ISavable

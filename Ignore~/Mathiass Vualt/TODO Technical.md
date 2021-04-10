@@ -1,6 +1,10 @@
+## idea/posibiliteis
+- start using an global enum for if it should debug.log message witch state FSM is in?
+
 # Technical
 - [x] start using unity input system?
 	- [x] is it worth it to start using this?
+- [x] implement json Saving and loading
 
 ## Ground Movment
 - [x] Basic Ground Movment

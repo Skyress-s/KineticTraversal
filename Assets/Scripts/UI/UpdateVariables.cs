@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpdateVariables : MonoBehaviour
+public class UpdateVariables : MonoBehaviour, ISavable
 {
     [Header("Mouse sensetivity")]
     [Space]
@@ -27,25 +27,51 @@ public class UpdateVariables : MonoBehaviour
 
     private void Start()
     {
-        //On awake load, the current defualt settings file
-        //DoUpdateVariables();
-        //LoadVariablesToIngameSettingsSO();
-        FromIngameSOToUI();
-        FromIngameSOToInGame();
+        LoadFromJson();
+    }
+    
+    public void FromUIToJsonAndGame()
+    {
+        UIToJson();
+        LoadFromJson();
+    }
+
+
+    public void UIToJson()
+    {
+        SettingsSaveData ssd = new SettingsSaveData();
+
+        PopulateSettingsSaveData(ssd);
+
+        if (FileManager.WriteToFile("SettingsSaveData.dat", ssd.ToJson()))
+        {
+            Debug.Log("SaveCompleted!");
+        }
     }
     
     /// <summary>
-    /// Loads the variables fomr the settings on Awake file and loads it into allt relevent places
+    /// updates BOTH UI and InGame
     /// </summary>
-    public void LoadVariablesToIngameSettingsSO()
+    /// <param name="a_SettingsSaveData"></param>
+    public void LoadFromJson()
     {
-        ////games the ingamesettings load the awake settings
-        //IngameSettings.sensetivity = OnAwakeSettings.sensetivity;
-        //IngameSettings.SlidingMode = OnAwakeSettings.SlidingMode;
-        //IngameSettings.CrouchKey = OnAwakeSettings.CrouchKey;
+
+        if (FileManager.LoadFromFile("SettingsSaveData.dat", out var json))
+        {
+            SettingsSaveData ssd = new SettingsSaveData();
+            ssd.LoadFromJson(json);
+
+            LoadFromSettingsSaveData(ssd);
+            Debug.Log("Load Complete!");
+        }
 
     }
-    public void FromIngameSOToUI()
+
+   
+
+    //old Method
+    
+      public void FromIngameSOToUI()
     {
         sensetivitySlider.value = IngameSettings.sensetivity;
         CrouchKeyInput.text = IngameSettings.CrouchKey.ToString();
@@ -71,11 +97,28 @@ public class UpdateVariables : MonoBehaviour
         SlidingScript.currentSlidingMode = IngameSettings.SlidingMode;
     }
 
-    public void DoUpdateVariables()
+    public void PopulateSettingsSaveData(SettingsSaveData a_SettingsSaveData)
     {
-        cameraLook.sensetivity = IngameSettings.sensetivity;
-        SlidingScript.currentSlidingMode = IngameSettings.SlidingMode;
-        SlidingScript.SlidingKey = (KeyCode)IngameSettings.CrouchKey;
+        a_SettingsSaveData.mouseSensetivity = sensetivitySlider.value;
 
+        a_SettingsSaveData.crouchToggle = ToggleCrouch.isOn;
+    }
+
+
+    /// <summary>
+    /// updates BOTH in game settings AND UI
+    /// </summary>
+    /// <param name="a_SettingsSaveData"></param>
+    public void LoadFromSettingsSaveData(SettingsSaveData a_SettingsSaveData)
+    {
+        //mouse sensetivity
+        sensetivitySlider.value = a_SettingsSaveData.mouseSensetivity;
+        cameraLook.sensetivity = a_SettingsSaveData.mouseSensetivity;
+
+        //crouch toggle
+        ToggleCrouch.isOn = a_SettingsSaveData.crouchToggle;
+        if (a_SettingsSaveData.crouchToggle) SlidingScript.currentSlidingMode = Sliding.SlidingMode.toggle;
+        else SlidingScript.currentSlidingMode = Sliding.SlidingMode.hold;
+        
     }
 }
