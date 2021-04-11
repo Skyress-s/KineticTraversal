@@ -94,6 +94,7 @@ public class Sliding : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //chagne dir while sliding functionaility
         if (sliding && IIC.input.sqrMagnitude > 0.1f)
         {
             //Debug.Log("activated");

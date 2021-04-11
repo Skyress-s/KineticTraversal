@@ -33,16 +33,16 @@
 - [x] Maxdistance
 - [x] cant refil meter in air
 - [ ] hook is hooked to far from object sometimes
+- [ ] short rope meter is reset when reatching to high velocity
 
 
 ## Scriptableobjects
-- Make all variables use it?
-- Make only the infocenter use it?
 
 ## Sliding
 - [x] temperairy sliding
 - [ ] make sliding more refined
 - [ ] Better animation
+- [ ] loses momentum while landing
 - [x] Crouncing while in air
 - [x] toggle sliding
 - [x] use CTRL to slide
@@ -54,8 +54,8 @@
 - [ ] Cant Set CTRL to a Key
 	- [ ] crouch/sliding key
 		- [ ] Toggle sliding
-- [ ] Menu Selecting levels
-- [ ] Save SettingsBetween Levels (Scripable Object?)
+- [x] Menu Selecting levels
+- [x] Save SettingsBetween Levels (Scripable Object?)
 
 ## Wallrunning
 - [x] Wallrunning
@@ -84,6 +84,9 @@
 - [ ] Too much control in air
 - [ ] Disable while grappled/reduced?
 - [x] Float for airbrake func
+
+## Poratal
+- [ ] on level 14 if you jump from protal 1 to 3 you wall thorugh
 
 ## Weapons
 - [x] Small delay when rotating weapons

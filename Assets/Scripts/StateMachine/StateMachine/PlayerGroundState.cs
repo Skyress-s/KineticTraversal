@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerGroundState : PlayerBaseState
 {
+    
     public override void EnterState(Context player)
     {
         //Debug.Log("Entering Groundstate...");
@@ -20,7 +21,9 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void Update(Context player)
     {
-        Debug.Log("In GroundState");
+        //Debug.Log("In GroundState");
+
+        
 
         //if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
         //{

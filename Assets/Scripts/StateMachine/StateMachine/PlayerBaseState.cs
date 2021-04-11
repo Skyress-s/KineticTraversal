@@ -8,4 +8,5 @@ public abstract class PlayerBaseState
     public abstract void Update(Context player);
 
     public abstract void ExitState(Context player);
+
 }

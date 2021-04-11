@@ -29,10 +29,12 @@ public class PlayerAirState : PlayerBaseState
             player.TransitionToState(player.groundState);
         }
 
+
         if (player.IIC.WallrunDetect.wallrunning)
         {
             player.TransitionToState(player.wallrunState);
         }
+
 
         if (PortalMain.staticIsTriggerd && t > 0.3f)
         {
