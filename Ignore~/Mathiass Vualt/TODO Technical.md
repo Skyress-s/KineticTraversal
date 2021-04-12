@@ -33,7 +33,8 @@
 - [x] Maxdistance
 - [x] cant refil meter in air
 - [ ] hook is hooked to far from object sometimes
-- [ ] short rope meter is reset when reatching to high velocity
+- [x] short rope meter is reset when reatching to high velocity
+	- [x] the problem was that player was not set to playerlayer
 
 
 ## Scriptableobjects

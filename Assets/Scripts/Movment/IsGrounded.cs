@@ -26,6 +26,7 @@ public class IsGrounded : MonoBehaviour
         if (Physics.Raycast(transform.position, -transform.up, out hit, maxRayDistance, layermask, QueryTriggerInteraction.Ignore))
         {
             _isgrounded = true;
+            //Debug.Log(hit.collider.gameObject.name);
         }
         else
         {

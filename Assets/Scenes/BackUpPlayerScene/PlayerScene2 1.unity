@@ -5432,7 +5432,7 @@ GameObject:
   - component: {fileID: 947456979}
   - component: {fileID: 947456978}
   - component: {fileID: 947456977}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: WallrunTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17784,7 +17784,7 @@ GameObject:
   - component: {fileID: 6047523575731723256}
   - component: {fileID: 6047523575731723263}
   - component: {fileID: 6047523575731723151}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
