@@ -1,5 +1,7 @@
 ## idea/posibiliteis
 - start using an global enum for if it should debug.log message witch state FSM is in?
+- Newton soft?
+	- Json.net
 
 # Technical
 - [x] start using unity input system?
@@ -72,6 +74,7 @@
 - [x] fix bug where you can use aircontrol the moment you jump off wall
 - [ ] have a buffer phase between detectWallrun and Wallrun of 0.1seconds to improve relaiability
 - [ ] wallrun boost dosent work (line at line 272)
+- [ ] sometimes wallruns sometimes not, (right at max speed?)
 - [ ] 
 
 ## Air Control
@@ -88,6 +91,7 @@
 
 ## Poratal
 - [ ] on level 14 if you jump from protal 1 to 3 you wall thorugh
+- [ ] hook -> rest state when entering
 
 ## Weapons
 - [x] Small delay when rotating weapons

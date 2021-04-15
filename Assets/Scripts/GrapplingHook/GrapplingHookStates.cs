@@ -210,7 +210,7 @@ public class GrapplingHookStates : MonoBehaviour
     }
 
     private float retruningLerp;
-    void ReturningMiddleStep()
+    public void ReturningMiddleStep()
     {
         //defines the distance between hook and player for returning calcs
         d = Vector3.Distance(handPos.position, transform.position);

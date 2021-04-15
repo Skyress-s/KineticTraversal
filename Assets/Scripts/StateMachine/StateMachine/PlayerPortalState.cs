@@ -17,6 +17,10 @@ public class PlayerPortalState : PlayerBaseState
         rb = player.playerGO.GetComponent<Rigidbody>();
         onEnterVeclocity = rb.velocity;
         Debug.Log(onEnterVeclocity);
+
+        if (player.IIC.grapplingHookStates.currentState == GrapplingHookStates.GHStates.rest) { }
+        else player.IIC.grapplingHookStates.ReturningMiddleStep();
+    
     }
 
     public override void Update(Context player)

@@ -12,5 +12,7 @@ Obsticles
 - [ ] other objects to give you speed, bounce pad???
 	- [ ] Ramp Bost object
 - [ ] lever you can pull down by swinging under it?
-- [ ] Timing based Obsticles
+- [x] Timing based Obsticles
 	- Wall that moves forwards and backwards?
+
+- [ ] special ramp that conserves a lot of speed when you lang with vertical speed?

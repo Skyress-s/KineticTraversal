@@ -10,7 +10,7 @@
           "type": "markdown",
           "state": {
             "file": "TODO Technical.md",
-            "mode": "preview"
+            "mode": "source"
           }
         }
       }
@@ -88,6 +88,8 @@
   },
   "active": "409e35a9cd962583",
   "lastOpenFiles": [
-    "TODO Technical.md"
+    "TODO Technical.md",
+    "TODO Level Design.md",
+    "GameplayDesign.md"
   ]
 }
