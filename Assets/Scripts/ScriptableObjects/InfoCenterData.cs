@@ -8,9 +8,4 @@ public class InfoCenterData : ScriptableObject
     public bool Isgrounded;
 
     public float speed;
-
-
-    void Update()
-    {
-    }
 }

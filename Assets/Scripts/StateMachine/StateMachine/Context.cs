@@ -10,6 +10,9 @@ public class Context : MonoBehaviour
 
     public Wallrunning Wallrun2;
 
+    public static PortalMain connectedPortal;
+
+    public bool debugState;
 
     private PlayerBaseState currentState;
 
@@ -39,7 +42,7 @@ public class Context : MonoBehaviour
     private void Update()
     {
         currentState.Update(this);
-
+        currentState.DebugState(this);
         //Debug.Log(currentState);
     }
 }

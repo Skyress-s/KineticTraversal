@@ -9,4 +9,6 @@ public abstract class PlayerBaseState
 
     public abstract void ExitState(Context player);
 
+    public abstract void DebugState(Context player);
+
 }

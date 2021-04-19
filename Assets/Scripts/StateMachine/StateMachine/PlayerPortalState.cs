@@ -8,6 +8,7 @@ public class PlayerPortalState : PlayerBaseState
 {
     private Rigidbody rb;
     public Vector3 onEnterVeclocity;
+
     public override void EnterState(Context player)
     {
         player.IIC._AirMovment.enabled = false;
@@ -25,13 +26,23 @@ public class PlayerPortalState : PlayerBaseState
 
     public override void Update(Context player)
     {
+        //aligs player to center of portal
         player.playerGO.transform.position = PortalMain.centerOfPortal;
+        //resets velocity
+        rb.velocity = Vector3.zero;
+
         if (player.IIC.controls.Player.Jump.triggered || player.IIC.controls.Player.Shoot.triggered)
         {
             //what to do when player is ready to travel further
+            //
+            Context.connectedPortal.currentState = PortalMain.State.dorment;
+            Context.connectedPortal.isTriggerd = false;
+            PortalMain.staticIsTriggerd = false;
+
             var exitVelocity = Camera.main.transform.forward * onEnterVeclocity.magnitude;
             rb.velocity = exitVelocity;
             player.TransitionToState(player.airState);
+
         }
     }
 
@@ -39,4 +50,10 @@ public class PlayerPortalState : PlayerBaseState
     {
         onEnterVeclocity = Vector3.zero;
     }
+
+    public override void DebugState(Context player)
+    {
+        if (player.debugState) Debug.Log(this);
+    }
+
 }

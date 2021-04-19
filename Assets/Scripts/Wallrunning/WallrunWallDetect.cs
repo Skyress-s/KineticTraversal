@@ -19,6 +19,11 @@ public class WallrunWallDetect : MonoBehaviour
 
     private int layermask;
 
+    private void Awake()
+    {
+        layermask = 1 << 9; // creates a bitmask, only hits playerlayer
+        layermask = ~layermask; // inverses bitmask, hits everything exept playerlayer
+    }
     RaycastHit WallDetectionV2(bool b)
     {
         var right = 0;
@@ -71,7 +76,6 @@ public class WallrunWallDetect : MonoBehaviour
         //final check to se if wall i wallrunable
         if (wallrunning)
         {
-            //wallrunning = ExperimentalTags.CheckTag(globalHit.collider.gameObject, ExperimentalTags.wallrunable);
             wallrunning = ExperimentalTags.IsWallrunable(globalHit.collider.gameObject);
         }       
     }
@@ -81,9 +85,4 @@ public class WallrunWallDetect : MonoBehaviour
         DetectWall();
     }
 
-    private void Awake()
-    {
-        layermask = 1 << 9; // creates a bitmask, only hits playerlayer
-        layermask = ~layermask; // inverses bitmask, hits everything exept playerlayer
-    }
 }

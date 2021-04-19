@@ -75,7 +75,12 @@
 - [ ] have a buffer phase between detectWallrun and Wallrun of 0.1seconds to improve relaiability
 - [ ] wallrun boost dosent work (line at line 272)
 - [ ] sometimes wallruns sometimes not, (right at max speed?)
-- [ ] 
+- [ ] somes wallrunbecomes way to fast
+- [ ] REFACTOR wallrunning so its more understandeble and concistent
+- [ ] (Idea) mabye make conserve momentum
+- [ ] (idea)If you press back, slow down
+
+
 
 ## Air Control
 - [x] Make airstrafing easier to do

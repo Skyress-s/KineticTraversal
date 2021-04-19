@@ -253,7 +253,9 @@ MonoBehaviour:
   - {fileID: 1463720976458476350}
   currentState: 0
   onPlayRotation: {x: 0, y: 0, z: 0, w: 0}
-  cooldown: 3
+  t: 0
+  cooldown: 1
+  player: {fileID: 0}
 --- !u!64 &1089624724753116973
 MeshCollider:
   m_ObjectHideFlags: 0

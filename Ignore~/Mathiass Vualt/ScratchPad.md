@@ -23,3 +23,4 @@ glatt bakke
 - Mindre airControl når man grapplinghooker?
 - lage tunnel
 
+Code hierarki, ikke masse peke fream og tilbake

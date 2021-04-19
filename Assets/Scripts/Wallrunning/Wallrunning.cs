@@ -11,18 +11,20 @@ public class Wallrunning : MonoBehaviour
     private Rigidbody rb;
 
     public float lerpYForce;
-
-    private int sideDeterming; // 1 is right and -1 is left
     
     //for xz portion
-    public float speedBoostCap;
+    [Header("Horizontal speed")]
+    public float MaxSpeed;
 
-    public float BoostAcceleration;
-
+    public float speedBoost;
 
     //jump portion
-    public float jumpForce, jumpUpwardsForce, minimumSpeed;
+    [Header("Jump")]
+    public float jumpForce;
+    public float jumpUpwardsForce; 
+    public float minimumSpeed;
 
+    [Space]
     public bool wallrunning;
 
     public RaycastHit globalHit;
@@ -158,20 +160,11 @@ public class Wallrunning : MonoBehaviour
         Wallrun(globalHit);
         StickToWall(globalHit);
         TempDisableAirControl(false);
-
-
     }
 
     void WallrunState()
     {
-        //// if player is on the ground, do not wallrun, and return to walldetect
-        //if (IIC.grounded._isgrounded)
-        //{
-        //    currentWallrunState = WallrunStates.cooldown;
-        //    detachTime = Time.time;
-        //    return;
-        //}
-
+        
         //shoots out a new ray -> in hit.normal dir to check i close enough to wall
         var hit = new RaycastHit();
         if (Physics.Raycast(transform.position, -globalHit.normal, out hit, rayD) || ct.isTriggerd == true)
@@ -179,14 +172,10 @@ public class Wallrunning : MonoBehaviour
             //the object it hits is the new global hit
             globalHit = hit;
 
-            //if speed is to low, do not wallrun
-            var heyAgusta = rb.velocity;
-            heyAgusta.y = 0f;
-            //if (heyAgusta.magnitude > minimumSpeed) // what todo if wallrun requierments are met
-            //{
-                Wallrun(globalHit);
-                StickToWall(globalHit);
-                TempDisableAirControl(false);
+            WallrunBoost();
+            Wallrun(globalHit);
+            StickToWall(globalHit);
+            TempDisableAirControl(false);
         }
         else
         {
@@ -249,25 +238,25 @@ public class Wallrunning : MonoBehaviour
 
         lerpYForce = Mathf.Clamp(lerpYForce, 0f, 1f);
 
-
         //cancels out the -y velocity
         var v = rb.velocity.y;
         if (v > 0) v = 0f;
 
         rb.AddForce(new Vector3(0, -v * lerpYForce, 0), ForceMode.VelocityChange);
 
-        //the xz portion of the code
-        Vector3 vAlongWall = Vector3.Cross(Vector3.up, hit.normal);
+    }
+
+    void WallrunBoost()
+    {
+        //boost the player
+        Vector3 vAlongWall = Vector3.Cross(Vector3.up, globalHit.normal);
         vAlongWall = vAlongWall.normalized * DetermineSide();
 
-
-        Debug.DrawRay(transform.position, vAlongWall * 6, Color.black, Time.fixedDeltaTime);
-        if (rb.velocity.magnitude < speedBoostCap)
+        Debug.DrawRay(transform.position, vAlongWall * 6f , Color.black, Time.fixedDeltaTime);
+        if (rb.velocity.magnitude < MaxSpeed)
         {
-            rb.AddForce(vAlongWall * BoostAcceleration, ForceMode.VelocityChange);
+            rb.AddForce(vAlongWall * speedBoost, ForceMode.VelocityChange);
         }
-
-        //Debug.DrawRay(transform.position, vAlongWall * 100f, Color.grey, Time.deltaTime);
 
     }
 

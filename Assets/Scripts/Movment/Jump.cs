@@ -19,6 +19,12 @@ public class Jump : MonoBehaviour
     private float airTime;
 
     public InputInfoCenter IIC;
+
+   
+    [Header("Values")]
+    public float jumpForce;
+    public float holdJumpForce;
+    public float coyoteMargin;
     // Start is called before the first frame update
     void Awake()
     {
@@ -47,7 +53,7 @@ public class Jump : MonoBehaviour
             //DoJump();
         }
 
-    }
+}
 
     private void FixedUpdate()
     {
@@ -69,15 +75,8 @@ public class Jump : MonoBehaviour
         {
             hoverJumpPhase = false;
         }
-
-
-        /*//pulls the player down when its goin' down
-        if (rb.velocity.y < 0)
-        {
-            rb.AddForce(new Vector3(0, -downwardsForce, 0), ForceMode.VelocityChange);
-        }*/
-        
     }
+
 
     //jump func
     void DoJump()
@@ -95,13 +94,13 @@ public class Jump : MonoBehaviour
             rb.velocity = v;
         }
 
-        StartCoroutine(DisableGroundmovment()); //activates the disable groundmovment so it dosent mess with the speed while jump
+        //StartCoroutine(DisableGroundmovment()); //activates the disable groundmovment so it dosent mess with the speed while jump
                                     
         //activates the hoverjump phase
         hoverJumpPhase = true;
 
         //sets the airtime to somthing higher than coyoteMargin
-        airTime = TSO.coyoteMargin + 1f;
+        airTime = coyoteMargin + 1f;
     }
 
     //makes a corutine that disables movment for a spit second to that the jumping works properly
@@ -114,7 +113,7 @@ public class Jump : MonoBehaviour
         b.enabled = false;
         yield return new WaitForSeconds(0.1f);
         b.enabled = true;
-        airTime = TSO.coyoteMargin + 1f;  //sets the airtime to somthing higher than coyote margin
+        airTime = coyoteMargin + 1f;  //sets the airtime to somthing higher than coyote margin
 
         }
 

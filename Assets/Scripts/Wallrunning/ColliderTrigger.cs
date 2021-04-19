@@ -17,6 +17,8 @@ public class ColliderTrigger : MonoBehaviour
     {
         isTriggerd = true;
     }
+
+    
     private void OnTriggerExit(Collider other)
     {
         isTriggerd = false;

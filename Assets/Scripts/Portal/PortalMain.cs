@@ -14,26 +14,37 @@ public class PortalMain : MonoBehaviour
 
     private Transform cameraT;
 
-    private enum State {dorment, active, inactive}
+    public enum State {active, dorment, reset, inactive}
 
-    [SerializeField]
-    private State currentState;
+    public State currentState;
 
     public Quaternion onPlayRotation;
 
+    [SerializeField]
     private float t;
 
     public float cooldown;
+
+    [SerializeField]
+    private GameObject player;
+
 
     private void Update()
     {
         switch (currentState)
         {
+            case State.active:
+                ActiveState();
+                if (CheckVelocityBiggerThanOne())
+                {
+                    //currentState = State.dorment;
+                }
+                break;
             case State.dorment:
                 DormantState();
                 break;
-            case State.active:
-                ActiveState();
+            case State.reset:
+                Reset();
                 break;
             case State.inactive:
                 InactiveState();
@@ -75,6 +86,27 @@ public class PortalMain : MonoBehaviour
     
     private void DormantState()
     {
+        /*ResetRotPos(0, 5f, 10f);
+        ResetRotPos(1, 4f, 7f);
+        ResetRotPos(2, 3f, 5f);
+
+        Debug.Log("Dormant");
+        void ResetRotPos(int i, float rotLerp, float posLerp)
+        {
+            PortalGO[i].transform.rotation = Quaternion.Slerp(PortalGO[i].transform.rotation, onPlayRotation, rotLerp * Time.deltaTime);
+            PortalGO[i].transform.localPosition = Vector3.Lerp(PortalGO[i].transform.localPosition, Vector3.zero, posLerp * Time.deltaTime);
+        }*/
+
+        t += Time.deltaTime;
+
+        if (t > cooldown) //time to wait before jumping to inactive state
+        {
+            currentState = State.reset;
+        }
+    }
+
+    private void Reset()
+    {
         ResetRotPos(0, 5f, 10f);
         ResetRotPos(1, 4f, 7f);
         ResetRotPos(2, 3f, 5f);
@@ -88,13 +120,13 @@ public class PortalMain : MonoBehaviour
 
         t += Time.deltaTime;
 
-        if (t > cooldown) //time to wait before jumping to inactive state
+        if (t > cooldown + 1.4f)
         {
             t = 0f;
             currentState = State.inactive;
         }
+
     }
-    
     private void InactiveState()
     {
         //Do nothing, is inactive
@@ -105,14 +137,29 @@ public class PortalMain : MonoBehaviour
         currentState = State.inactive;
         cameraT = Camera.main.transform;
         onPlayRotation = PortalGO[0].transform.rotation;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     private void OnTriggerEnter(Collider other)
     {
+        //Debug.Log(other.gameObject.name);
+        if (other.gameObject.tag != "Player") return;
+        else Debug.Log(true);
+        Debug.Log("Continue");
         if (currentState != State.inactive) return; 
         OnEnter();
         isTriggerd = true;
         staticIsTriggerd = true;
+        
     }
+
+    private void OnEnter()
+    {
+        DisableEnablePortalColliders(false);
+        centerOfPortal = transform.position;
+        Context.connectedPortal = this;
+        currentState = State.active;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         OnExit();
@@ -120,20 +167,21 @@ public class PortalMain : MonoBehaviour
         staticIsTriggerd = false;
     }
 
-    private void OnEnter()
-    {
-        DisableEnablePortalColliders(false);
-        centerOfPortal = transform.position;
-        if (currentState == State.inactive)
-        {
-            currentState = State.active;
-        }
-    }
-
     private void OnExit()
     {
+        //Context.connectedPortal = null;
         DisableEnablePortalColliders(true);
         currentState = State.dorment;
+    }
+
+
+    private bool CheckVelocityBiggerThanOne()
+    {
+        var v = player.GetComponent<Rigidbody>().velocity.sqrMagnitude;
+
+        var c = v > 1f;
+        Debug.Log(c + "yeah");
+        return c;
     }
 
 /// <summary>

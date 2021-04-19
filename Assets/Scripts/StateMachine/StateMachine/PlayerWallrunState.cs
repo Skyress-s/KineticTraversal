@@ -13,7 +13,6 @@ public class PlayerWallrunState : PlayerBaseState
 
     public override void Update(Context player)
     {
-        Debug.Log("In WallrunState");
         if (!player.IIC.WallrunDetect.wallrunning)
         {
             player.TransitionToState(player.airState);
@@ -23,5 +22,10 @@ public class PlayerWallrunState : PlayerBaseState
     public override void ExitState(Context player)
     {
         player.Wallrun2.currentWallrunState = Wallrunning.WallrunStates.walldetect;
+    }
+
+    public override void DebugState(Context player)
+    {
+        if (player.debugState) Debug.Log(this);
     }
 }

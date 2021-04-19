@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 4ee9651800c95974091853b20304172f,
+  m_LightingDataAsset: {fileID: 112000002, guid: 4194892e358b7e142bbd5f0ed27d938d,
     type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
@@ -11333,7 +11333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939275130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -17572,7 +17572,7 @@ GameObject:
   - component: {fileID: 6047523575630836285}
   - component: {fileID: 6047523575630836286}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: PostProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17624,8 +17624,8 @@ MonoBehaviour:
   rayD: 1.3
   Camera: {fileID: 6047523575592440558}
   lerpYForce: 0
-  speedBoostCap: 15
-  BoostAcceleration: 0.2
+  MaxSpeed: 50
+  speedBoost: 0.2
   jumpForce: 11
   jumpUpwardsForce: 12
   minimumSpeed: 4
@@ -17637,7 +17637,7 @@ MonoBehaviour:
   disableAircontrolTime: 0.2
   disableWallrunTime: 0.5
   _WallrunWallDetect: {fileID: 6047523575731723151}
-  bufferDuration: 0.4
+  bufferDuration: 0
 --- !u!4 &6047523575731723137
 Transform:
   m_ObjectHideFlags: 0
@@ -17731,6 +17731,9 @@ MonoBehaviour:
   TSO: {fileID: 11400000, guid: 7196298942d7a7d4ca2eacc7cdcb32a3, type: 2}
   hoverJumpPhase: 0
   IIC: {fileID: 6047523576148543966}
+  jumpForce: 0
+  holdJumpForce: 0
+  coyoteMargin: 2
 --- !u!54 &6047523575731723143
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17786,7 +17789,7 @@ GameObject:
   - component: {fileID: 6047523575731723151}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

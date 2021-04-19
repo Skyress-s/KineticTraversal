@@ -21,10 +21,6 @@ public class PlayerGroundState : PlayerBaseState
 
     public override void Update(Context player)
     {
-        //Debug.Log("In GroundState");
-
-        
-
         //if (InputSystem.GetDevice<Keyboard>().spaceKey.wasPressedThisFrame)
         //{
         //    player.TransitionToState(player.airState);
@@ -36,7 +32,7 @@ public class PlayerGroundState : PlayerBaseState
             player.TransitionToState(player.slideState);
         }
 
-        if (player.IIC.AirTime.b_airTime || player.IIC.holdJump)
+        if (player.IIC.AirTime.b_airTime /*|| player.IIC.holdJump*/)
         {
             player.TransitionToState(player.airState);
             
@@ -47,4 +43,10 @@ public class PlayerGroundState : PlayerBaseState
     {
         //Debug.Log("Exiting Ground State");
     }
+
+    public override void DebugState(Context player)
+    {
+        if (player.debugState) Debug.Log(this);
+    }
+
 }

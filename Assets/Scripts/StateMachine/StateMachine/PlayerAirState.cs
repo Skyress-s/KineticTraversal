@@ -22,7 +22,10 @@ public class PlayerAirState : PlayerBaseState
 
     public override void Update(Context player)
     {
-        //Debug.Log("In AirStatee");
+        //player.IIC.GroundMovment.enabled = false;
+
+
+        //Debug.Log("In AirState");
         t += Time.deltaTime;
         if (!player.IIC.AirTime.b_airTime && t > 0.2f)
         {
@@ -47,5 +50,10 @@ public class PlayerAirState : PlayerBaseState
     {
         //Debug.Log("Exiting Air State");
         //player._script2.enabled = false;
+    }
+
+    public override void DebugState(Context player)
+    {
+        if (player.debugState) Debug.Log(this);
     }
 }
