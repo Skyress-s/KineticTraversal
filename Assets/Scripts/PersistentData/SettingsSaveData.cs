@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SettingsSaveData : MonoBehaviour
+public class SettingsSaveData
 {
     public float mouseSensetivity;
 

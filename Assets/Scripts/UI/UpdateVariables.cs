@@ -68,35 +68,7 @@ public class UpdateVariables : MonoBehaviour, ISavable
     }
 
    
-
-    //old Method
-    
-      public void FromIngameSOToUI()
-    {
-        sensetivitySlider.value = IngameSettings.sensetivity;
-        CrouchKeyInput.text = IngameSettings.CrouchKey.ToString();
-        if (IngameSettings.SlidingMode == Sliding.SlidingMode.hold) ToggleCrouch.isOn = false;
-        else ToggleCrouch.isOn = true;
-        
-    }
-
-    public void FromUIToIngameSO()
-    {
-        IngameSettings.sensetivity = sensetivitySlider.value;
-        char[] var = CrouchKeyInput.text.ToCharArray();
-        IngameSettings.CrouchKey = var[0];
-        if (ToggleCrouch.isOn) IngameSettings.SlidingMode = Sliding.SlidingMode.toggle;
-        else IngameSettings.SlidingMode = Sliding.SlidingMode.hold;
-
-    }
-
-    public void FromIngameSOToInGame()
-    {
-        cameraLook.sensetivity = IngameSettings.sensetivity;
-        SlidingScript.SlidingKey = (KeyCode)IngameSettings.CrouchKey;
-        SlidingScript.currentSlidingMode = IngameSettings.SlidingMode;
-    }
-
+  
     public void PopulateSettingsSaveData(SettingsSaveData a_SettingsSaveData)
     {
         a_SettingsSaveData.mouseSensetivity = sensetivitySlider.value;

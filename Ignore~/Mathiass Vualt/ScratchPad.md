@@ -24,3 +24,11 @@ glatt bakke
 - lage tunnel
 
 Code hierarki, ikke masse peke fream og tilbake
+
+## Bernt
+kanskje ta mer vare på momentum når du langer og/eller wallrunner
+Tydligere hva som kan blir grapplet
+Indikere sliding steder og bedre tutorial for det
+Lever Editor
+TestBane
+Bernt likte bane 10 best, den va rogså den vasnskligste for han, men mestring følelsen var veldig stor

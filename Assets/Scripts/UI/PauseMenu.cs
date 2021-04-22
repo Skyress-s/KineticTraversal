@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -20,10 +21,23 @@ public class PauseMenu : MonoBehaviour
 
     public UpdateVariables UpdateVariablesScript;
 
+    public TMP_Text CurrentLevelObject;
+
 
     private void Start()
     {
         gameIsPaused = false;
+
+
+        SetCurrentLevelUI();
+
+
+        void SetCurrentLevelUI()
+        {
+            CurrentLevelObject.text = CurrentLevelIndicator.currentLevel;
+            Debug.Log(CurrentLevelIndicator.currentLevel);
+        }
+
     }
     void Update()
     {
@@ -52,11 +66,6 @@ public class PauseMenu : MonoBehaviour
         UpdateVariablesScript.FromUIToJsonAndGame();
     }
 
-    private void FromUIToJsonThenGame()
-    {
-
-    }
-
     void Pause()
     {
         FreeMouse();
@@ -64,7 +73,7 @@ public class PauseMenu : MonoBehaviour
         HUDUI.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
-    }
+            }
 
     public void OpenSettings()
     {

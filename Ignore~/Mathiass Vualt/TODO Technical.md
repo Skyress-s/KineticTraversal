@@ -7,6 +7,7 @@
 - [x] start using unity input system?
 	- [x] is it worth it to start using this?
 - [x] implement json Saving and loading
+- [ ] implement load next Level and current level indicator
 
 ## Ground Movment
 - [x] Basic Ground Movment
