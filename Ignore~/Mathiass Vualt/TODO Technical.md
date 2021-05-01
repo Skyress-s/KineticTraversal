@@ -18,6 +18,7 @@
 - [ ] Test Sebastians [[ScratchPad]] ideas
 	- [ ] Space is Glide and or jump
 	- [ ] Remove Jump
+- [ ] when lading deceleration feels slippy by playtesters
 
 ## AirControl
 - [ ] air jump?
