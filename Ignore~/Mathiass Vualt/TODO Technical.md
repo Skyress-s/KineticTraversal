@@ -19,6 +19,7 @@
 	- [ ] Space is Glide and or jump
 	- [ ] Remove Jump
 - [ ] when lading deceleration feels slippy by playtesters
+	- [ ] When SeppedCap is set to 10 instead of one, movemnt becomes wacky, implement/rework code so its more consistent and less slippery
 
 ## AirControl
 - [ ] air jump?

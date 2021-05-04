@@ -59,7 +59,8 @@ public class GroundMovment_ForceVer : MonoBehaviour
         Movment();
         SpeedCap();
 
-        CorrectForMovingGround();
+        //CorrectForMovingGround();
+
     }
 
     void CorrectForMovingGround()
@@ -102,6 +103,7 @@ public class GroundMovment_ForceVer : MonoBehaviour
         if (v.magnitude > maxSpeedStored)
         {
             rb.AddForce(-v.normalized * speedCapIntensity, ForceMode.VelocityChange);
+            Debug.Log("SpeedCap!");
         }
     }
 
