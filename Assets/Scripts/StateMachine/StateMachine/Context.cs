@@ -22,8 +22,14 @@ public class Context : MonoBehaviour
     public readonly PlayerWallrunState wallrunState = new PlayerWallrunState();
     public readonly PlayerPortalState portalState = new PlayerPortalState();
 
+    [Header("State Stack")]
+    public string[] stateStack;
+
     private void Start()
     {
+        stateStack = new string[10];
+
+        //initialize the fist state
         SetInitalState(groundState);
         void SetInitalState(PlayerBaseState state)
         {
@@ -36,6 +42,36 @@ public class Context : MonoBehaviour
     {
         currentState.ExitState(this);
         currentState = state;
+        //
+
+        void AddToStack()
+        {
+
+        int ssl = stateStack.Length; //just the length of the stack
+        for (int i = 0; i < stateStack.Length; i++)
+        {
+            if (i < ssl-1)
+            {
+                stateStack[ssl - i - 1] = stateStack[ssl - i - 2];
+            }
+            else
+            {
+                stateStack[0] = currentState.ToString();
+            }
+        }
+
+        // compiling it to a string
+        string compiled = "";
+        for (int i = 0; i < stateStack.Length; i++)
+        {
+            compiled += ", " + stateStack[i];
+        }
+        //Debug.Log(compiled);
+        //
+        }
+
+        AddToStack();
+
         currentState.EnterState(this);
     }
 

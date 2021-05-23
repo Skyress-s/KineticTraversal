@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,6 @@ public class PortalMain : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
-
     private void Update()
     {
         switch (currentState)
@@ -44,7 +44,7 @@ public class PortalMain : MonoBehaviour
                 DormantState();
                 break;
             case State.reset:
-                Reset();
+                PortalReset();
                 break;
             case State.inactive:
                 InactiveState();
@@ -55,7 +55,7 @@ public class PortalMain : MonoBehaviour
     private void ActiveState()
     {
 
-        var newrot = Quaternion.LookRotation(-cameraT.forward, -Vector3.up);
+        var newrot = Quaternion.LookRotation(cameraT.forward, Vector3.up);
 
         //PortalGO[0].transform.rotation = Quaternion.Slerp(PortalGO[0].transform.rotation, newrot, Time.deltaTime * 2f);
         GetNewRot(0, 2f);
@@ -86,17 +86,6 @@ public class PortalMain : MonoBehaviour
     
     private void DormantState()
     {
-        /*ResetRotPos(0, 5f, 10f);
-        ResetRotPos(1, 4f, 7f);
-        ResetRotPos(2, 3f, 5f);
-
-        Debug.Log("Dormant");
-        void ResetRotPos(int i, float rotLerp, float posLerp)
-        {
-            PortalGO[i].transform.rotation = Quaternion.Slerp(PortalGO[i].transform.rotation, onPlayRotation, rotLerp * Time.deltaTime);
-            PortalGO[i].transform.localPosition = Vector3.Lerp(PortalGO[i].transform.localPosition, Vector3.zero, posLerp * Time.deltaTime);
-        }*/
-
         t += Time.deltaTime;
 
         if (t > cooldown) //time to wait before jumping to inactive state
@@ -105,13 +94,13 @@ public class PortalMain : MonoBehaviour
         }
     }
 
-    private void Reset()
+    private void PortalReset()
     {
         ResetRotPos(0, 5f, 10f);
         ResetRotPos(1, 4f, 7f);
         ResetRotPos(2, 3f, 5f);
 
-        Debug.Log("Dormant");
+        //Debug.Log("Dormant");
         void ResetRotPos(int i, float rotLerp, float posLerp)
         {
             PortalGO[i].transform.rotation = Quaternion.Slerp(PortalGO[i].transform.rotation, onPlayRotation, rotLerp * Time.deltaTime);
@@ -141,10 +130,7 @@ public class PortalMain : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.name);
         if (other.gameObject.tag != "Player") return;
-        else Debug.Log(true);
-        Debug.Log("Continue");
         if (currentState != State.inactive) return; 
         OnEnter();
         isTriggerd = true;
@@ -180,7 +166,7 @@ public class PortalMain : MonoBehaviour
         var v = player.GetComponent<Rigidbody>().velocity.sqrMagnitude;
 
         var c = v > 1f;
-        Debug.Log(c + "yeah");
+        //Debug.Log(c + "yeah");
         return c;
     }
 

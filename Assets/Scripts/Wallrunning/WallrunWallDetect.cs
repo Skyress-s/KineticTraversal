@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallrunWallDetect : MonoBehaviour
 {
-    public bool wallrunning;
+    public bool detected;
 
     public bool isRightSide;
 
@@ -36,8 +36,8 @@ public class WallrunWallDetect : MonoBehaviour
 
 
         Debug.DrawRay(transform.position, v * rayDistance * right, Color.green, Time.deltaTime);
-        
-        
+
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, v * right, out hit, rayDistance, layermask, QueryTriggerInteraction.Ignore))
         {
@@ -48,9 +48,9 @@ public class WallrunWallDetect : MonoBehaviour
             return hit;
         }
     }
-    
+
     public void DetectWall()
-    {   
+    {
         RaycastHit hit1 = WallDetectionV2(true);
         RaycastHit hit2 = WallDetectionV2(false);
 
@@ -58,31 +58,35 @@ public class WallrunWallDetect : MonoBehaviour
         {
             globalHit = hit1;
             isRightSide = true;
-            wallrunning = true;
+            detected = true;
         }
         else if (hit2.collider != null)
         {
             globalHit = hit2;
             isRightSide = false;
-            wallrunning = true;
+            detected = true;
         }
         else
         {
             globalHit = new RaycastHit();
-            //isRightSide = false;
-            wallrunning = false;
+            detected = false;
+            return;
         }
 
         //final check to se if wall i wallrunable
-        if (wallrunning)
+        if (detected)
         {
-            wallrunning = ExperimentalTags.IsWallrunable(globalHit.collider.gameObject);
-        }       
+            detected = ExperimentalTags.IsWallrunable(globalHit.collider.gameObject);
+        }
+        else
+        {
+            detected = false;
+            return;
+        }
     }
 
     private void FixedUpdate()
     {
         DetectWall();
     }
-
 }

@@ -56,7 +56,7 @@ public class MovmentAnimation : MonoBehaviour
         Animator.SetBool("Jump", !grounded._isgrounded);
 
         //wallrundetection
-        Animator.SetBool("Wallrun", wallrunDetectScript.wallrunning);
+        Animator.SetBool("Wallrun", IIC.Wallrunning.wallrunning);
         
     }
 }

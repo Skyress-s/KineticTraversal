@@ -27,6 +27,8 @@ public class InputInfoCenter : MonoBehaviour
     
     public WallrunWallDetect WallrunDetect;
 
+    public Wallrunning Wallrunning;
+
     [Header("Unity New Input System")]
 
     public bool holdJump;
@@ -38,6 +40,9 @@ public class InputInfoCenter : MonoBehaviour
     public bool holdShortenRope;
 
     public bool holdSlide;
+
+    [Header("Player State Machine")]
+    public Context Context;
 
     private void Awake()
     {

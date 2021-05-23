@@ -26,12 +26,13 @@ public class PlayerPortalState : PlayerBaseState
 
     public override void Update(Context player)
     {
+
         //aligs player to center of portal
         player.playerGO.transform.position = PortalMain.centerOfPortal;
         //resets velocity
         rb.velocity = Vector3.zero;
 
-        if (player.IIC.controls.Player.Jump.triggered || player.IIC.controls.Player.Shoot.triggered)
+        if (player.IIC.controls.Player.Jump.triggered)
         {
             //what to do when player is ready to travel further
             //

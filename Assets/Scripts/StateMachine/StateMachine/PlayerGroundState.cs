@@ -14,7 +14,7 @@ public class PlayerGroundState : PlayerBaseState
         player.IIC.GroundMovment.enabled = true;
         
         player.IIC._AirMovment.enabled = false;
-        player.IIC.WallrunDetect.enabled = false;
+        //player.IIC.WallrunDetect.enabled = false;
         player.Wallrun2.enabled = false;
 
     }
@@ -27,15 +27,13 @@ public class PlayerGroundState : PlayerBaseState
         //    //player._script1.enabled = false;
         //}
 
-        if (player.IIC.infoSliding.sliding)
-        {
-            player.TransitionToState(player.slideState);
-        }
-
-        if (player.IIC.AirTime.b_airTime /*|| player.IIC.holdJump*/)
+        if (/*player.IIC.AirTime.b_airTime */ player.IIC.holdJump)
         {
             player.TransitionToState(player.airState);
-            
+        }
+        else if (/*player.IIC.infoSliding.sliding*/player.IIC.holdSlide)
+        {
+            player.TransitionToState(player.slideState);
         }
     }
 

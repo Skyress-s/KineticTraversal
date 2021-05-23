@@ -141,7 +141,6 @@ public class GrapplingHookStates : MonoBehaviour
         //option to return hook
         if (IIC.controls.Player.Shoot.triggered)
         {
-            AnimHooked(true);
             ReturningMiddleStep();
         }
 
@@ -155,16 +154,9 @@ public class GrapplingHookStates : MonoBehaviour
         {
             
             globalHit = hit;
-            if (hit.collider.tag == "NotHookable")
+            if (ExperimentalTags.IsHookable(hit.collider.gameObject))
             {
-                storedVelocity = rb.velocity;
-                //Debug.Log("not hookable");
-                currentState = GHStates.knockoff;
                 
-
-            }
-            else
-            {
                 rb.isKinematic = true;
                 transform.position = hit.point;
 
@@ -182,6 +174,13 @@ public class GrapplingHookStates : MonoBehaviour
                 //transform.rotation = Quaternion.Euler(hit.normal);
                 transform.rotation = rot;
                 currentState = GHStates.hooked;
+
+            }
+            else
+            {
+                storedVelocity = rb.velocity;
+                //Debug.Log("not hookable");
+                currentState = GHStates.knockoff;
             }
         }
         
@@ -212,6 +211,10 @@ public class GrapplingHookStates : MonoBehaviour
     private float retruningLerp;
     public void ReturningMiddleStep()
     {
+        //sets the hooked bool to true
+        AnimHooked(true);
+
+
         //defines the distance between hook and player for returning calcs
         d = Vector3.Distance(handPos.position, transform.position);
 
@@ -294,7 +297,10 @@ public class GrapplingHookStates : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }
 
-
+        if ((transform.position - handPos.position).magnitude > hookMaxDistance)
+        {
+            ReturningMiddleStep();
+        }
     }
 
     void ActivateHookedVFX()

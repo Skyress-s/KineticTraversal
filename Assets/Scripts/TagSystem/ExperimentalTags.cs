@@ -47,8 +47,15 @@ public class ExperimentalTags : MonoBehaviour
         bool b = g.TryGetComponent(out GOTags gotags);
         if (!b) return true;
 
-        if (gotags.wallrunable) return true;
-        else return false;
+        return gotags.wallrunable;
+    }
+
+    public static bool IsHookable(GameObject g)
+    {
+        bool b = g.TryGetComponent(out GOTags gotags);
+        if (!b) return false;
+
+        return gotags.hookable;
     }
 
 }

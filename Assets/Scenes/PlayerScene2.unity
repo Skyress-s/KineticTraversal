@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 40826d3565094404db6ac4e0ce1ac8ca,
+  m_LightingDataAsset: {fileID: 112000002, guid: 4194892e358b7e142bbd5f0ed27d938d,
     type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
@@ -3015,6 +3015,7 @@ MonoBehaviour:
   IIC: {fileID: 6047523576148543966}
   Wallrun2: {fileID: 6047523575731723136}
   debugState: 0
+  stateStack: []
 --- !u!114 &531164290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4801,8 +4802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad:
-    sceneAsset: {fileID: 102900000, guid: 6d137e946d90e0a40b8cd34b476d46ea, type: 3}
-    scenePath: Assets/Scenes/TutorialLevels/Lvl2/tutoral_2.unity
+    sceneAsset: {fileID: 102900000, guid: f38093a8f2258cf40a0f36bc0c499dcb, type: 3}
+    scenePath: Assets/Scenes/StagePack2/Lvl6/SP2_6.unity
 --- !u!114 &890016035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7549,8 +7550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad:
-    sceneAsset: {fileID: 102900000, guid: f38093a8f2258cf40a0f36bc0c499dcb, type: 3}
-    scenePath: Assets/Scenes/StagePack2/Lvl6/SP2_6.unity
+    sceneAsset: {fileID: 102900000, guid: 078b3a3cd2b84a24394ea7d4d2f6a6c0, type: 3}
+    scenePath: Assets/Scenes/StagePack2/Lvl5/SP2_5.unity
 --- !u!114 &1370117345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8981,8 +8982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad:
-    sceneAsset: {fileID: 102900000, guid: 078b3a3cd2b84a24394ea7d4d2f6a6c0, type: 3}
-    scenePath: Assets/Scenes/StagePack2/Lvl5/SP2_5.unity
+    sceneAsset: {fileID: 102900000, guid: de85fecfe3b7fdb4eb5da8256eff6643, type: 3}
+    scenePath: Assets/Scenes/StagePack2/Lvl4/SP2_4.unity
 --- !u!114 &1569540888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13236,6 +13237,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056471705}
   m_CullTransparentMesh: 0
+--- !u!1 &2066157820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066157821}
+  - component: {fileID: 2066157823}
+  - component: {fileID: 2066157822}
+  m_Layer: 5
+  m_Name: ShortenRopePowerUp (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2066157821
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066157820}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6047523575974430749}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -150.10756, y: -65.34741}
+  m_SizeDelta: {x: 225.227, y: 123.7451}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2066157822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066157820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c46f656fb195ac24884a51d40fb6e3cf, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 1
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2066157823
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066157820}
+  m_CullTransparentMesh: 0
 --- !u!1 &2072932911
 GameObject:
   m_ObjectHideFlags: 0
@@ -13289,8 +13365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad:
-    sceneAsset: {fileID: 102900000, guid: 6d137e946d90e0a40b8cd34b476d46ea, type: 3}
-    scenePath: Assets/Scenes/TutorialLevels/Lvl2/tutoral_2.unity
+    sceneAsset: {fileID: 102900000, guid: fb61ac25d7240b24b9742af3888e524d, type: 3}
+    scenePath: Assets/Scenes/StagePack2/Lvl7/SP2_7.unity
 --- !u!114 &2072932914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17804,7 +17880,7 @@ MonoBehaviour:
   rayD: 1.3
   Camera: {fileID: 6047523575592440558}
   lerpYForce: 0
-  MaxSpeed: 50
+  MaxSpeed: 25
   speedBoost: 0.2
   jumpForce: 11
   jumpUpwardsForce: 12
@@ -17815,9 +17891,8 @@ MonoBehaviour:
   ct: {fileID: 947456978}
   currentWallrunState: 0
   disableAircontrolTime: 0.2
-  disableWallrunTime: 0.5
   _WallrunWallDetect: {fileID: 6047523575731723151}
-  bufferDuration: 0
+  bufferDuration: 0.3
 --- !u!4 &6047523575731723137
 Transform:
   m_ObjectHideFlags: 0
@@ -17962,11 +18037,11 @@ GameObject:
   - component: {fileID: 6047523575731723142}
   - component: {fileID: 6047523575731723258}
   - component: {fileID: 6047523575731723259}
+  - component: {fileID: 6047523575731723151}
   - component: {fileID: 6047523575731723136}
   - component: {fileID: 6047523575731723257}
   - component: {fileID: 6047523575731723256}
   - component: {fileID: 6047523575731723263}
-  - component: {fileID: 6047523575731723151}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -18001,7 +18076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f3048400a16f4499db54089f5378d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallrunning: 0
+  detected: 0
   isRightSide: 0
   rayDistance: 1.3
   CT: {fileID: 947456978}
@@ -18314,8 +18389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18341,14 +18416,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.12763213, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2066157821}
   m_Father: {fileID: 6047523575449367912}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -28.599976, y: -66.1}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -41.377563, y: -81.44739}
+  m_SizeDelta: {x: 300.218, y: 130.6948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6047523575974430750
 GameObject:
@@ -18489,11 +18565,13 @@ MonoBehaviour:
   worldInput: {x: 0, y: 0, z: 0}
   AirTime: {fileID: 6047523575731723150}
   WallrunDetect: {fileID: 6047523575731723151}
+  Wallrunning: {fileID: 6047523575731723136}
   holdJump: 0
   holdSprint: 0
   holdLengthenRope: 0
   holdShortenRope: 0
   holdSlide: 0
+  Context: {fileID: 531164289}
 --- !u!1 &6047523576148543967
 GameObject:
   m_ObjectHideFlags: 0
@@ -19088,7 +19166,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047523576927035971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.299988}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.49142, y: 0.49142, z: 0.49142}
   m_Children: []
   m_Father: {fileID: 6047523575449367912}
@@ -19097,7 +19175,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 21.0368, y: 21.4499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6047523576927035971
 GameObject:

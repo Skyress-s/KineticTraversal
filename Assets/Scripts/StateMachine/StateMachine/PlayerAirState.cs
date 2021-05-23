@@ -6,11 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerAirState : PlayerBaseState
 {
     public float t = 0f;
+    private float wallrunCooldown;
     public override void EnterState(Context player)
     {
         t = 0f;
+        wallrunCooldown = 0f;
 
-        //Debug.Log("Entering AirState...");
+        if (player.stateStack[1] == player.wallrunState.ToString())
+        {
+            wallrunCooldown = 0.2f;
+        }
+
+
 
         player.IIC._AirMovment.enabled = true;
         player.IIC.WallrunDetect.enabled = true;
@@ -22,19 +29,18 @@ public class PlayerAirState : PlayerBaseState
 
     public override void Update(Context player)
     {
-        //player.IIC.GroundMovment.enabled = false;
-
-
-        //Debug.Log("In AirState");
         t += Time.deltaTime;
+
+
         if (!player.IIC.AirTime.b_airTime && t > 0.2f)
         {
             player.TransitionToState(player.groundState);
         }
 
 
-        if (player.IIC.WallrunDetect.wallrunning)
+        if (player.IIC.WallrunDetect.detected && t > wallrunCooldown)
         {
+            Debug.Log("Wallrun");
             player.TransitionToState(player.wallrunState);
         }
 

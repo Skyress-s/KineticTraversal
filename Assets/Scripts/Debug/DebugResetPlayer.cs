@@ -40,5 +40,7 @@ public class DebugResetPlayer : MonoBehaviour
         IIC.grapplingHookStates.AnimHooked(false);
 
         hook.GetComponent<BoxCollider>().enabled = false;
+
+        IIC.Context.TransitionToState(IIC.Context.groundState);
     }
 }
