@@ -210,7 +210,6 @@ public class Wallrunning : MonoBehaviour
 
             //calc the look vector,-y axis, normalized
             var look = Camera.transform.forward;
-            look = new Vector3(look.x, 0f, look.z);
             look = look.normalized;
             
             var wallNormal = globalHit.normal;
@@ -218,16 +217,17 @@ public class Wallrunning : MonoBehaviour
 
             var upFactor = Vector3.up;
 
-            //combinding them
-
-            var newV = look * 10f + wallNormal;
-            newV = newV.normalized;
-
-            newV = newV * v.magnitude;
-
-            newV += upFactor;
+            var newV = v + look * 10f + wallNormal * 3f + upFactor * 4f;
 
             rb.velocity = newV;
+
+            if (v.sqrMagnitude > 100f)
+            {
+                rb.velocity = newV.normalized * v.magnitude;
+            }
+
+            
+
 
             Exit();
         }
