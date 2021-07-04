@@ -31,6 +31,10 @@ public class PlayerGroundState : PlayerBaseState
         {
             player.TransitionToState(player.airState);
         }
+        else if (player.IIC.AirTime.b_airTime == true)
+        {
+            player.TransitionToState(player.airState);
+        }
         else if (/*player.IIC.infoSliding.sliding*/player.IIC.holdSlide)
         {
             player.TransitionToState(player.slideState);
