@@ -14,7 +14,7 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = target.transform.position + new Vector3(0f, 1f, 0f);
+        transform.position = target.transform.position /*+ new Vector3(0f, 1f, 0f)*/;
 
         //100% regel:
         //hvis noe er rart, øk output med hundre prosent

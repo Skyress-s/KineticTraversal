@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Sliding : MonoBehaviour
 {
+    [Tooltip("Sliding script chagnes the transfrom of the camera target to give the illusion that the player is sliding")]
+    public Transform CameraTarget;
+    private Vector3 CameraOrgPos;
+
+
+
     public enum SlidingMode
     {
         toggle,
         hold
     }
 
+    [Header("Sliding info")]
     public SlidingMode currentSlidingMode;
 
     public KeyCode SlidingKey;
@@ -31,6 +38,8 @@ public class Sliding : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CameraOrgPos = CameraTarget.localPosition;
+
         cc = GetComponent<CapsuleCollider>();
         orgHeight = cc.height;
         rb = GetComponent<Rigidbody>();
@@ -81,7 +90,11 @@ public class Sliding : MonoBehaviour
     {
         sliding = true;
         cc.height = 1f;
-        cc.center = new Vector3(0f, 0.3f, 0f);
+        cc.center = new Vector3(0f, -orgHeight/4f, 0f);
+
+        //moves the camera target
+
+        CameraTarget.localPosition = CameraOrgPos - new Vector3(0f, 1.2f, 0f);
     }
 
     void Stand()
@@ -89,6 +102,11 @@ public class Sliding : MonoBehaviour
         sliding = false;
         cc.height = orgHeight;
         cc.center = new Vector3(0f, 0, 0f);
+
+        //moves the camera target
+
+        CameraTarget.localPosition = CameraOrgPos;
+
     }
 
 

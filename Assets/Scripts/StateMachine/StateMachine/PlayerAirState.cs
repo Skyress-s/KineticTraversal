@@ -7,10 +7,12 @@ public class PlayerAirState : PlayerBaseState
 {
     public float t = 0f;
     private float wallrunCooldown;
+    private float portalCooldown;
     public override void EnterState(Context player)
     {
         t = 0f;
         wallrunCooldown = 0f;
+        portalCooldown = 0.3f;
 
         if (player.stateStack[1] == player.wallrunState.ToString())
         {
@@ -45,10 +47,20 @@ public class PlayerAirState : PlayerBaseState
         }
 
 
-        if (PortalMain.staticIsTriggerd && t > 0.3f)
+        if (PortalMain.staticIsTriggerd)
         {
+            if (player.stateStack[1] == player.portalState.ToString())
+            {
+                if (t > portalCooldown)
+                {
+                    player.TransitionToState(player.portalState);
+                }
+            }
+            else
+            {
+                player.TransitionToState(player.portalState);
+            }
             //Debug.Log("Ready to tranition to portalState");
-            player.TransitionToState(player.portalState);
         }
     }
 

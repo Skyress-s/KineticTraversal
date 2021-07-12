@@ -30,4 +30,9 @@ public class WallObsticleMove : MonoBehaviour
         var sin = Mathf.Sin(2 * Mathf.PI * t/period)/2f + 0.5f;
         transform.localPosition = dir * sin + startLocPos;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(Target.position, 2f);
+    }
 }

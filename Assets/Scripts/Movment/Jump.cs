@@ -7,9 +7,6 @@ public class Jump : MonoBehaviour
 {
     private PlayerControl controls;
 
-    //implementet sciptable object for jumping
-    public TestScriptableObject TSO;
-
     private Rigidbody rb;
 
     private IsGrounded _grounded;
@@ -48,9 +45,9 @@ public class Jump : MonoBehaviour
         }
 
         //add coyoteJump functionality
-        if (controls.Player.Jump.triggered && _grounded._isgrounded == false && airTime < TSO.coyoteMargin)
+        if (controls.Player.Jump.triggered && _grounded._isgrounded == false && airTime < coyoteMargin)
         {
-            //DoJump();
+            DoJump();
         }
 
 }
@@ -62,7 +59,7 @@ public class Jump : MonoBehaviour
         //if holding down space, push the player higher up
         if (IIC.holdJump && hoverJumpPhase == true)
         {
-            rb.AddForce(new Vector3(0, TSO.holdSpaceForce, 0), ForceMode.VelocityChange);
+            rb.AddForce(new Vector3(0, holdJumpForce, 0), ForceMode.VelocityChange);
         }
 
 
@@ -84,13 +81,13 @@ public class Jump : MonoBehaviour
         //resets the velocity in y dir
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //jumps
-        rb.AddForce(new Vector3(0, TSO.jumpForce, 0), ForceMode.VelocityChange);
+        rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.VelocityChange);
 
         //caps the y velocity the player can have in inital jump
-        if (rb.velocity.y > TSO.jumpForce)
+        if (rb.velocity.y > jumpForce)
         {
             Debug.Log("did slow down");
-            Vector3 v = new Vector3(rb.velocity.x, TSO.jumpForce, rb.velocity.z);
+            Vector3 v = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
             rb.velocity = v;
         }
 
@@ -116,7 +113,6 @@ public class Jump : MonoBehaviour
         airTime = coyoteMargin + 1f;  //sets the airtime to somthing higher than coyote margin
 
         }
-
     }
 
     private void OnEnable()
@@ -127,6 +123,4 @@ public class Jump : MonoBehaviour
     {
         controls.Disable();
     }
-
-
 }

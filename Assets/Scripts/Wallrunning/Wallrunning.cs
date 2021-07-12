@@ -187,53 +187,54 @@ public class Wallrunning : MonoBehaviour
     }
     void OnJump()
     {
-        void OldJump()
+        void Walljump()
         {
             //Debug.Log("walljump");
             wallrunning = false;
-            var dir = Camera.transform.forward;
-            var n = globalHit.normal;
-            var c = dir + n;
-            c = c.normalized;
 
-            rb.AddForce(c * jumpForce + Vector3.up * jumpUpwardsForce, ForceMode.VelocityChange);
 
-            Exit();
-        }
-
-        void NewJump()
-        {
-            wallrunning = false;
-
+            //getting some useful info/variables
             var v = rb.velocity;
-
-
-            //calc the look vector,-y axis, normalized
+            var vmag = v.magnitude;
+            var speed_factor = 1f;
             var look = Camera.transform.forward;
-            look = look.normalized;
+
+
+            // calc the y amount of the jump
+            var Y = Vector3.up * look.y*3f;
+            Y = Y * 3f;
+            Y += Vector3.up * 10f;
+
+
+            // calc the xy amount of the jump
+            var XY = new Vector3(look.x, 0f, look.z).normalized;
+
+            XY += globalHit.normal * 0.2f;
             
-            var wallNormal = globalHit.normal;
+            XY = XY.normalized;
+                // adding a speed boost if speed is below a certion amount
+            if (new Vector3(v.x, 0f, v.y).sqrMagnitude < 25f*25f)
+            {
+                speed_factor = 1.3f;
+
+                //Debug.Log("did increase speed");
+            }
             
 
-            var upFactor = Vector3.up;
+            //adding them toghether
 
-            var newV = v + look * 10f + wallNormal * 3f + upFactor * 4f;
+            Vector3 newV = XY * vmag * speed_factor; // adds the XZ component
+
+            newV += Y;
+
+            Debug.Log(vmag);
 
             rb.velocity = newV;
 
-            if (v.sqrMagnitude > 100f)
-            {
-                rb.velocity = newV.normalized * v.magnitude;
-            }
-
-            
-
-
             Exit();
         }
 
-        //NewJump();
-        OldJump();
+        Walljump();
     }
 
     void Wallrun(RaycastHit hit)

@@ -15,6 +15,10 @@ public class DebugResetPlayer : MonoBehaviour
     private Keyboard kb;
 
 
+    [Header("give speed debug")]
+    public float speedIncrease;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +33,21 @@ public class DebugResetPlayer : MonoBehaviour
         {
             ResetPlayer();
         }
+
+        if (kb.gKey.wasPressedThisFrame)
+        {
+            AcceleratePlayer();
+        }
     }
+
+    public void AcceleratePlayer()
+    {
+        var dir = Camera.main.transform.forward;
+        rb.velocity = dir * speedIncrease;
+
+
+    }
+
 
     public void ResetPlayer()
     {

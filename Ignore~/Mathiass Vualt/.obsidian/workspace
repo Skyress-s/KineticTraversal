@@ -10,7 +10,7 @@
           "type": "markdown",
           "state": {
             "file": "TODO Technical.md",
-            "mode": "preview"
+            "mode": "source"
           }
         }
       }
@@ -89,8 +89,8 @@
   "active": "409e35a9cd962583",
   "lastOpenFiles": [
     "TODO Technical.md",
-    "Untitled.md",
     "ScratchPad.md",
+    "Untitled.md",
     "Kinetic Game.md",
     "WorldAstetic.md",
     "GameplayDesign.md",
