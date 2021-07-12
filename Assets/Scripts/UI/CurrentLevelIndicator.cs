@@ -12,13 +12,14 @@ public class CurrentLevelIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (CurrentLevelIndicator.hasLoaded)
-        {
-            DestroyImmediate(gameObject);
-            return;
-        }
+    //    if (CurrentLevelIndicator.hasLoaded)
+    //    {
+    //        DestroyImmediate(gameObject);
+    //        return;
+    //    }
 
-        DontDestroyOnLoad(gameObject);
-        CurrentLevelIndicator.hasLoaded = true;
+    //    DontDestroyOnLoad(gameObject);
+    //    CurrentLevelIndicator.hasLoaded = true;
+    //
     }
 }

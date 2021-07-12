@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - NotHookable
+  - CurrentLevelObject
+  - UniqueLevelData
   layers:
   - Default
   - TransparentFX

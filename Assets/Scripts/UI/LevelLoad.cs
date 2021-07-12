@@ -12,7 +12,7 @@ public class LevelLoad : MonoBehaviour
 
     public void Load()
     {
-        SetCurrentLevelString();
+        //SetCurrentLevelString();
 
         Time.timeScale = 1;
         SceneManager.LoadScene(levelToLoad.ScenePath);

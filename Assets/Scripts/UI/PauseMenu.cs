@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = false;
 
 
-        SetCurrentLevelUI();
+        //SetCurrentLevelUI();
 
 
         void SetCurrentLevelUI()
