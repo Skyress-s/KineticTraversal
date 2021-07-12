@@ -129,4 +129,9 @@ public class Sliding : MonoBehaviour
             rb.velocity = var;
         }
     }
+
+    private void OnDisable()
+    {
+        Stand();
+    }
 }

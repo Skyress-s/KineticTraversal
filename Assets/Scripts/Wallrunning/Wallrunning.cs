@@ -21,8 +21,14 @@ public class Wallrunning : MonoBehaviour
     //jump portion
     [Header("Jump")]
     public float jumpForce;
+    [Tooltip("How hard to jump")]
     public float jumpUpwardsForce;
-    public float minimumSpeed;
+
+    [Tooltip("Maximum speed the player can have before not incresing speed when jumping")]
+    /// <summary>
+    /// maximum speed for giving a speed increase
+    /// </summary>
+    public float maximumSpeed;
 
     [Space]
     public bool wallrunning;
@@ -176,6 +182,7 @@ public class Wallrunning : MonoBehaviour
         }
         else
         {
+            Debug.Log("exitttt!!!");
             Exit();
         }
     }
@@ -213,9 +220,12 @@ public class Wallrunning : MonoBehaviour
             
             XY = XY.normalized;
                 // adding a speed boost if speed is below a certion amount
-            if (new Vector3(v.x, 0f, v.y).sqrMagnitude < 25f*25f)
+            if (new Vector3(v.x, 0f, v.z).sqrMagnitude < maximumSpeed * maximumSpeed)
             {
+
+                //Debug.Log(new Vector3(v.x, 0f, v.z).sqrMagnitude);
                 speed_factor = 1.3f;
+               
 
                 //Debug.Log("did increase speed");
             }
@@ -227,9 +237,13 @@ public class Wallrunning : MonoBehaviour
 
             newV += Y;
 
-            Debug.Log(vmag);
+            //Debug.Log(vmag);
+
+            //Debug.Log("before jump" + rb.velocity.magnitude.ToString());
 
             rb.velocity = newV;
+
+            //Debug.Log(rb.velocity.magnitude);
 
             Exit();
         }
