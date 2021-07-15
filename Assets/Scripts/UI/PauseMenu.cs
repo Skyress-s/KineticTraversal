@@ -27,17 +27,6 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         gameIsPaused = false;
-
-
-        //SetCurrentLevelUI();
-
-
-        void SetCurrentLevelUI()
-        {
-            CurrentLevelObject.text = CurrentLevelIndicator.currentLevel;
-            Debug.Log(CurrentLevelIndicator.currentLevel);
-        }
-
     }
     void Update()
     {
