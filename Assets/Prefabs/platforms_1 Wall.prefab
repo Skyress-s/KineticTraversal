@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4936827787406542235}
   - component: {fileID: 5292077835597732502}
   - component: {fileID: 2103281845115260926}
+  - component: {fileID: 2032486550730458553}
   m_Layer: 0
   m_Name: Rock1_low.001
   m_TagString: Untagged
@@ -96,6 +97,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1852354439971563461, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &2032486550730458553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728690625104398519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &736855370027927969
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +123,7 @@ GameObject:
   - component: {fileID: 2736882431738711046}
   - component: {fileID: 8500685400919337421}
   - component: {fileID: 8794850951028924697}
+  - component: {fileID: 2305782631267689337}
   m_Layer: 0
   m_Name: Rock2_low.003
   m_TagString: Untagged
@@ -192,6 +208,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6022831379238249181, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &2305782631267689337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736855370027927969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &769981824828887985
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +234,7 @@ GameObject:
   - component: {fileID: 551438193684657287}
   - component: {fileID: 8810152752236646772}
   - component: {fileID: 3529876627278363465}
+  - component: {fileID: 1428499045312214213}
   m_Layer: 0
   m_Name: Rock2_low.004
   m_TagString: Untagged
@@ -288,6 +319,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6022831379238249181, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &1428499045312214213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769981824828887985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &1258908012579911240
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +345,7 @@ GameObject:
   - component: {fileID: 4904615060978545571}
   - component: {fileID: 6867561844488748379}
   - component: {fileID: 6777726766700079394}
+  - component: {fileID: 488529424074919529}
   m_Layer: 0
   m_Name: Rock2_low.002
   m_TagString: Untagged
@@ -384,6 +430,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6022831379238249181, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &488529424074919529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258908012579911240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &1486856625099389334
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +456,7 @@ GameObject:
   - component: {fileID: 3003215790172680513}
   - component: {fileID: 1007461898927561220}
   - component: {fileID: 5282954187273359283}
+  - component: {fileID: 3623155497388516039}
   m_Layer: 0
   m_Name: Rock1_low.004
   m_TagString: Untagged
@@ -480,6 +541,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1852354439971563461, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &3623155497388516039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486856625099389334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &1750374986851869818
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +707,7 @@ GameObject:
   - component: {fileID: 820360614198648078}
   - component: {fileID: 8837905403707886955}
   - component: {fileID: 8123078795168539205}
+  - component: {fileID: 2445401917551558937}
   m_Layer: 0
   m_Name: Rock1_low.005
   m_TagString: Untagged
@@ -716,6 +792,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1852354439971563461, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &2445401917551558937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302393892925411112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &3359802092379020860
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +914,7 @@ GameObject:
   - component: {fileID: 2250609874308859012}
   - component: {fileID: 8933010238366055297}
   - component: {fileID: 8737749755120533065}
+  - component: {fileID: 3189331729347218079}
   m_Layer: 0
   m_Name: Rock3_low.005
   m_TagString: Untagged
@@ -908,6 +999,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3909039108932851753, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &3189331729347218079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399974413600958635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &3507272443620544116
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +1057,7 @@ GameObject:
   - component: {fileID: 201560848389617601}
   - component: {fileID: 4295184908433157441}
   - component: {fileID: 6941769421575591185}
+  - component: {fileID: 5478487181268074434}
   m_Layer: 0
   m_Name: Rock3_low.002
   m_TagString: Untagged
@@ -1036,6 +1142,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3909039108932851753, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &5478487181268074434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061827304654018788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &5566327042552302107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1168,7 @@ GameObject:
   - component: {fileID: 7979839247564093854}
   - component: {fileID: 400991161604837122}
   - component: {fileID: 6872778099555452942}
+  - component: {fileID: 9145579239993225013}
   m_Layer: 0
   m_Name: Rock1_low.003
   m_TagString: Untagged
@@ -1132,6 +1253,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1852354439971563461, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &9145579239993225013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566327042552302107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &6118149205354957200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1279,7 @@ GameObject:
   - component: {fileID: 8922185149261332495}
   - component: {fileID: 1586856009303889643}
   - component: {fileID: 5350927079459106736}
+  - component: {fileID: 8531621933784769619}
   m_Layer: 0
   m_Name: Rock3_low.004
   m_TagString: Untagged
@@ -1228,6 +1364,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3909039108932851753, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &8531621933784769619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118149205354957200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3
 --- !u!1 &7569602725240790281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,6 +1580,7 @@ GameObject:
   - component: {fileID: 3829510054762418632}
   - component: {fileID: 6595577607378119417}
   - component: {fileID: 5890117242039828235}
+  - component: {fileID: 2394111109086738464}
   m_Layer: 0
   m_Name: Rock3_low.003
   m_TagString: Untagged
@@ -1514,3 +1665,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3909039108932851753, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &2394111109086738464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704610821821515007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDistance: 3
+  periodTime: 3

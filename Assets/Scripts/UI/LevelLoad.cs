@@ -15,7 +15,6 @@ public class LevelLoad : MonoBehaviour
     {
         //SetCurrentLevelString();
 
-        Time.timeScale = 1;
         SceneManager.LoadScene(levelToLoad.ScenePath);
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
 
@@ -28,7 +27,7 @@ public class LevelLoad : MonoBehaviour
         var i = Int32.Parse(s);
         i--;
 
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
 
         LevelManager.loadLevel(i);
 

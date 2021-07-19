@@ -27,6 +27,15 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         gameIsPaused = false;
+        LevelManager.OnLevelEnd += Test;
+    }
+
+
+    private void Test()
+    {
+        Resume();
+        Time.timeScale = LevelManager.nextLevelSlowdown;
+        LevelManager.OnLevelEnd -= Test;
     }
     void Update()
     {
