@@ -11,7 +11,13 @@ public class PlayerGroundState : PlayerBaseState
         //Debug.Log("Entering Groundstate...");
 
         player.IIC.infoSliding.enabled = true;
-        player.IIC.GroundMovment.enabled = true;
+
+        //adds a little logic to not turn on ground movment if the player is holding slide
+        if (!player.IIC.holdSlide)
+        {
+            player.IIC.GroundMovment.enabled = true;
+        }
+
         
         player.IIC._AirMovment.enabled = false;
         //player.IIC.WallrunDetect.enabled = false;

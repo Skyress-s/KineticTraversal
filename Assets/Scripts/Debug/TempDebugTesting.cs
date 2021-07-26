@@ -29,8 +29,10 @@ public class TempDebugTesting : MonoBehaviour
         if (kb.nKey.wasPressedThisFrame)
         {
 
+            Scene scenee = SceneManager.GetSceneAt(0);
+            Debug.Log(scenee.handle);
 
-            LevelManager.LoadNextLevel();
+
             ////gets the active scene level
             //Scene activeScene = SceneManager.GetSceneAt(0);
             
