@@ -14,6 +14,6 @@ public class RoateMainCylinder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = transform.rotation * Quaternion.Euler(0, 0, rotateSpeed * Time.deltaTime);
+        transform.rotation = transform.rotation * Quaternion.Euler(0, rotateSpeed * Time.deltaTime, 0);
     }
 }
