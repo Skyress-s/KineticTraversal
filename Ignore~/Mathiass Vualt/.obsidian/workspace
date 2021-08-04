@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Untitled.md",
+            "file": "ScrathPadPostClickUp.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.md",
+                "file": "ScrathPadPostClickUp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "409e35a9cd962583",
   "lastOpenFiles": [
+    "ScrathPadPostClickUp.md",
     "Untitled.md",
     "TODO Technical.md",
     "ScratchPad.md",

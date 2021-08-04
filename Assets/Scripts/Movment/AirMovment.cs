@@ -29,6 +29,17 @@ public class AirMovment : MonoBehaviour
     [SerializeField][Range(0f,10f)]
     private float airBrakeForce;
 
+    public enum StrafeState { 
+        notstrafing,
+        sharpStrafe,
+        BluntStrafe,
+        AirBrake
+    }
+
+    public StrafeState currentStrafeState;
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,27 +49,33 @@ public class AirMovment : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        currentStrafeState = StrafeState.notstrafing;
+        
+        
         // change the direction on the air -> air stafe system 2.0
         if (IIC.grounded._isgrounded == false && IIC.input.magnitude > 0.1f) // player has to be airborne and inputting somthing for this to work
         {
             //first gets the angle between velocity and input
             GetAngleDifference();
 
+
             if (GetAngleDifference() < Bernt1) // what todo if in range of Bernt1
             {
                 //Debug.Log("airstrafing");
                 Airstrafe();
+                currentStrafeState = StrafeState.sharpStrafe;
             }
             else if (GetAngleDifference() < Bernt2) // what todo if in range of Bernt2
             {
                 //Debug.Log("Change direction slowly");
                 SideChangeDirection();
-                //SideChangePosition();
+                currentStrafeState = StrafeState.BluntStrafe;
             }
             else // what todo if over range of Bernt2 (third range)
             {
                 //Debug.Log("airbrake");
                 AirBrake();
+                currentStrafeState = StrafeState.AirBrake;
             }
 
             //add force if speed is low enough system
@@ -135,4 +152,10 @@ public class AirMovment : MonoBehaviour
         //Debug.Log(signedAngle);
         return angle;
     }
+
+    private void OnDisable()
+    {
+        currentStrafeState = StrafeState.notstrafing;
+    }
 }
+

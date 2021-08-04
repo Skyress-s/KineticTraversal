@@ -33,11 +33,12 @@ public class Wallrunning : MonoBehaviour
     [Space]
     public bool wallrunning;
 
+    [SerializeField]
+    private float stickToWallForce;
+
     public RaycastHit globalHit;
 
     public InputInfoCenter IIC;
-
-    public float detachTime;
 
     [Header("ColliderTrigger segment")]
     public ColliderTrigger ct;
@@ -189,7 +190,9 @@ public class Wallrunning : MonoBehaviour
     void StickToWall(RaycastHit hit)
     {
 
-        rb.AddForce(-hit.normal * 1f, ForceMode.VelocityChange);
+        rb.AddForce(-hit.normal * stickToWallForce, ForceMode.VelocityChange);
+
+        Debug.DrawRay(transform.position, -hit.normal, Color.red);
 
     }
     void OnJump()

@@ -51,6 +51,11 @@ public class GrapplingHookStates : MonoBehaviour
     [Space]
     public Animator animator;
 
+    
+    public delegate void hookedEvent();
+    public static event hookedEvent hooked;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -192,6 +197,8 @@ public class GrapplingHookStates : MonoBehaviour
     {
         if (isHookedEnter == false) //enter
         {
+
+            hooked.Invoke();
             isHookedEnter = true;
 
             //parent = global hit, makes it so that hook follow roation and movment to the obj its hooked to

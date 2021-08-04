@@ -7,18 +7,18 @@ public class CameraLook : MonoBehaviour
 {
     public float sensetivity;
 
-    public float rotationOnX;
+    //public float rotationOnX;
 
-    public float rotationOnY;
+    //public float rotationOnY;
 
     //new Method
     private PlayerControl controls;
 
     private Vector2 mouseLook;
 
-    private float xRotation = 0f;
+    public float xRotation = 0f;
 
-    private float yRotation = 0f;
+    public float yRotation = 0f;
     // Start is called before the first frame update
     private void Awake()
     {

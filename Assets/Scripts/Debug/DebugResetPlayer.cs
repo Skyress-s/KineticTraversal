@@ -18,12 +18,17 @@ public class DebugResetPlayer : MonoBehaviour
     [Header("give speed debug")]
     public float speedIncrease;
 
+    [Header("Reset CameraRot")]
+    public CameraLook camlook;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = Player.GetComponent<Rigidbody>();
         kb = InputSystem.GetDevice<Keyboard>();
+
+        ResetPlayer();
     }
 
     // Update is called once per frame
@@ -51,8 +56,20 @@ public class DebugResetPlayer : MonoBehaviour
 
     public void ResetPlayer()
     {
-        Player.transform.position = Vector3.zero;
+        Player.transform.position = StartPosForPlayer.startPos; //where to place the player
         rb.velocity = Vector3.zero;
+
+        //resets the rotation of the camera
+        var n = StartPosForPlayer.startRot.eulerAngles.x;
+        if (n > 89.5f)
+        {
+            n += -360f;
+        }
+        camlook.xRotation = n;
+        camlook.yRotation = StartPosForPlayer.startRot.eulerAngles.y;
+
+        Debug.Log(StartPosForPlayer.startRot.eulerAngles);
+
 
         IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;
         IIC.grapplingHookStates.AnimHooked(false);
