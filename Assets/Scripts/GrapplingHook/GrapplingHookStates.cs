@@ -51,9 +51,16 @@ public class GrapplingHookStates : MonoBehaviour
     [Space]
     public Animator animator;
 
-    
+    // events! 
+    public delegate void firingDelegate();
+    public static event firingDelegate firingEvent; 
+
+
     public delegate void hookedEvent();
     public static event hookedEvent hooked;
+
+    public delegate void hookRetractedDelegate();
+    public static event hookRetractedDelegate hookRetractedEvent;
 
 
     void Start()
@@ -125,6 +132,9 @@ public class GrapplingHookStates : MonoBehaviour
     {
         rb.isKinematic = false;
         rb.velocity = Camera.main.transform.forward * fireSpeed;
+
+        //firing event
+        firingEvent.Invoke();
 
         //moves the current state to the next stage
         currentState = GHStates.travling;
@@ -259,8 +269,10 @@ public class GrapplingHookStates : MonoBehaviour
         q = Quaternion.Lerp(q, LerpQ, rotLerpTime * Time.deltaTime);
         transform.rotation = q;
 
+        //on return
         if (retruningLerp < 0f)
         {
+            hookRetractedEvent.Invoke();
             currentState = GHStates.rest;
         }
 

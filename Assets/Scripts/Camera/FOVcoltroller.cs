@@ -9,63 +9,78 @@ public class FOVcoltroller : MonoBehaviour
 
     private float startFOV;
 
+    [Header("hookedCurve")]
     public AnimationCurve hookedCurve;
+    [SerializeField][Tooltip("shoudl be 2 elements, first is duratian, second is amplitude")]
+    private float[] hookedCurveValues;
 
+    [Header("RetractedCurve")]
     public AnimationCurve hookRetractedCurve;
-
-    [Header("hooked FOV effect")]
-    public float amplitude, duration;
-
-    public List<ReadCurve> curves;
-
-    public List<int> intergers;
-
-
-    private float t;
+    [SerializeField][Tooltip("shoudl be 2 elements, first is duratian, second is amplitude")]
+    private float[] hookedRetractedCurveValues;
 
 
     public Keyboard kb;
 
+    public ReadCurve[] readCurves;
 
-    public ReadCurve curveread;
     // Start is called before the first frame update
     void Start()
     {
+        readCurves = new ReadCurve[2];
+        for (int i = 0; i < readCurves.Length; i++)
+        {
+            readCurves[i] = new ReadCurve(hookedCurve, 0.5f, 0f);
+        }
+
         kb = InputSystem.GetDevice<Keyboard>();
 
         //curves.Add(new ReadCurve(hookedCurve, 0.3f, 10f));
 
 
-        GrapplingHookStates.hooked += hookedFOVeffect;
-        startFOV = camera.fieldOfView;
+        GrapplingHookStates.hooked += hookedFOV;
+        GrapplingHookStates.hookRetractedEvent += hookRetractedFOV;
 
-        curveread = new ReadCurve(hookRetractedCurve, 2f, 3f);
+
+        startFOV = camera.fieldOfView;
     }
 
     // Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime;
-        //camera.fieldOfView = startFOV + amplitude * hookedCurve.Evaluate(t/duration);
-
-        //camera.fieldOfView = startFOV + curveread.curveValue;
 
         if (kb.bKey.wasPressedThisFrame)
         {
             hookedFOV();
         }
+        if (kb.nKey.wasPressedThisFrame)
+        {
+            hookRetractedFOV();
+        }
+
+        float val = 0f;
+        for (int i = 0; i < readCurves.Length; i++)
+        {
+            val += readCurves[i].curveValue;
+        }
+
+        camera.fieldOfView = startFOV + val;
     }
-    
+
     private void hookedFOV()
     {
 
-        //curves.Add(curveread);
-        intergers.Add(2);
+        ReadCurve curve2 = new ReadCurve(hookedCurve, hookedCurveValues[0], hookedCurveValues[1]);
+        readCurves[0] = curve2;
+
+        
+        
     }
 
-    private void hookedFOVeffect()
+    private void hookRetractedFOV()
     {
-        t = 0f;
+        ReadCurve retractedReadCurve = new ReadCurve(hookRetractedCurve, hookedRetractedCurveValues[0], hookedRetractedCurveValues[1]);
+        readCurves[1] = retractedReadCurve;
     }
 }
 
@@ -75,7 +90,7 @@ public class ReadCurve
     private float t;
 
 
-    private float _backerCurveValue;
+    private float _backerCurveValue = 0f;
     public float curveValue
     {
         get{ 
