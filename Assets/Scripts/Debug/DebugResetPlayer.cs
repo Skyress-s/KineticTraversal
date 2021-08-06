@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class DebugResetPlayer : MonoBehaviour
 {
+    public delegate void restartDelegate();
+    public static event restartDelegate RestartLevelEvent;
+
+
+
     public GameObject Player;
     private Rigidbody rb;
 
@@ -56,6 +61,18 @@ public class DebugResetPlayer : MonoBehaviour
 
     public void ResetPlayer()
     {
+        //invokes the restart event
+        try
+        {
+            RestartLevelEvent.Invoke();
+        }
+        catch (System.Exception)
+        {
+            //TODO is this a good solution????
+            Debug.Log("did not find any wallobs in the scene");
+        }
+
+
         Player.transform.position = StartPosForPlayer.startPos; //where to place the player
         rb.velocity = Vector3.zero;
 

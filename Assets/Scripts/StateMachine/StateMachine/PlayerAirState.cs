@@ -16,7 +16,7 @@ public class PlayerAirState : PlayerBaseState
 
         if (player.stateStack[1] == player.wallrunState.ToString())
         {
-            wallrunCooldown = 0.2f;
+            wallrunCooldown = 0.45f;
         }
 
 

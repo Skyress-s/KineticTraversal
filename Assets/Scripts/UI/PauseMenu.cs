@@ -19,6 +19,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject LevelSelectUI;
 
+    public GameObject ControlsUI;
+
     public UpdateVariables UpdateVariablesScript;
 
     public TMP_Text CurrentLevelObject;
@@ -58,6 +60,8 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(false);
         SettingsMenuUI.SetActive(false);
         LevelSelectUI.SetActive(false);
+        ControlsUI.SetActive(false);
+
         HUDUI.SetActive(true);
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -79,6 +83,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(false);
         SettingsMenuUI.SetActive(true);
         LevelSelectUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void OpenPauseMenu()
@@ -86,6 +91,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(true);
         SettingsMenuUI.SetActive(false);
         LevelSelectUI.SetActive(false);
+        ControlsUI.SetActive(false);
     }
 
     public void OpenLevelSelect()
@@ -93,6 +99,15 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(false);
         SettingsMenuUI.SetActive(false);
         LevelSelectUI.SetActive(true);
+        ControlsUI.SetActive(false);
+    }
+
+    public void OpenControls()
+    {
+        PauseMenuUI.SetActive(false);
+        SettingsMenuUI.SetActive(false);
+        LevelSelectUI.SetActive(false);
+        ControlsUI.SetActive(true);
     }
 
 

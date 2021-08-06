@@ -35,6 +35,8 @@ public class Wallrunning : MonoBehaviour
 
     [SerializeField]
     private float stickToWallForce;
+    public float lowestSpeed;
+
 
     public RaycastHit globalHit;
 
@@ -168,6 +170,12 @@ public class Wallrunning : MonoBehaviour
 
     void WallrunState()
     {
+        //fall of if speed is to low
+        var v = RemoveYComponent(rb.velocity);
+        if (v.sqrMagnitude < lowestSpeed*lowestSpeed)
+        {
+            Exit();
+        }
 
         //shoots out a new ray -> in hit.normal dir to check i close enough to wall
         var hit = new RaycastHit();

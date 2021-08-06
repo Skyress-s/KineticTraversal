@@ -19,6 +19,10 @@ public class WallrunWallDetect : MonoBehaviour
 
     private int layermask;
 
+    public Rigidbody rb;
+
+    public Wallrunning wallrunscript;
+
     private void Awake()
     {
         layermask = 1 << 9; // creates a bitmask, only hits playerlayer
@@ -83,6 +87,15 @@ public class WallrunWallDetect : MonoBehaviour
             detected = false;
             return;
         }
+
+        //final check to see if speed if great enough
+        var v = rb.velocity;
+        v = new Vector3(v.x, 0f, v.z);
+        if (v.sqrMagnitude < wallrunscript.lowestSpeed*wallrunscript.lowestSpeed)
+        {
+            detected = false;
+        }
+
     }
 
     private void FixedUpdate()

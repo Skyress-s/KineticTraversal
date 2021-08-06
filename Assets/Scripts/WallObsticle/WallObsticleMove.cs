@@ -18,6 +18,10 @@ public class WallObsticleMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //subsribes the ResetWall to ResetLevel event
+        DebugResetPlayer.RestartLevelEvent += ResetWall;
+
+
         startLocPos = transform.localPosition;
         dir = (Target.localPosition - transform.localPosition);
         t = -1f;
@@ -34,5 +38,10 @@ public class WallObsticleMove : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(Target.position, 2f);
+    }
+
+    private void ResetWall()
+    {
+        t = -1f;
     }
 }

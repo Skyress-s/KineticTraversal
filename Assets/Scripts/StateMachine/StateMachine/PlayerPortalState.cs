@@ -9,6 +9,10 @@ public class PlayerPortalState : PlayerBaseState
     private Rigidbody rb;
     public Vector3 onEnterVeclocity;
 
+    private float t;
+
+    private float maxduration = 2.2f;
+
     public override void EnterState(Context player)
     {
         player.IIC._AirMovment.enabled = false;
@@ -26,13 +30,14 @@ public class PlayerPortalState : PlayerBaseState
 
     public override void Update(Context player)
     {
+        t += Time.deltaTime;
 
         //aligs player to center of portal
         player.playerGO.transform.position = PortalMain.centerOfPortal;
         //resets velocity
         rb.velocity = Vector3.zero;
 
-        if (player.IIC.controls.Player.Jump.triggered)
+        if (player.IIC.controls.Player.Jump.triggered || t > maxduration)
         {
             //what to do when player is ready to travel further
             //
@@ -49,6 +54,7 @@ public class PlayerPortalState : PlayerBaseState
 
     public override void ExitState(Context player)
     {
+        t = 0f;
         onEnterVeclocity = Vector3.zero;
     }
 
