@@ -13,6 +13,10 @@ public class PlayerPortalState : PlayerBaseState
 
     private float maxduration = 2.2f;
 
+
+    public delegate void ExitPortalDelegate();
+    public static ExitPortalDelegate ExitPortalEvent;
+
     public override void EnterState(Context player)
     {
         player.IIC._AirMovment.enabled = false;
@@ -54,6 +58,7 @@ public class PlayerPortalState : PlayerBaseState
 
     public override void ExitState(Context player)
     {
+        ExitPortalEvent.Invoke();
         t = 0f;
         onEnterVeclocity = Vector3.zero;
     }

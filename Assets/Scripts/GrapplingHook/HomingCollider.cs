@@ -12,14 +12,26 @@ public class HomingCollider : MonoBehaviour
 
     public Transform target;
 
+    [SerializeField]
+    private float rotateAmoundt;
+
     private void Start()
     {
         GrapplingHookStates.firingEvent += EnableTrigger;
         GrapplingHookStates.hooked += DisableTrigger;
         GrapplingHookStates.hookRetractedEvent += DisableTrigger;
+
+        LevelManager.OnLevelEnd += RemoveSubscriptions;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void RemoveSubscriptions()
+    {
+        GrapplingHookStates.firingEvent -= EnableTrigger;
+        GrapplingHookStates.hooked -= DisableTrigger;
+        GrapplingHookStates.hookRetractedEvent -= DisableTrigger;
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (GHS.currentState == GrapplingHookStates.GHStates.travling && ExperimentalTags.IsHookable(other.gameObject))
         {
@@ -30,6 +42,8 @@ public class HomingCollider : MonoBehaviour
         }
     }
 
+
+
     private void OnTriggerExit(Collider other)
     {
         homing = false;
@@ -38,9 +52,9 @@ public class HomingCollider : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (homing)
+        if (homing && target != null)
         {
-            Debug.Log("HOMING!");
+            //Debug.Log("HOMING!");
             DragTowardsTarget();
         }
 
@@ -62,11 +76,12 @@ public class HomingCollider : MonoBehaviour
     private void DisableTrigger()
     {
         GetComponent<MeshCollider>().enabled = false;
+        target = null;
     }
 
     private void DragTowardsTarget()
     {
-        float rotateAmoundt = 0.03f;
+        
 
 
         var vel = rb.velocity;

@@ -10,6 +10,13 @@ public class TempDebugTesting : MonoBehaviour
    
     public LevelManagerSO LevelData;
 
+    public Rigidbody playerRB;
+
+    public GrapplingHookStates GHS;
+
+
+    public float pushDownAmoundt;
+
     //portion for new Level indicator and managing system
     //idea:
     //use a unity Scenemanager build order as a the int value in the list
@@ -25,28 +32,18 @@ public class TempDebugTesting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //loads the next level i queue
-        if (kb.nKey.wasPressedThisFrame)
+#if UNITY_EDITOR
+
+        if (kb.fKey.wasPressedThisFrame && GHS.currentState != GrapplingHookStates.GHStates.hooked)
         {
-
-            Scene scenee = SceneManager.GetSceneAt(0);
-            Debug.Log(scenee.handle);
-
-
-            ////gets the active scene level
-            //Scene activeScene = SceneManager.GetSceneAt(0);
-            
-            //int i = activeScene.buildIndex;
-            
-
-            ////gets the index number [x] of the level order Data Array
-            //var n = LevelData.arr.IndexOf(i);
-
-
-            ////then loads the next scene in order of the levelData
-
-            //SceneManager.LoadScene(LevelData.arr[n + 1]);
-            //SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            Debug.Log("Pushind down");
+            playerRB.AddForce(Vector3.down * pushDownAmoundt,ForceMode.VelocityChange);
         }
+
+        if (kb.fKey.wasReleasedThisFrame && GHS.currentState != GrapplingHookStates.GHStates.hooked)
+        {
+            playerRB.AddForce(Vector3.up * pushDownAmoundt,ForceMode.VelocityChange);
+        }
+#endif
     }
 }

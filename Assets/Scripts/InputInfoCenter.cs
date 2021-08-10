@@ -41,6 +41,8 @@ public class InputInfoCenter : MonoBehaviour
 
     public bool holdSlide;
 
+    public bool holdFire;
+
     [Header("Player State Machine")]
     public Context Context;
 
@@ -67,6 +69,9 @@ public class InputInfoCenter : MonoBehaviour
         //implements hold slide bool
         controls.Player.Slide.started += b => holdSlide = true;
         controls.Player.Slide.canceled += b => holdSlide = false;
+
+        controls.Player.Shoot.started += c => holdFire = true;
+        controls.Player.Shoot.canceled += c => holdFire = false;
     }
 
     void Update()

@@ -7,6 +7,9 @@ public class SlidingOBSTrigger : MonoBehaviour
     [SerializeField]
     private float maxSpeedIncrease, speedIncrease;
 
+    //slide Event
+    public delegate void slidingBoostDelegae();
+    public static slidingBoostDelegae SlidingBoostEvent;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +19,17 @@ public class SlidingOBSTrigger : MonoBehaviour
             if (rb.velocity.sqrMagnitude < maxSpeedIncrease * maxSpeedIncrease)
             {
                 rb.velocity = rb.velocity + rb.velocity.normalized * speedIncrease;
+
+                try
+                {
+                    SlidingBoostEvent.Invoke();
+
+                }
+                catch (System.Exception)
+                {
+                    //Do nothing
+                    throw;
+                }
             }
         }
     }

@@ -8,14 +8,18 @@ public class UpdateVariables : MonoBehaviour, ISavable
     [Header("Mouse sensetivity")]
     [Space]
     public CameraLook cameraLook;
-
     public Slider sensetivitySlider;
 
     [Header("Toggle Crouch")]
     [Space]
     public Toggle ToggleCrouch;
-
     public Sliding SlidingScript;
+
+    [Header("ToogleFireHook")]
+    [Space]
+    public Toggle ToggleFireHook;
+    public GrapplingHookStates GHS;
+    [Space]
 
     public TMPro.TMP_InputField CrouchKeyInput;
 
@@ -55,16 +59,16 @@ public class UpdateVariables : MonoBehaviour, ISavable
     /// <param name="a_SettingsSaveData"></param>
     public void LoadFromJson()
     {
-
+        
         if (FileManager.LoadFromFile("SettingsSaveData.dat", out var json))
         {
+            Debug.Log("FILE FOUND FILE FOULD");
             SettingsSaveData ssd = new SettingsSaveData();
             ssd.LoadFromJson(json);
 
             LoadFromSettingsSaveData(ssd);
             Debug.Log("Load Complete!");
         }
-
     }
 
    
@@ -74,11 +78,13 @@ public class UpdateVariables : MonoBehaviour, ISavable
         a_SettingsSaveData.mouseSensetivity = sensetivitySlider.value;
 
         a_SettingsSaveData.crouchToggle = ToggleCrouch.isOn;
+
+        a_SettingsSaveData.fireHookToogle = ToggleFireHook.isOn;
     }
 
 
     /// <summary>
-    /// updates BOTH in game settings AND UI
+    /// loads from settingssavedad.dat and updates BOTH in game settings AND UI
     /// </summary>
     /// <param name="a_SettingsSaveData"></param>
     public void LoadFromSettingsSaveData(SettingsSaveData a_SettingsSaveData)
@@ -91,6 +97,11 @@ public class UpdateVariables : MonoBehaviour, ISavable
         ToggleCrouch.isOn = a_SettingsSaveData.crouchToggle;
         if (a_SettingsSaveData.crouchToggle) SlidingScript.currentSlidingMode = Sliding.SlidingMode.toggle;
         else SlidingScript.currentSlidingMode = Sliding.SlidingMode.hold;
+
+        //fire Toogle
+        ToggleFireHook.isOn = a_SettingsSaveData.fireHookToogle;
+        GHS.toggleFire = a_SettingsSaveData.fireHookToogle;
+        
         
     }
 }

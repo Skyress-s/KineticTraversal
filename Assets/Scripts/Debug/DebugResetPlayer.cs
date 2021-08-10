@@ -39,16 +39,19 @@ public class DebugResetPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (kb.tKey.wasPressedThisFrame)
+        if (kb.rKey.wasPressedThisFrame)
         {
             ResetPlayer();
         }
 
+#if UNITY_EDITOR
         if (kb.gKey.wasPressedThisFrame)
         {
             AcceleratePlayer();
         }
+#endif
     }
+
 
     public void AcceleratePlayer()
     {
@@ -57,7 +60,6 @@ public class DebugResetPlayer : MonoBehaviour
 
 
     }
-
 
     public void ResetPlayer()
     {

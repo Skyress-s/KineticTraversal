@@ -29,6 +29,8 @@ public class PortalMain : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    
+
     private void Update()
     {
         switch (currentState)

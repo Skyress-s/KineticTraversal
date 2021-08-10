@@ -9,6 +9,10 @@ public class NextLevelTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        LevelManager.LoadNextLevel();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            LevelManager.LoadNextLevel();
+        }
+
     }
 }

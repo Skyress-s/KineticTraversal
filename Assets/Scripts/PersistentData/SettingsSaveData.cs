@@ -10,6 +10,8 @@ public class SettingsSaveData
 
     public bool crouchToggle;
 
+    public bool fireHookToogle;
+
     
     public string ToJson()
     {

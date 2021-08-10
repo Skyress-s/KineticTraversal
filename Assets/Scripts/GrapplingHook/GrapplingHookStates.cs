@@ -13,6 +13,8 @@ public class GrapplingHookStates : MonoBehaviour
         returning,
         knockoff
     }
+    public bool toggleFire;
+
 
     public InputInfoCenter IIC;
     private Vector3 storedVelocity;
@@ -38,7 +40,7 @@ public class GrapplingHookStates : MonoBehaviour
 
 
     //layermask
-    private int layerMask;
+    public int layerMask;
 
     //visual effekt
     [Header("VFX")]
@@ -105,7 +107,35 @@ public class GrapplingHookStates : MonoBehaviour
                 break;
         }
 
+        
+        
+
     }
+
+    private bool IsTryToRetract()
+    {
+        if (toggleFire)
+        {
+            return !IIC.holdFire;
+        }
+        else
+        {
+            if (currentState == GHStates.rest)
+            {
+                if (IIC.controls.Player.Shoot.triggered)
+                {
+                    return false;
+                }
+                return true;
+            }
+            if (IIC.controls.Player.Shoot.triggered)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+
     void IsResting()
     {
         //sets the transform of kinematic for resting pos
@@ -114,10 +144,13 @@ public class GrapplingHookStates : MonoBehaviour
         rb.isKinematic = true;
 
         //check if the player fires
-        if (IIC.controls.Player.Shoot.triggered)
+        //if (IIC.controls.Player.Shoot.triggered && toggleFire == false)
+        //{
+        //    currentState = GHStates.fire;
+        //}
+        if (!IsTryToRetract())
         {
             currentState = GHStates.fire;
-
         }
 
         //sets the animation to the returned state
@@ -154,7 +187,11 @@ public class GrapplingHookStates : MonoBehaviour
         }
 
         //option to return hook
-        if (IIC.controls.Player.Shoot.triggered)
+        //if (IIC.controls.Player.Shoot.triggered)
+        //{
+        //    ReturningMiddleStep();
+        //}
+        if (IsTryToRetract())
         {
             ReturningMiddleStep();
         }
@@ -217,7 +254,7 @@ public class GrapplingHookStates : MonoBehaviour
         
 
 
-        if (IIC.controls.Player.Shoot.triggered)
+        if (IsTryToRetract())
         {
             ReturningMiddleStep();
             isHookedEnter = false;
@@ -309,7 +346,7 @@ public class GrapplingHookStates : MonoBehaviour
             
         }
 
-        if (IIC.controls.Player.Shoot.triggered)
+        if (IsTryToRetract())
         {
             ReturningMiddleStep();
             onEnter = true;

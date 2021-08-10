@@ -1356,7 +1356,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "WASD - Basic Movment\nSPACE - Jump\n\tHold Space to jump higher\nCTRL
-        - Slide/Crouch\nT - Restart\n"
+        - Slide/Crouch\nR - Restart\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8676033356004196804, guid: dc80a764b7eb345428751acd8a508d59,
         type: 3}
