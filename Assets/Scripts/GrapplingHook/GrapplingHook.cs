@@ -20,6 +20,9 @@ public class GrapplingHook : MonoBehaviour
 
     private GrapplingHookStates gHstate;
 
+    [SerializeField]
+    private float minRopeLentgh;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -69,10 +72,18 @@ public class GrapplingHook : MonoBehaviour
             }
         }
 
+
+        var dist = DistanceToHook();
         //shortens the original distance so the rope always has tension
-        if (originalDist * 0.9f > DistanceToHook())
+        if (originalDist * 0.9f > dist)
         {
             originalDist = DistanceToHook();
+        }
+
+        //lentghens the rope if its to short!
+        if (minRopeLentgh > dist)
+        {
+            originalDist = minRopeLentgh;
         }
 
 

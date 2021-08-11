@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 6482ea4631a5d1745ae12869e74a78d7,
+  m_LightingDataAsset: {fileID: 112000002, guid: cf5200525b049f042851ca1d29d6c63e,
     type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
@@ -17055,6 +17055,7 @@ MonoBehaviour:
   originalDist: 0
   pullForce: 10
   dampForce: 50
+  minRopeLentgh: 15
 --- !u!114 &6047523575731723263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17908,6 +17909,48 @@ MonoBehaviour:
       value: 0
       inSlope: 0
       outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  YaxisCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 0.000004887581
+      inSlope: 0.00002043588
+      outSlope: 0.00002043588
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: -0.93
+      value: 0.0000063180923
+      inSlope: -0.021343667
+      outSlope: -0.021343667
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09703163
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: -0.61
+      value: 0.99999905
+      inSlope: -0.035712466
+      outSlope: -0.035712466
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.6929491
+    - serializedVersion: 3
+      time: 1
+      value: 0.9976415
+      inSlope: -0.0014643121
+      outSlope: -0.0014643121
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
