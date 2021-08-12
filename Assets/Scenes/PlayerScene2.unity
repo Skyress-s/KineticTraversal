@@ -3884,7 +3884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785691963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.87, z: 0}
+  m_LocalPosition: {x: 0, y: 0.902, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6047523575731723137}
@@ -13124,8 +13124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148128768737}
   m_LocalRotation: {x: 0.694121, y: 0.13448651, z: 0.13451605, w: 0.69427294}
-  m_LocalPosition: {x: 0.013022542, y: 0.07414484, z: -3.082}
-  m_LocalScale: {x: 0.5836, y: 0.5836, z: 0.5836}
+  m_LocalPosition: {x: 0.0042492, y: 0.097493, z: -2.617}
+  m_LocalScale: {x: 0.47613588, y: 0.47613588, z: 0.47613588}
   m_Children:
   - {fileID: 6951869188011067713}
   - {fileID: 4083501150312990237}
@@ -16780,12 +16780,12 @@ MonoBehaviour:
   lerpYForce: 0
   MaxSpeed: 25
   speedBoost: 0.2
-  jumpForce: 11
-  jumpUpwardsForce: 12
-  maximumSpeed: 45
+  jumpForce: 9
+  jumpUpwardsForce: 9
+  maximumSpeed: 35
   wallrunning: 0
-  stickToWallForce: 8
-  lowestSpeed: 5
+  stickToWallForce: 6
+  lowestSpeed: 3
   IIC: {fileID: 6047523576148543966}
   ct: {fileID: 947456978}
   currentWallrunState: 0
@@ -16885,7 +16885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverJumpPhase: 0
   IIC: {fileID: 6047523576148543966}
-  jumpForce: 8
+  jumpForce: 6
   holdJumpForce: 0.2
   coyoteMargin: 0.3
 --- !u!54 &6047523575731723143
@@ -16914,7 +16914,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c0079d229f4518345bd3334c214d19d3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -17034,7 +17034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grounded: {fileID: 6047523575731723141}
-  maxSpeed: 18
+  maxSpeed: 15
   counterMovIntensity: 10
   speedCapIntensity: 1
   IIC: {fileID: 6047523576148543966}
@@ -17055,7 +17055,7 @@ MonoBehaviour:
   originalDist: 0
   pullForce: 10
   dampForce: 50
-  minRopeLentgh: 15
+  minRopeLentgh: 10
 --- !u!114 &6047523575731723263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17246,7 +17246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047523575758096500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.98, y: -0.521, z: 1.427}
+  m_LocalPosition: {x: 0.766, y: -0.481, z: 1.222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 882378737}
@@ -17662,8 +17662,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.73, y: 0.73, z: 1.78}
-  m_Center: {x: 0, y: 0, z: -0.6}
+  m_Size: {x: 1.1586591, y: 1.1909432, z: 1.78}
+  m_Center: {x: 0.00026994944, y: 0.16732419, z: -0.6}
 --- !u!1 &6047523576666963859
 GameObject:
   m_ObjectHideFlags: 0
@@ -17735,9 +17735,9 @@ MonoBehaviour:
   currentState: 0
   handPos: {fileID: 6047523575758096491}
   Collided: {fileID: 6047523576666963860}
-  fireSpeed: 75
-  maxRayDistance: 3
-  hookMaxDistance: 50
+  fireSpeed: 65
+  maxRayDistance: 2
+  hookMaxDistance: 35
   layerMask: 0
   visualEffect: {fileID: 6047523576729318568}
   hookVFX: {fileID: 6047523576666963864}
@@ -17909,48 +17909,6 @@ MonoBehaviour:
       value: 0
       inSlope: 0
       outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  YaxisCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1
-      value: 0.000004887581
-      inSlope: 0.00002043588
-      outSlope: 0.00002043588
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: -0.93
-      value: 0.0000063180923
-      inSlope: -0.021343667
-      outSlope: -0.021343667
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.09703163
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: -0.61
-      value: 0.99999905
-      inSlope: -0.035712466
-      outSlope: -0.035712466
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.6929491
-    - serializedVersion: 3
-      time: 1
-      value: 0.9976415
-      inSlope: -0.0014643121
-      outSlope: -0.0014643121
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

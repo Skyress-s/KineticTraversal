@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeedIncrease: 150
-  speedIncrease: 20
+  speedIncrease: 14
 --- !u!1 &7899032713203117714
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 7899032713753160144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.7, y: -15.97, z: 151.99}
-  m_LocalScale: {x: 15.444611, y: 2.1696815, z: 1.5735697}
+  m_LocalScale: {x: 14.209042, y: 1.9961071, z: 1.4476842}
   m_Children:
   - {fileID: 7899032713203117715}
   - {fileID: 7899032713611054241}
