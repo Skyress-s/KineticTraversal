@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &736855370027927969
 GameObject:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &769981824828887985
 GameObject:
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &1258908012579911240
 GameObject:
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &1486856625099389334
 GameObject:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &1750374986851869818
 GameObject:
@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 6467372702500379662}
   - component: {fileID: 3226465052555706577}
   - component: {fileID: 7422793742621145081}
+  - component: {fileID: 8618793986356528138}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -651,6 +652,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: -5495902117074765545, guid: efa6045ce880ea84e88694428d111a09, type: 3}
+--- !u!114 &8618793986356528138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750374986851869818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d96fc5e94d4f841aaca44eeb1e611f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hookable: 0
+  wallrunable: 1
+  walkable: 0
 --- !u!1 &2235930129417628495
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &3359802092379020860
 GameObject:
@@ -1011,7 +1027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &3507272443620544116
 GameObject:
@@ -1154,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &5566327042552302107
 GameObject:
@@ -1265,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &6118149205354957200
 GameObject:
@@ -1376,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3
 --- !u!1 &7569602725240790281
 GameObject:
@@ -1677,5 +1693,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.4
   periodTime: 3

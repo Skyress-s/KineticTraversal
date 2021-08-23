@@ -206,7 +206,7 @@ public class GrapplingHookStates : MonoBehaviour
         {
             
             globalHit = hit;
-            if (ExperimentalTags.IsHookable(hit.collider.gameObject))
+            if (KineticTags.IsHookable(hit.collider.gameObject))
             {
                 
                 rb.isKinematic = true;

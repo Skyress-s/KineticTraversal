@@ -80,7 +80,7 @@ public class WallrunWallDetect : MonoBehaviour
         //final check to se if wall i wallrunable
         if (detected)
         {
-            detected = ExperimentalTags.IsWallrunable(globalHit.collider.gameObject);
+            detected = KineticTags.IsWallrunable(globalHit.collider.gameObject);
         }
         else
         {

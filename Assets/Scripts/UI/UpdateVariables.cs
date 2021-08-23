@@ -62,7 +62,7 @@ public class UpdateVariables : MonoBehaviour, ISavable
         
         if (FileManager.LoadFromFile("SettingsSaveData.dat", out var json))
         {
-            Debug.Log("FILE FOUND FILE FOULD");
+            //Debug.Log("FILE FOUND FILE FOULD");
             SettingsSaveData ssd = new SettingsSaveData();
             ssd.LoadFromJson(json);
 

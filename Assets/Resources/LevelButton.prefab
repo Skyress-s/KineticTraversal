@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3663822681943596771}
   - component: {fileID: 6772510952773183828}
   - component: {fileID: 4595968642920536957}
+  - component: {fileID: 3938385349619889992}
   m_Layer: 5
   m_Name: LevelButton
   m_TagString: Untagged
@@ -149,6 +150,18 @@ MonoBehaviour:
   levelToLoad:
     sceneAsset: {fileID: 102900000, guid: 752ac8062c107744cada376c33844f28, type: 3}
     scenePath: Assets/Scenes/TutorialLevels/Lvl1/Tutoral_1.unity
+--- !u!114 &3938385349619889992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492027787574840067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a0afb2015eb5f478ece057596a9295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7137379402573509564
 GameObject:
   m_ObjectHideFlags: 0

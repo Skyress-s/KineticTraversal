@@ -450,11 +450,11 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.985465
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
-  m_OrderedInterruption: 1
+  m_OrderedInterruption: 0
   m_CanTransitionToSelf: 1
 --- !u!1102 &-6163022028674745534
 AnimatorState:
@@ -918,10 +918,10 @@ AnimatorStateMachine:
     m_Position: {x: -1510, y: 630, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8170422379748672111}
-    m_Position: {x: -1510, y: 690, z: 0}
+    m_Position: {x: -1490, y: 700, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4252847595884352037}
-    m_Position: {x: -1510, y: 750, z: 0}
+    m_Position: {x: -1450, y: 790, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7699164500405801619}
     m_Position: {x: -1230, y: 380, z: 0}
@@ -1669,31 +1669,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Wallrun
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Blend
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

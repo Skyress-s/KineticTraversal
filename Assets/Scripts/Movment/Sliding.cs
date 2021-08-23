@@ -30,6 +30,11 @@ public class Sliding : MonoBehaviour
 
     private Rigidbody rb;
 
+    [SerializeField]
+    private float BeginSlideSpeedIncrease;
+    [SerializeField]
+    private float speedIncreaseCap;
+
     [Header("Change direction")]
     [Space] [SerializeField] [Tooltip("how fast the change in direction should happen")]
     private float slidingChangeVelocity;
@@ -88,6 +93,17 @@ public class Sliding : MonoBehaviour
 
     void Slide()
     {
+        void SpeedBoost()
+        {
+            float sqrmagv = rb.velocity.sqrMagnitude;
+            if (sqrmagv < speedIncreaseCap * speedIncreaseCap && sqrmagv > 0.5f*0.5f)
+            {
+                rb.velocity += rb.velocity.normalized * BeginSlideSpeedIncrease;
+            }
+        }
+
+        SpeedBoost();
+
         sliding = true;
         cc.height = 1f;
         cc.center = new Vector3(0f, -orgHeight/4f, 0f);

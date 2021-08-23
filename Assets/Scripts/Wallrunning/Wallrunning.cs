@@ -20,9 +20,12 @@ public class Wallrunning : MonoBehaviour
 
     //jump portion
     [Header("Jump")]
-    public float jumpForce;
-    [Tooltip("How hard to jump")]
+    [Tooltip("how much the andgle of the camera ands to the jump")]
+    public float cameraYforce;
+    [Tooltip("How much upwards force to add, indepentently of camera")]
     public float jumpUpwardsForce;
+    [SerializeField][Tooltip("how much force away from wall defualt 0.2f")]
+    private float outwardsForce;
 
     [Tooltip("Maximum speed the player can have before not incresing speed when jumping")]
     /// <summary>
@@ -219,15 +222,15 @@ public class Wallrunning : MonoBehaviour
 
 
             // calc the y amount of the jump
-            var Y = Vector3.up * look.y*6f;
+            var Y = Vector3.up * look.y*cameraYforce;
             //Y = Y * 2f;
-            Y += Vector3.up * 10f;
+            Y += Vector3.up * jumpUpwardsForce;
 
 
             // calc the xz amount of the jump
             var XZ = new Vector3(look.x, 0f, look.z).normalized;
 
-            XZ += globalHit.normal * 0.2f;
+            XZ += globalHit.normal * outwardsForce;
             
             XZ = XZ.normalized;
             // adding a speed boost if speed is below a certion amount

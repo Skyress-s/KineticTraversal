@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
 
     private float t;
     private static bool b;
+    private static bool isCustom;
 
     private void Update()
     {
@@ -28,18 +29,30 @@ public class LevelManager : MonoBehaviour
         if (t > 1f)
         {
 
+            if (!isCustom)
+            {
+                b = false;
 
-            b = false;
+                //the actual code for loading a level
+                LevelManagerSO LeveData = GetLevelData();
 
-            //the actual code for loading a level
-            LevelManagerSO LeveData = GetLevelData();
-
-            SceneManager.LoadScene(LeveData.arr[levelToload]);
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+                SceneManager.LoadScene(LeveData.arr[levelToload]);
+                SceneManager.LoadScene(1, LoadSceneMode.Additive);
             
 
-            //resetes the time scale
-            Time.timeScale = 1f;
+                //resetes the time scale
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                b = false;
+
+                LevelManagerSO CustomLevelData = GetCustomLevelsData();
+
+                SceneManager.LoadScene(CustomLevelData.arr[levelToload]);
+                SceneManager.LoadScene(1, LoadSceneMode.Additive);
+                Time.timeScale= 1f;
+            }
         }
     }
 
@@ -65,7 +78,19 @@ public class LevelManager : MonoBehaviour
         LevelManagerSO LevelData = GetLevelData();
         int i = LevelManager.GetLevelIndexCurrentScene();
 
-        loadLevel(i + 1);
+
+        //if there are no more levels in the level data, defualt to sanbox level
+        if (i + 2 > LevelData.arr.Count)
+        {
+            loadLevel(0, true);
+        }
+        else
+        {
+            loadLevel(i + 1, false);
+        }
+
+
+
         //SceneManager.LoadScene(LevelData.arr[i+1]);
         //SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
@@ -80,11 +105,16 @@ public class LevelManager : MonoBehaviour
     {
         return Resources.Load<LevelManagerSO>("LevelData1");
     }
+
+    public static LevelManagerSO GetCustomLevelsData()
+    {
+        return Resources.Load<LevelManagerSO>("CustomLevels");
+    }
     
-    public static void loadLevel(int i)
+    public static void loadLevel(int i, bool aIsCustom)
     {
         Time.timeScale = nextLevelSlowdown;
-
+        isCustom = aIsCustom;
         b = true;
         levelToload = i;
         

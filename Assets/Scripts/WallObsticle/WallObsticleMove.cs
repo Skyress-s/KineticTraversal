@@ -15,6 +15,8 @@ public class WallObsticleMove : MonoBehaviour
 
     private Vector3 startLocPos;
 
+    public float offset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class WallObsticleMove : MonoBehaviour
     void Update()
     {
         t += Time.deltaTime;
-        var sin = Mathf.Sin(2 * Mathf.PI * t/period)/2f + 0.5f;
+        var sin = Mathf.Sin(2 * Mathf.PI * (t + offset)/period)/2f + 0.5f;
         transform.localPosition = dir * sin + startLocPos;
     }
 

@@ -28,11 +28,10 @@ public class CameraTiltWhileGrappling : MonoBehaviour
 
     void Update()
     {
-
         if (IIC.grapplingHookStates.currentState == GrapplingHookStates.GHStates.hooked)
         {
 
-       
+
             endTime = 0f;
 
             hook = IIC.hook.transform.position - transform.position;
@@ -52,7 +51,7 @@ public class CameraTiltWhileGrappling : MonoBehaviour
             var v2 = Vector3.Slerp(Vector3.up, hook, StartCurve.Evaluate(startTime) * tiltAmount);
             transform.up = v2;
 
-            
+
         }
         else
         {
