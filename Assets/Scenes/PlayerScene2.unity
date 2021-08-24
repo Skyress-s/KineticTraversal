@@ -6655,10 +6655,10 @@ MonoBehaviour:
     rotationInfluence: {x: 1, y: 1, z: 1}
   HookRetracedShake:
     shakeType: 0
-    strength: 5
-    roughness: 5
+    strength: 3
+    roughness: 2
     fadeIn: 0
-    fadeOut: 0.15
+    fadeOut: 0.2
     positionInfluence: {x: 0.03, y: 0.03, z: 0.03}
     rotationInfluence: {x: 0.5, y: 0.5, z: 0.5}
   ShakeManager: {fileID: 2029002114}
@@ -10999,6 +10999,7 @@ MonoBehaviour:
   animationTilt: 0
   TiltGameobject: {fileID: 6047523576224496623}
   wallrun: {fileID: 6047523575731723136}
+  IIC: {fileID: 6047523576148543966}
 --- !u!114 &6047523575585772436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11710,7 +11711,7 @@ MonoBehaviour:
   SlidingKey: 99
   IIC: {fileID: 6047523576148543966}
   sliding: 0
-  BeginSlideSpeedIncrease: 7
+  slideSpeed: 22
   speedIncreaseCap: 17
   slidingChangeVelocity: 1
 --- !u!120 &6047523575758096488

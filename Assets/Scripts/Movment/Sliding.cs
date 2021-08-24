@@ -31,7 +31,7 @@ public class Sliding : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField]
-    private float BeginSlideSpeedIncrease;
+    private float slideSpeed;
     [SerializeField]
     private float speedIncreaseCap;
 
@@ -98,7 +98,7 @@ public class Sliding : MonoBehaviour
             float sqrmagv = rb.velocity.sqrMagnitude;
             if (sqrmagv < speedIncreaseCap * speedIncreaseCap && sqrmagv > 0.5f*0.5f)
             {
-                rb.velocity += rb.velocity.normalized * BeginSlideSpeedIncrease;
+                rb.velocity = rb.velocity.normalized * slideSpeed;
             }
         }
 

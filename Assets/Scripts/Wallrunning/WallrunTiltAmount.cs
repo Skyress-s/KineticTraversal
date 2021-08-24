@@ -14,6 +14,8 @@ public class WallrunTiltAmount : MonoBehaviour
 
     private RaycastHit bufferhit;
 
+    public InputInfoCenter IIC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,11 @@ public class WallrunTiltAmount : MonoBehaviour
         //scriptTilt = animationTilt * wallrun.DetermineSide();
         //TiltGameobject.transform.localEulerAngles = new Vector3(0, 0, scriptTilt);
 
-        TiltGameobject.transform.up = (bufferhit.normal * animationTilt + Vector3.up * 70).normalized;
+        if (IIC.grapplingHookStates.currentState != GrapplingHookStates.GHStates.hooked)
+        {
+            TiltGameobject.transform.up = (bufferhit.normal * animationTilt + Vector3.up * 70).normalized;
+        }
+
         
 
 
