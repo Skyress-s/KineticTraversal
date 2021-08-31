@@ -5,12 +5,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = System.Random;
 
-namespace UnityTemplateProjects
-{
-    public class VineDisplay : MonoBehaviour
-    {
-        private VineDisplay display;
-
+public class VineDisplay : MonoBehaviour
+{    
         public List<Vine.Point> processed = new List<Vine.Point>();
         public List<Vine> instantiatedVines = new List<Vine>();
 
@@ -20,9 +16,9 @@ namespace UnityTemplateProjects
 
         private void Update()
         {
-            foreach (var vine in Vine.vines)
+            foreach (Vine vine in Vine.vines)
             {
-                if (!instantiatedVines.Contains(vine))
+                if (!instantiatedVines.Contains(vine)) // if no vines points created yet, create one
                 {
                     instantiatedVines.Add(vine);
                     var go = Instantiate(physicalVinePrefab);
@@ -30,7 +26,7 @@ namespace UnityTemplateProjects
                     go.transform.position = Vector3.zero;
                     go.GetComponent<PhysicalVine>().SetVine(vine);
                 }
-                foreach (var point in vine.points)
+                foreach (Vine.Point point in vine.points)
                 {
                     if (!processed.Contains(point))
                     {
@@ -63,4 +59,3 @@ namespace UnityTemplateProjects
             Gizmos.color = old;
         }
     }
-}
