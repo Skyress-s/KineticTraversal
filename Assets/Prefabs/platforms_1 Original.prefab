@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookable: 0
   wallrunable: 0
+  walkable: 1
 --- !u!114 &45926982407765379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &9152696667280259686
 MonoBehaviour:
@@ -40,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &4297358790602053152
 MonoBehaviour:
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &7079678495987511566
 MonoBehaviour:
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &7109342881081037975
 MonoBehaviour:
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!1 &3447188974554950749
 GameObject:
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &1040471497215114847
 MonoBehaviour:
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &6225809315977488015
 MonoBehaviour:
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &5888445064057801893
 MonoBehaviour:
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &6089781567336612212
 MonoBehaviour:
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!114 &2413649871319585873
 MonoBehaviour:
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bb2b3f245b12d49beaa9a1e29da35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2.5
   periodTime: 3
 --- !u!1 &8536032398129184544
 GameObject:
@@ -226,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8536032398129184544}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.000000074505806}
-  m_LocalPosition: {x: 0, y: -6.3999996, z: -5.8}
+  m_LocalPosition: {x: -0.26, y: -4.04, z: -4.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2638318519905548007}
@@ -371,6 +372,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8268496561669472428, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.5185666
+      objectReference: {fileID: 0}
     - target: {fileID: -8145132681511478816, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
       propertyPath: m_Convex
@@ -391,15 +397,35 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6055891978217533756, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.270345
+      objectReference: {fileID: 0}
     - target: {fileID: -5410576010091045908, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9e40c2be2eef37f439200573f863f839, type: 2}
+    - target: {fileID: -4985907692564273967, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.3028717
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4518586251302825232, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.6474776
+      objectReference: {fileID: 0}
+    - target: {fileID: -4246782898676210454, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.998782
       objectReference: {fileID: 0}
     - target: {fileID: -4013052886979052313, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
@@ -441,6 +467,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9e40c2be2eef37f439200573f863f839, type: 2}
+    - target: {fileID: -808966925217029657, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -808966925217029657, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_CookingOptions
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -114977517794047611, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.11
+      objectReference: {fileID: 0}
     - target: {fileID: -104765296421004940, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -461,6 +502,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9e40c2be2eef37f439200573f863f839, type: 2}
+    - target: {fileID: 2912358764244837864, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.0424266
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515237744835541983, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7746716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413941221531411236, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.729964
+      objectReference: {fileID: 0}
     - target: {fileID: 4790441485686614293, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
       propertyPath: m_Convex
@@ -476,6 +532,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9e40c2be2eef37f439200573f863f839, type: 2}
+    - target: {fileID: 7022555052914588207, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.869696
+      objectReference: {fileID: 0}
     - target: {fileID: 7511610764922629535, guid: efa6045ce880ea84e88694428d111a09,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -505,6 +566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527731236696934157, guid: efa6045ce880ea84e88694428d111a09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.231842
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5937433288073824110, guid: efa6045ce880ea84e88694428d111a09, type: 3}

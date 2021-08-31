@@ -23,6 +23,9 @@ public class PlayerGroundState : PlayerBaseState
         //player.IIC.WallrunDetect.enabled = false;
         player.Wallrun2.enabled = false;
 
+        player.IIC.Wallrunning.enabled = false;
+        player.IIC.WallrunDetect.enabled = false;
+
     }
 
     public override void Update(Context player)

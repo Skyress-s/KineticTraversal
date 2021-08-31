@@ -20,9 +20,12 @@ public class Wallrunning : MonoBehaviour
 
     //jump portion
     [Header("Jump")]
-    public float jumpForce;
-    [Tooltip("How hard to jump")]
+    [Tooltip("how much the andgle of the camera ands to the jump")]
+    public float cameraYforce;
+    [Tooltip("How much upwards force to add, indepentently of camera")]
     public float jumpUpwardsForce;
+    [SerializeField][Tooltip("how much force away from wall defualt 0.2f")]
+    private float outwardsForce;
 
     [Tooltip("Maximum speed the player can have before not incresing speed when jumping")]
     /// <summary>
@@ -219,23 +222,23 @@ public class Wallrunning : MonoBehaviour
 
 
             // calc the y amount of the jump
-            var Y = Vector3.up * look.y*3f;
-            Y = Y * 3f;
-            Y += Vector3.up * 10f;
+            var Y = Vector3.up * look.y*cameraYforce;
+            //Y = Y * 2f;
+            Y += Vector3.up * jumpUpwardsForce;
 
 
-            // calc the xy amount of the jump
-            var XY = new Vector3(look.x, 0f, look.z).normalized;
+            // calc the xz amount of the jump
+            var XZ = new Vector3(look.x, 0f, look.z).normalized;
 
-            XY += globalHit.normal * 0.2f;
+            XZ += globalHit.normal * outwardsForce;
             
-            XY = XY.normalized;
-                // adding a speed boost if speed is below a certion amount
+            XZ = XZ.normalized;
+            // adding a speed boost if speed is below a certion amount
             if (new Vector3(v.x, 0f, v.z).sqrMagnitude < maximumSpeed * maximumSpeed)
             {
 
                 //Debug.Log(new Vector3(v.x, 0f, v.z).sqrMagnitude);
-                speed_factor = 1.3f;
+                speed_factor = 1.25f;
                
 
                 //Debug.Log("did increase speed");
@@ -244,7 +247,7 @@ public class Wallrunning : MonoBehaviour
 
             //adding them toghether
 
-            Vector3 newV = XY * vmag * speed_factor; // adds the XZ component
+            Vector3 newV = XZ * vmag * speed_factor; // adds the XZ component
 
             newV += Y;
 

@@ -33,7 +33,7 @@ public class HomingCollider : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (GHS.currentState == GrapplingHookStates.GHStates.travling && ExperimentalTags.IsHookable(other.gameObject))
+        if (GHS.currentState == GrapplingHookStates.GHStates.travling && KineticTags.IsHookable(other.gameObject))
         {
             //Debug.Log("detected!");
             homing = true;

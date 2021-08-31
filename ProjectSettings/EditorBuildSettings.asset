@@ -77,4 +77,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StagePack3/Lvl5/Lvl5.unity
     guid: 75abebbe187d35d44b9f8561fb9609f3
+  - enabled: 1
+    path: Assets/Scenes/SandBoxPlayground/Sandbox playground.unity
+    guid: 8f2c90a76f544084dab5086f4abd6a9d
+  - enabled: 1
+    path: Assets/Scenes/StagePack3/Lvl6/Lvl6.unity
+    guid: 446382f7fdd61ab4ab0a76a125e1f32b
+  - enabled: 1
+    path: Assets/Scenes/StagePack3/Lvl7/Lvl7.unity
+    guid: 2ead3f3db5749904a81d6b4b32ec99e8
+  - enabled: 1
+    path: Assets/Scenes/StagePack4/Lvl1/Lvl1.unity
+    guid: 65963fb1462c3a641bab3f302d1550f5
   m_configObjects: {}

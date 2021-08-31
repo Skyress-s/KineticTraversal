@@ -33,7 +33,6 @@ wallrunner i taket
 snurer for fort med musa = funker ikke å se rundt
 david - syggen til spilleren er en penis
 morgan - er uenig, det er en cylinder
-- når du skyter finishtrigger så går man til neste level
 - får tilbake all momentum når man lander på floating cylinder/ikke lande på dem
 - spillet er for frustrerende kanskje?
 	- nå er det lettere å treffe cylindere, håper det hjelper

@@ -23,13 +23,19 @@ public class LevelLoad : MonoBehaviour
 
     public void Load2()
     {
-        var s = GetComponentInChildren<TMP_Text>().text;
-        var i = Int32.Parse(s);
-        i--;
+        Time.timeScale = 1f;
+        int i = GetComponent<LevelButtonData>().levelToload;
+        bool b = GetComponent<LevelButtonData>().isCustomLevel;
+        LevelManager.loadLevel(i, b);
 
-        //Time.timeScale = 1f;
 
-        LevelManager.loadLevel(i);
+        //var s = GetComponentInChildren<TMP_Text>().text;
+        //var i = Int32.Parse(s);
+        //i--;
+
+        ////Time.timeScale = 1f;
+
+        //LevelManager.loadLevel(i);
 
     }
 

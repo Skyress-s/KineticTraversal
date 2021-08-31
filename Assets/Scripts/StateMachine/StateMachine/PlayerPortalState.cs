@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using MilkShake;
 
 
 public class PlayerPortalState : PlayerBaseState
@@ -11,11 +12,12 @@ public class PlayerPortalState : PlayerBaseState
 
     private float t;
 
-    private float maxduration = 2.2f;
+    public static float maxduration = 2.2f;
 
 
     public delegate void ExitPortalDelegate();
     public static ExitPortalDelegate ExitPortalEvent;
+    public static ExitPortalDelegate EnterPortalEvent;
 
     public override void EnterState(Context player)
     {
@@ -29,6 +31,10 @@ public class PlayerPortalState : PlayerBaseState
 
         if (player.IIC.grapplingHookStates.currentState == GrapplingHookStates.GHStates.rest) { }
         else player.IIC.grapplingHookStates.ReturningMiddleStep();
+
+
+        //events
+        EnterPortalEvent.Invoke();
     
     }
 
@@ -61,6 +67,7 @@ public class PlayerPortalState : PlayerBaseState
         ExitPortalEvent.Invoke();
         t = 0f;
         onEnterVeclocity = Vector3.zero;
+        
     }
 
     public override void DebugState(Context player)

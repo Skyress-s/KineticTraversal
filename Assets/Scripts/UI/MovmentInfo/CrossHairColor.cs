@@ -33,7 +33,7 @@ public class CrossHairColor : MonoBehaviour
             //Debug.Log(raydistancecalc);
             if ((hit.collider.gameObject.transform.position - camera.transform.position).sqrMagnitude < raydistancecalc * raydistancecalc)
             {
-                if (!ExperimentalTags.IsHookable(hit.collider.gameObject)) return;
+                if (!KineticTags.IsHookable(hit.collider.gameObject)) return;
                 
                 targetImage.color = Color.cyan;
             }
