@@ -24,7 +24,7 @@ public class VineDisplay : MonoBehaviour
                     var go = Instantiate(physicalVinePrefab);
                     go.transform.position = vine.points[0].position;
                     go.transform.position = Vector3.zero;
-                    go.GetComponent<PhysicalVine>().SetVine(vine);
+                    //go.GetComponent<PhysicalVine>().SetVine(vine);
                 }
                 foreach (Vine.Point point in vine.points)
                 {

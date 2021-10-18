@@ -30,19 +30,9 @@ public class WallrunTiltAmount : MonoBehaviour
             bufferhit = wallrun.globalHit;
         }
 
-        //scriptTilt = animationTilt * wallrun.DetermineSide();
-        //TiltGameobject.transform.localEulerAngles = new Vector3(0, 0, scriptTilt);
-
-        if (IIC.grapplingHookStates.currentState != GrapplingHookStates.GHStates.hooked)
-        {
+        if (IIC.grapplingHookStates.currentState != GrapplingHookStates.GHStates.hooked) {
             TiltGameobject.transform.up = (bufferhit.normal * animationTilt + Vector3.up * 70).normalized;
         }
 
-        
-
-
-        //New method
-
-        //HAHAHAHAHAHH DET FUNKA SEBASTIAN!!!!! <3!!!!!!!! HAHAH SÅ MANGE PROBLEMER LØST!
     }
 }
