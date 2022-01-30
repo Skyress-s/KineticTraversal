@@ -25,7 +25,7 @@ public class PlayerGroundState : PlayerBaseState
 
         player.IIC.Wallrunning.enabled = false;
         player.IIC.WallrunDetect.enabled = false;
-
+        player.IIC._AirDash.enabled = false;
     }
 
     public override void Update(Context player)
@@ -35,6 +35,8 @@ public class PlayerGroundState : PlayerBaseState
         //    player.TransitionToState(player.airState);
         //    //player._script1.enabled = false;
         //}
+
+        player.IIC._AirDash.enabled = false;
 
         if (/*player.IIC.AirTime.b_airTime */ player.IIC.holdJump)
         {

@@ -20,10 +20,11 @@ public class PlayerAirState : PlayerBaseState
         }
 
 
-
-        player.IIC._AirMovment.enabled = true;
+        
+        //player.IIC._AirMovment.enabled = true;
         player.IIC.WallrunDetect.enabled = true;
 
+        player.IIC._AirDash.enabled = false;
         player.Wallrun2.enabled = false;
         player.IIC.GroundMovment.enabled = false;
         player.IIC.infoSliding.enabled = false;
@@ -33,16 +34,25 @@ public class PlayerAirState : PlayerBaseState
     {
         t += Time.deltaTime;
 
-
         if (!player.IIC.AirTime.b_airTime && t > 0.2f)
         {
+       
             player.TransitionToState(player.groundState);
+            return;
+            
         }
 
+        if (t > 0.2f)
+        {
+            player.IIC._AirDash.enabled = true;
+        }
+
+        
 
         if (player.IIC.WallrunDetect.detected && t > wallrunCooldown)
         {
             Debug.Log("Wallrun");
+            player.IIC._AirDash.enabled = false;
             player.TransitionToState(player.wallrunState);
         }
 

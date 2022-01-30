@@ -9,6 +9,7 @@ public class InputInfoCenter : MonoBehaviour
 
     public IsGrounded grounded;
 
+
     public GrapplingHookStates grapplingHookStates;
 
     public Sliding infoSliding;
@@ -16,6 +17,8 @@ public class InputInfoCenter : MonoBehaviour
     public GroundMovment_ForceVer GroundMovment;
 
     public AirMovment _AirMovment;
+
+    public AirDash _AirDash;
 
     public GameObject hook;
 
