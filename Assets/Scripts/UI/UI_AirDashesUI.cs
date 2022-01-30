@@ -10,19 +10,21 @@ public class UI_AirDashesUI : MonoBehaviour
 
     List<GameObject> Dashes;
 
-    private void Start()
+    void Start()
     {
-        AirDash.testAction += OnValueChanged;
+        
+        AirDash.OnDashesLeftChanged += OnValueChanged;
         Dashes = new List<GameObject>();
     }
 
     private void OnDestroy()
     {
-        AirDash.testAction -= OnValueChanged;
+        AirDash.OnDashesLeftChanged -= OnValueChanged;
     }
 
     void OnValueChanged(int num)
     {
+        
         for (int i = 0; i < Dashes.Count; i++)
         {
             Destroy(Dashes[i]);

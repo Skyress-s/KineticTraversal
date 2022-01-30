@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class IsGrounded : MonoBehaviour
@@ -11,6 +12,10 @@ public class IsGrounded : MonoBehaviour
     public float maxRayDistance;
 
     private int layermask;
+
+    public static UnityAction ActionOnLanded;
+
+    public static UnityAction ActionOnJump;
 
     private void Awake()
     {
@@ -25,14 +30,19 @@ public class IsGrounded : MonoBehaviour
         
         if (Physics.Raycast(transform.position, -transform.up, out hit, maxRayDistance, layermask, QueryTriggerInteraction.Ignore))
         {
-            _isgrounded = KineticTags.IsWalkable(hit.transform.gameObject);
+            if (KineticTags.IsWalkable(hit.transform.gameObject) && !_isgrounded) // on landed
+            {
+                _isgrounded = true;
+                if (ActionOnLanded != null)
+                    ActionOnLanded.Invoke();
+            }
 
 
-            //_isgrounded = true;
-            //Debug.Log(hit.collider.gameObject.name);
         }
-        else
+        else if (_isgrounded)
         {
+            if (ActionOnJump != null)
+                ActionOnJump.Invoke();
             _isgrounded = false;
         }
     }

@@ -30,10 +30,12 @@ public class AirDashRefill : MonoBehaviour
             switch (currentRefillMode)
             {
                 case RefillMode.Add:
-                    AD.dashesLeft += dashesToRefill;
+                    AD.SetDasheseLeft(dashesToRefill, true);
+                   
                     break;
                 case RefillMode.Set:
-                    AD.dashesLeft = dashesToRefill;
+                    AD.SetDasheseLeft(dashesToRefill, false);
+                    
                     break;
                 default:
                     break;
@@ -44,6 +46,10 @@ public class AirDashRefill : MonoBehaviour
             if (VE != null)
             {
                 VE.Play();
+                Vector3 toPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().velocity;
+                toPlayer.Normalize();
+                toPlayer *= 100;
+                VE.SetVector3("Direction", toPlayer);
             }
         }
 

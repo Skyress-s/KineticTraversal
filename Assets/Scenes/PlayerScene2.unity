@@ -1538,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &386814465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11782,13 +11782,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047523575731723149}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d9d85cbff9ff554080a37d4570d6a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6047523575731723143}
   IIC: {fileID: 6047523576148543966}
+  maxDashes: 3
   dashesLeft: 3
 --- !u!114 &6047523575731723256
 MonoBehaviour:
@@ -11804,13 +11805,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bernt: Masee Verdi :) eyyyy
   IIC: {fileID: 6047523576148543966}
-  Bernt1: 25
+  Bernt1: 0
   Bernt2: 123
   initalizeAddSpeed: 9
   lowSpeedAddForce: 0.1
   airTimeLimit: 2
-  sideChangeAmoundt: 1
-  airBrakeForce: 1.36
+  sideChangeAmoundt: 0.7
+  airBrakeForce: 0.6
   currentStrafeState: 0
 --- !u!114 &6047523575731723257
 MonoBehaviour:

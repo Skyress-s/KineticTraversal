@@ -21,7 +21,7 @@ public class PlayerAirState : PlayerBaseState
 
 
         
-        //player.IIC._AirMovment.enabled = true;
+        player.IIC._AirMovment.enabled = true;
         player.IIC.WallrunDetect.enabled = true;
 
         player.IIC._AirDash.enabled = false;

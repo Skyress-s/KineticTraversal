@@ -10,15 +10,24 @@ public class AirDash : MonoBehaviour
 
     public InputInfoCenter IIC;
     // Start is called before the first frame update
-    int maxDashes = 3;
-    public int dashesLeft= 3;
+    public int maxDashes = 3;
+    [SerializeField]
+    private int dashesLeft= 3;
 
-    public static UnityAction<int> testAction;
+    public static UnityAction<int> OnDashesLeftChanged;
+
 
     void Start()
     {
-        
+        IsGrounded.ActionOnLanded += OnLanded;
+       
     }
+
+    private void OnDestroy()
+    {
+        IsGrounded.ActionOnLanded -= OnLanded;
+    }
+
 
     void DoDash() {
         Vector3 dir = Camera.main.transform.forward;
@@ -28,29 +37,40 @@ public class AirDash : MonoBehaviour
         dashesLeft--;
     }
 
+
+    void OnLanded()
+    {
+        dashesLeft = maxDashes;
+        if (OnDashesLeftChanged != null)
+            OnDashesLeftChanged.Invoke(dashesLeft);
+    }
+
+    public void SetDasheseLeft(int num, bool bAddition)
+    {
+        if (bAddition)
+            dashesLeft += num;
+        else
+            dashesLeft = num;
+
+        
+        if (OnDashesLeftChanged != null)
+        {
+            OnDashesLeftChanged.Invoke(dashesLeft);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (IIC.Context.stateStack[1] == IIC.Context.wallrunState.ToString()) { // if previous state was wallrun
-
-        }
+        
         if (IIC.controls.Player.Jump.triggered && dashesLeft > 0) {
             DoDash();
-            if (testAction != null)
-            {
-                testAction.Invoke(dashesLeft);
-            }
+            if (OnDashesLeftChanged != null)
+                OnDashesLeftChanged.Invoke(dashesLeft);
+            
         }
 
-        if (IIC.grounded._isgrounded)
-        {
-            dashesLeft = 3;
-            if (testAction != null)
-            {
-                testAction.Invoke(dashesLeft);
-            }
-
-        }
+        
 
         //if (IIC.grounded._isgrounded) {
         //    dashesLeft = maxDashes;
