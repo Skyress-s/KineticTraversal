@@ -7,6 +7,8 @@ public class FOVcoltroller : MonoBehaviour
 {
     public Camera camera;
 
+    
+    
     private float startFOV;
 
     [Header("hookedCurve")]

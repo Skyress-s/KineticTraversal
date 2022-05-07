@@ -17,6 +17,9 @@ public class AirDash : MonoBehaviour
 
     public static UnityAction<int> EDashesChanged;
 
+    
+    //private 
+    private Coroutine airDashIEnumerator;
     void Start()
     {
         IsGrounded.ActionOnLanded += OnLanded;
@@ -28,9 +31,15 @@ public class AirDash : MonoBehaviour
         IsGrounded.ActionOnLanded -= OnLanded;
     }
 
+    private void OnDisable() {
+        if (airDashIEnumerator != null) 
+            StopCoroutine(airDashIEnumerator);
+        
+    }
 
     void DoDash() {
-        Vector3 dir = Camera.main.transform.forward;
+        
+        /*Vector3 dir = Camera.main.transform.forward;
         float mag = rb.velocity.magnitude;
 
         dir = dir * 2f + rb.velocity.normalized;
@@ -40,7 +49,9 @@ public class AirDash : MonoBehaviour
 
         rb.velocity = dir * mag;
         dashesLeft--;
-        
+        */
+        Debug.Log("Starting air dash!");
+        airDashIEnumerator = StartCoroutine(IAirDashing(2f));
         EDashesChanged?.Invoke(dashesLeft);
     }
     
@@ -48,6 +59,8 @@ public class AirDash : MonoBehaviour
     {
         dashesLeft = maxDashes;
         EDashesChanged?.Invoke(dashesLeft);
+        
+        StopCoroutine(airDashIEnumerator);
     }
 
     public void SetDasheseLeft(int num, bool bAddition)
@@ -71,5 +84,32 @@ public class AirDash : MonoBehaviour
         }
 
         
+    }
+
+
+    
+    IEnumerator IAirDashing(float fDuration) {
+        Transform mainCamera = Camera.main.transform;
+        float AriDashingTime = 0f;
+        while (AriDashingTime < fDuration) {
+            //gets direction
+            Vector3 dir = mainCamera.forward;
+            dir.y = 0f;
+            dir.Normalize();
+            
+            Vector3 vel = rb.velocity;
+            float velYStored = rb.velocity.y;
+            vel.y = 0;
+
+            Vector3 newVel = dir * vel.magnitude;
+            newVel.y = velYStored;
+
+            rb.velocity = newVel;
+            
+            
+            yield return new WaitForFixedUpdate();
+            AriDashingTime += Time.fixedDeltaTime;
+            Debug.Log("Air Dashing!!");
+        }
     }
 }

@@ -11730,6 +11730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bernt: Masee Verdi :) eyyyy
   IIC: {fileID: 6047523576148543966}
+  _GrapplingHookStates: {fileID: 6047523576666963862}
   Bernt1: 0
   Bernt2: 123
   initalizeAddSpeed: 9
