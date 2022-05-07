@@ -30,7 +30,7 @@ public class Context : MonoBehaviour
         stateStack = new string[10];
 
         //initialize the fist state
-        SetInitalState(groundState);
+        SetInitalState(airState);
         void SetInitalState(PlayerBaseState state)
         {
             currentState = groundState;

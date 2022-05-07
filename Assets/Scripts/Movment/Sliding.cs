@@ -30,8 +30,9 @@ public class Sliding : MonoBehaviour
 
     private Rigidbody rb;
 
+    [Header("GiveSpeed")]
     [SerializeField]
-    private float slideSpeed;
+    private float slideForce;
     [SerializeField]
     private float speedIncreaseCap;
 
@@ -56,10 +57,24 @@ public class Sliding : MonoBehaviour
         switch (currentSlidingMode)
         {
             case SlidingMode.hold:
-                HoldSlidingMode();
+                // HoldSlidingMode();
+                if (IIC.holdSlide) {
+                    Slide();
+                }
+                else {
+                    Stand();
+                }
                 break;
             case SlidingMode.toggle:
-                ToggleSlidingMode();
+                // ToggleSlidingMode();
+                if (IIC.controls.Player.Slide.triggered) {
+                    if (sliding) {
+                        Stand();
+                    }
+                    else {
+                        Slide();
+                    }
+                }
                 break;
         }
     }
@@ -93,17 +108,6 @@ public class Sliding : MonoBehaviour
 
     void Slide()
     {
-        void SpeedBoost()
-        {
-            float sqrmagv = rb.velocity.sqrMagnitude;
-            if (sqrmagv < speedIncreaseCap * speedIncreaseCap && sqrmagv > 0.5f*0.5f)
-            {
-                rb.velocity = rb.velocity.normalized * slideSpeed;
-            }
-        }
-
-        SpeedBoost();
-
         sliding = true;
         cc.height = 1f;
         cc.center = new Vector3(0f, -orgHeight/4f, 0f);
@@ -111,6 +115,17 @@ public class Sliding : MonoBehaviour
         //moves the camera target
 
         CameraTarget.localPosition = CameraOrgPos - new Vector3(0f, 1.2f, 0f);
+        
+        void SpeedBoost()
+        {
+            float sqrmagv = rb.velocity.sqrMagnitude;
+            if (sqrmagv < speedIncreaseCap * speedIncreaseCap && sqrmagv > 0.5f*0.5f)
+            {
+                rb.velocity = rb.velocity.normalized * 1.3f;
+            }
+        }
+
+        SpeedBoost();
     }
 
     void Stand()
@@ -143,7 +158,14 @@ public class Sliding : MonoBehaviour
             
             var.y = yStored;
             rb.velocity = var;
+            
+            //give speed
+            if (rby.sqrMagnitude < speedIncreaseCap * speedIncreaseCap) {
+                rb.AddForce(IIC.worldInput * slideForce * Time.fixedTime, ForceMode.Acceleration);
+            }
+            
         }
+       
     }
 
     private void OnDisable()

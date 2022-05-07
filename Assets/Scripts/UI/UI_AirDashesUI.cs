@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,19 @@ public class UI_AirDashesUI : MonoBehaviour
 
     List<GameObject> Dashes;
 
+    private void Awake()
+    {
+        Dashes = new List<GameObject>();
+        AirDash.EDashesChanged += OnValueChanged;
+    }
+
     void Start()
     {
-        
-        AirDash.OnDashesLeftChanged += OnValueChanged;
-        Dashes = new List<GameObject>();
     }
 
     private void OnDestroy()
     {
-        AirDash.OnDashesLeftChanged -= OnValueChanged;
+        AirDash.EDashesChanged -= OnValueChanged;
     }
 
     void OnValueChanged(int num)
@@ -31,8 +35,6 @@ public class UI_AirDashesUI : MonoBehaviour
             
         }
         Dashes.Clear();
-
-        
 
         for (int i = 0; i < num; i++)
         {
