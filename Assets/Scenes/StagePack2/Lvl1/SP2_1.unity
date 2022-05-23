@@ -309,6 +309,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7078125978962144332, guid: 23b20f0cad70bd041ac9f15b1d353e20,
+        type: 3}
+      propertyPath: currentRefillMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7078125978962144333, guid: 23b20f0cad70bd041ac9f15b1d353e20,
         type: 3}
       propertyPath: m_Name

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,10 +10,9 @@ public class DebugResetPlayer : MonoBehaviour
     /*public delegate void restartDelegate();
     public static event restartDelegate RestartLevelEvent;*/
     public static UnityAction ERestartLevelEvent;
-
-
-
-    public GameObject Player;
+    
+    public GameObject player;
+    
     private Rigidbody rb;
 
     public InputInfoCenter IIC;
@@ -32,23 +32,25 @@ public class DebugResetPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = Player.GetComponent<Rigidbody>();
+        rb = player.GetComponent<Rigidbody>();
         kb = InputSystem.GetDevice<Keyboard>();
 
         ResetPlayer();
     }
 
+    private void OnDestroy() {
+        ERestartLevelEvent = null;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (kb.rKey.wasPressedThisFrame)
-        {
+        if (kb.rKey.wasPressedThisFrame) {
             ResetPlayer();
         }
 
 #if UNITY_EDITOR
-        if (kb.gKey.wasPressedThisFrame)
-        {
+        if (kb.gKey.wasPressedThisFrame) {
             AcceleratePlayer();
         }
 #endif
@@ -66,18 +68,12 @@ public class DebugResetPlayer : MonoBehaviour
     public void ResetPlayer()
     {
         //invokes the restart event
-        try
-        {
-            ERestartLevelEvent.Invoke();
-        }
-        catch (System.Exception)
-        {
-            //TODO is this a good solution????
-            Debug.Log("did not find any wallobs in the scene");
-        }
+        ERestartLevelEvent?.Invoke();
+       
+        
 
 
-        Player.transform.position = PlayerBegin.startPos; //where to place the player
+        player.transform.position = PlayerBegin.startPos; //where to place the player
         rb.velocity = Vector3.zero;
 
         //resets the rotation of the camera

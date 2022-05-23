@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -13,13 +15,21 @@ public class LevelManager : MonoBehaviour
 
     public const float nextLevelSlowdown = 0.2f;
 
-    private void Start()
-    {
-    }
-
+    [SerializeField] private TextAsset _lastLevelPath;
+    
+    static string SavePath = "Assets/Resources/LastActiveLevel.txt";
+    
     private float t;
     private static bool b;
     private static bool isCustom;
+
+    private void Start() {
+        //saves the current path
+        
+        StreamWriter writer = new StreamWriter(SavePath, false);
+        writer.Write(SceneManager.GetActiveScene().path);
+        writer.Close();
+    }
 
     private void Update()
     {
@@ -113,27 +123,28 @@ public class LevelManager : MonoBehaviour
         return Resources.Load<LevelManagerSO>("CustomLevels");
     }
     
-    public static void loadLevel(int i, bool aIsCustom)
-    {
+    public static void loadLevel(int i, bool aIsCustom) {
+
+     
+        
         Time.timeScale = nextLevelSlowdown;
         isCustom = aIsCustom;
         b = true;
         levelToload = i;
         
         OnLevelEnd.Invoke();
-        //LevelManagerSO LeveData = GetLevelData();
 
 
-
-        //SceneManager.LoadScene(LeveData.arr[i]);
-        //SceneManager.LoadScene(1, LoadSceneMode.Additive);
-
-        
     }
 
     [ContextMenu("lastActiveLevelDuringPlay")]
     public void LoadLastLevel() {
-        //TODO implement
+        StreamReader reader = new StreamReader(SavePath);
+        string path = reader.ReadToEnd(); 
+        reader.Close();
+        EditorSceneManager.OpenScene(path);
+        EditorSceneManager.OpenScene("Assets/Scenes/PlayerScene2.unity", OpenSceneMode.Additive);
+        
     }
 }
 

@@ -5,14 +5,9 @@ using UnityEngine.VFX;
 
 public class AirDashRefill : MonoBehaviour
 {
-    enum RefillMode
-    {
-        Add,
-        Set
-    }
 
     [SerializeField]
-    private RefillMode currentRefillMode;
+    private AirDash.EDashSetMode currentRefillMode;
 
     public int dashesToRefill = 3;
 
@@ -23,23 +18,11 @@ public class AirDashRefill : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other) {
-        AirDash AD = other.gameObject.GetComponent<AirDash>();
+        AirDash _airDash = other.gameObject.GetComponent<AirDash>();
 
-        if (AD != null)
+        if (_airDash != null)
         {
-            switch (currentRefillMode)
-            {
-                case RefillMode.Add:
-                    AD.SetDasheseLeft(dashesToRefill, true);
-                   
-                    break;
-                case RefillMode.Set:
-                    AD.SetDasheseLeft(dashesToRefill, false);
-                    
-                    break;
-                default:
-                    break;
-            }
+           _airDash.SetDasheseLeft(dashesToRefill, currentRefillMode);
 
             StartCoroutine(CooldownCoroutine());
 

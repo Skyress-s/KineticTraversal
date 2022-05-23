@@ -20,10 +20,15 @@ public class AirDash : MonoBehaviour
     
     //private 
     private Coroutine airDashIEnumerator;
+
+    private void Awake() {
+        EDashesChanged?.Invoke(dashesLeft);
+    }
+
     void Start()
     {
         IsGrounded.ActionOnLanded += OnLanded;
-        // EDashesChanged?.Invoke(dashesLeft);
+       
     }
 
     private void OnDestroy()
@@ -39,18 +44,6 @@ public class AirDash : MonoBehaviour
     }
 
     void DoDash() {
-        
-        /*Vector3 dir = Camera.main.transform.forward;
-        float mag = rb.velocity.magnitude;
-
-        dir = dir * 2f + rb.velocity.normalized;
-        
-        dir.Normalize();
-
-
-        rb.velocity = dir * mag;
-        dashesLeft--;
-        */
         Debug.Log("Starting air dash!");
         dashesLeft--;
         airDashIEnumerator = StartCoroutine(IAirDashing(0.4f));
@@ -59,21 +52,34 @@ public class AirDash : MonoBehaviour
     
     void OnLanded()
     {
-        dashesLeft = maxDashes;
+        if (dashesLeft < maxDashes) 
+            dashesLeft = maxDashes;
+        
         EDashesChanged?.Invoke(dashesLeft);
         
         if (airDashIEnumerator != null) 
             StopCoroutine(airDashIEnumerator);
     }
 
-    public void SetDasheseLeft(int num, bool bAddition)
+    public enum EDashSetMode {
+        Addition, SetLimitMax, SetFree
+    }
+    public void SetDasheseLeft(int num, EDashSetMode _dashSetMode)
     {
-        if (bAddition)
-            dashesLeft += num;
-        else
-            dashesLeft = num;
+        switch (_dashSetMode) {
+            case EDashSetMode.Addition:
+                dashesLeft += num;
+                break;
+            case EDashSetMode.SetLimitMax:
+                dashesLeft = num;
+                dashesLeft = dashesLeft > maxDashes ? maxDashes : dashesLeft;
+                break;
+            case EDashSetMode.SetFree:
+                dashesLeft = num;
+                break;
+        }
 
-        
+
         EDashesChanged?.Invoke(dashesLeft);
     }
 

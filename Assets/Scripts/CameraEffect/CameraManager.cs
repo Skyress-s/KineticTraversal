@@ -55,6 +55,7 @@ public class CameraManager : MonoBehaviour
     }
 
     private void PlayResetPlayerPostProcessEffect() {
+        Debug.Log("RESTART EFFEECT");
         PlayPostProcessEffect(ref _resetplayerPostProcessEffect);
     }
     

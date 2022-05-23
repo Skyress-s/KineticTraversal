@@ -55,10 +55,10 @@ public class AirMovment : MonoBehaviour
     {
         currentStrafeState = StrafeState.notstrafing;
         
-        //guard clause
-        if (_GrapplingHookStates.currentState == GrapplingHookStates.GHStates.hooked) {
-            return;
-        }
+        // //guard clause
+        // if (_GrapplingHookStates.currentState == GrapplingHookStates.GHStates.hooked) {
+        //     return;
+        // }
         
         // change the direction on the air -> air stafe system 2.0
         if (IIC.grounded._isgrounded == false && IIC.input.magnitude > 0.1f) // player has to be airborne and inputting somthing for this to work
