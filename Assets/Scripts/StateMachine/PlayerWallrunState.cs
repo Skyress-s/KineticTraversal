@@ -11,6 +11,7 @@ public class PlayerWallrunState : PlayerBaseState
         player.Wallrun2.enabled = true;
 
         player.IIC._AirMovment.enabled = false;
+        player.IIC._AirDash.enabled = false;
     }
 
     public override void Update(Context player)

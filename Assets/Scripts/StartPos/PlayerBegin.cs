@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartPosForPlayer : MonoBehaviour
+public class PlayerBegin : MonoBehaviour
 {
     public static Vector3 startPos;
     public static Quaternion startRot;

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284ba52833ecd254c84075e7aefd2a94, type: 3}
+  m_Name: ResetPlayerPostProcessEffect
+  m_EditorClassIdentifier: 
+  Duration: 0.6
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.8668544
+      outSlope: 1.8668544
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.47709042
+      value: 0.8906584
+      inSlope: -0.44525963
+      outSlope: -0.44525963
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.065397084
+    - serializedVersion: 3
+      time: 0.9961548
+      value: 0
+      inSlope: -1.715892
+      outSlope: -1.715892
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  PostProcessProfile: {fileID: 11400000, guid: 287bd085adcd0a0439e7ddf580f5e5f3, type: 2}

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
@@ -127,6 +129,11 @@ public class LevelManager : MonoBehaviour
         //SceneManager.LoadScene(1, LoadSceneMode.Additive);
 
         
+    }
+
+    [ContextMenu("lastActiveLevelDuringPlay")]
+    public void LoadLastLevel() {
+        //TODO implement
     }
 }
 

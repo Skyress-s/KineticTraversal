@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.VFX;
 
 public class GrapplingHookStates : MonoBehaviour
@@ -15,6 +16,7 @@ public class GrapplingHookStates : MonoBehaviour
     }
     public bool toggleFire;
 
+   
 
     public InputInfoCenter IIC;
     private Vector3 storedVelocity;
@@ -63,6 +65,9 @@ public class GrapplingHookStates : MonoBehaviour
 
     public delegate void hookRetractedDelegate();
     public static event hookRetractedDelegate hookRetractedEvent;
+    
+    
+    public UnityEvent EKnockoff;
 
 
     void Start()
@@ -328,6 +333,7 @@ public class GrapplingHookStates : MonoBehaviour
         //On enter
         if (onEnter)
         {
+            
             //playes the VFX 
             hookVFX.PlayKnockoffVFX(globalHit.point, Quaternion.LookRotation(globalHit.normal, Vector3.Cross(globalHit.normal,
                 storedVelocity)), globalHit.collider.gameObject.transform);
@@ -343,7 +349,8 @@ public class GrapplingHookStates : MonoBehaviour
             //activates the collider so it sits on the ground
             gameObject.GetComponent<BoxCollider>().enabled = transform;
 
-            
+            //events
+            EKnockoff?.Invoke();
         }
 
         if (IsTryToRetract())

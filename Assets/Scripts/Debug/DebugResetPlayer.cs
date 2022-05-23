@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class DebugResetPlayer : MonoBehaviour
 {
-    public delegate void restartDelegate();
-    public static event restartDelegate RestartLevelEvent;
+    /*public delegate void restartDelegate();
+    public static event restartDelegate RestartLevelEvent;*/
+    public static UnityAction ERestartLevelEvent;
 
 
 
@@ -66,7 +68,7 @@ public class DebugResetPlayer : MonoBehaviour
         //invokes the restart event
         try
         {
-            RestartLevelEvent.Invoke();
+            ERestartLevelEvent.Invoke();
         }
         catch (System.Exception)
         {
@@ -75,19 +77,19 @@ public class DebugResetPlayer : MonoBehaviour
         }
 
 
-        Player.transform.position = StartPosForPlayer.startPos; //where to place the player
+        Player.transform.position = PlayerBegin.startPos; //where to place the player
         rb.velocity = Vector3.zero;
 
         //resets the rotation of the camera
-        var n = StartPosForPlayer.startRot.eulerAngles.x;
+        var n = PlayerBegin.startRot.eulerAngles.x;
         if (n > 89.5f)
         {
             n += -360f;
         }
         camlook.xRotation = n;
-        camlook.yRotation = StartPosForPlayer.startRot.eulerAngles.y;
+        camlook.yRotation = PlayerBegin.startRot.eulerAngles.y;
 
-        Debug.Log(StartPosForPlayer.startRot.eulerAngles);
+        Debug.Log(PlayerBegin.startRot.eulerAngles);
 
 
         IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;

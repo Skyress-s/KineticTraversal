@@ -21,7 +21,7 @@ public class WallObsticleMove : MonoBehaviour
     void Start()
     {
         //subsribes the ResetWall to ResetLevel event
-        DebugResetPlayer.RestartLevelEvent += ResetWall;
+        DebugResetPlayer.ERestartLevelEvent += ResetWall;
 
 
         startLocPos = transform.localPosition;

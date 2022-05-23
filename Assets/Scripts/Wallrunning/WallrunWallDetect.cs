@@ -27,6 +27,9 @@ public class WallrunWallDetect : MonoBehaviour
     {
         layermask = 1 << 9; // creates a bitmask, only hits playerlayer
         layermask = ~layermask; // inverses bitmask, hits everything exept playerlayer
+        string[] layers = { "Player", "Weapon"};
+        layermask = LayerMask.GetMask(layers);
+        layermask = ~layermask;
     }
     RaycastHit WallDetectionV2(bool b)
     {

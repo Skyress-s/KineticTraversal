@@ -12,6 +12,9 @@ public class Context : MonoBehaviour
 
     public static PortalMain connectedPortal;
 
+    public AirDash _airDash;
+    public GrapplingHookStates _GrapplingHookStates;
+
     public bool debugState;
 
     private PlayerBaseState currentState;
