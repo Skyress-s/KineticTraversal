@@ -21,11 +21,10 @@ public class PlayerGroundState : PlayerBaseState
         
         player.IIC._AirMovment.enabled = false;
         //player.IIC.WallrunDetect.enabled = false;
-        player.Wallrun2.enabled = false;
+        player.Wallrun.enabled = false;
 
         player.IIC.Wallrunning.enabled = false;
-        player.IIC.WallrunDetect.enabled = false;
-        player.IIC._AirDash.enabled = false;
+        player._airDash.enabled = false;
     }
 
     public override void Update(Context player)
@@ -36,7 +35,7 @@ public class PlayerGroundState : PlayerBaseState
         //    //player._script1.enabled = false;
         //}
 
-        player.IIC._AirDash.enabled = false;
+        player._airDash.enabled = false;
 
         if (/*player.IIC.AirTime.b_airTime */ player.IIC.holdJump)
         {

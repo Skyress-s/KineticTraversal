@@ -8,24 +8,26 @@ public class PlayerAirState : PlayerBaseState
     public float t = 0f;
     private float wallrunCooldown;
     private float portalCooldown;
-    public override void EnterState(Context player)
-    {
+    Context _player;
+    public override void EnterState(Context player) {
+        _player = player;
         t = 0f;
         wallrunCooldown = 0f;
         portalCooldown = 0.3f;
-
         if (player.stateStack[1] == player.wallrunState.ToString())
         {
             wallrunCooldown = 0.45f;
         }
 
 
+        player.WallDetect.EFoundWall.AddListener(OnWallDetect);
+
         
         player.IIC._AirMovment.enabled = true;
-        player.IIC.WallrunDetect.enabled = true;
-
-        player.IIC._AirDash.enabled = false;
-        player.Wallrun2.enabled = false;
+        
+        
+        _player.Wallrun.enabled = false;
+        player._airDash.enabled = false;
         player.IIC.GroundMovment.enabled = false;
         player.IIC.infoSliding.enabled = false;
     }
@@ -41,17 +43,12 @@ public class PlayerAirState : PlayerBaseState
         }
 
         if (t > 0.2f) {
-            player.IIC._AirDash.enabled = true;
+            player._airDash.enabled = true;
         }
 
         
 
-        if (player.IIC.WallrunDetect.detected && t > wallrunCooldown) {
-            Debug.Log("Wallrun");
-            player.IIC._AirDash.enabled = false;
-            player.TransitionToState(player.wallrunState);
-            return;
-        }
+        
 
 
         if (PortalMain.staticIsTriggerd)
@@ -81,12 +78,17 @@ public class PlayerAirState : PlayerBaseState
 
     public override void ExitState(Context player)
     {
-        //Debug.Log("Exiting Air State");
-        //player._script2.enabled = false;
+       _player.WallDetect.EFoundWall.RemoveListener(OnWallDetect);
     }
 
     public override void DebugState(Context player)
     {
         if (player.debugState) Debug.Log(this);
     }
+
+    private void OnWallDetect() {
+        _player.TransitionToState(_player.wallrunState);
+    }
+
+    
 }

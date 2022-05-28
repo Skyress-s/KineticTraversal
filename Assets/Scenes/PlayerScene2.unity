@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2421d34822ea55741bdfa3f66a8f7b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lastLevelPath: {fileID: 0}
 --- !u!4 &470440924
 Transform:
   m_ObjectHideFlags: 0
@@ -2112,7 +2113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGO: {fileID: 6047523575731723149}
   IIC: {fileID: 6047523576148543966}
-  Wallrun2: {fileID: 6047523575731723136}
+  Wallrun: {fileID: 6047523575731723136}
+  WallDetect: {fileID: 6047523575731723151}
   _airDash: {fileID: 6047523575731723152}
   _GrapplingHookStates: {fileID: 6047523576666963862}
   debugState: 0
@@ -3056,7 +3058,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ffd6627d9894144a5abc95d7a34066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  i: 0
   DebugisTriggerd: 0
+  isOnWall: 0
 --- !u!23 &947456979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6212,6 +6216,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873469929}
   m_CullTransparentMesh: 1
+--- !u!1 &1908032835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1908032837}
+  - component: {fileID: 1908032836}
+  m_Layer: 0
+  m_Name: StateMachineTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1908032836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908032835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764a7f0c01e9d8445bd1b6716edf019e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bDebugState: 0
+  _pushDownAutomataMax: 5
+  rb: {fileID: 6047523575731723143}
+  WallDetectConfig:
+    RayLength: 1.2
+    RaySegments: 12
+  WallrunConfig:
+    WallHookForce: 17.47
+    AntiGravityForce: 0.3
+    JumpForce: 12.5
+  layermask: 0
+--- !u!4 &1908032837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908032835}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6047523575731723137}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1924515046
 GameObject:
   m_ObjectHideFlags: 0
@@ -11144,6 +11202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTilt: 0
+  scriptTilt: 0
   TiltGameobject: {fileID: 6047523576224496623}
   wallrun: {fileID: 6047523575731723136}
   IIC: {fileID: 6047523576148543966}
@@ -11161,7 +11220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 6047523575585772437}
   grounded: {fileID: 6047523575731723141}
-  wallrunDetectScript: {fileID: 6047523575731723151}
+  detectScript: {fileID: 0}
   IIC: {fileID: 6047523576148543966}
 --- !u!95 &6047523575585772437
 Animator:
@@ -11559,24 +11618,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a85521144b5ec40a3e74ba59c67839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayD: 1.3
-  Camera: {fileID: 6047523575592440558}
-  lerpYForce: 0
-  MaxSpeed: 25
-  speedBoost: 0.2
-  cameraYforce: 8
-  jumpUpwardsForce: 8
-  outwardsForce: 0.2
-  maximumSpeed: 35
-  wallrunning: 0
-  stickToWallForce: 6
-  lowestSpeed: 3
-  IIC: {fileID: 6047523576148543966}
-  ct: {fileID: 947456978}
-  currentWallrunState: 0
-  disableAircontrolTime: 0.2
-  _WallrunWallDetect: {fileID: 6047523575731723151}
-  bufferDuration: 0.3
+  rb: {fileID: 0}
+  wallDetect: {fileID: 6047523575731723151}
+  WallrunState:
+    bExit: 0
+  WallrunConfig:
+    JumpSpeedAddition: 10
+    JumpSpeedSpeedClamp: 150
+    AntiGravityForce: 3
+    StickToWallForce: 2
 --- !u!4 &6047523575731723137
 Transform:
   m_ObjectHideFlags: 0
@@ -11590,6 +11640,7 @@ Transform:
   m_Children:
   - {fileID: 947456976}
   - {fileID: 785691964}
+  - {fileID: 1908032837}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11727,6 +11778,7 @@ GameObject:
   - component: {fileID: 6047523575731723256}
   - component: {fileID: 6047523575731723263}
   - component: {fileID: 6047523575731723152}
+  - component: {fileID: 6047523575731723153}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -11761,13 +11813,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f3048400a16f4499db54089f5378d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detected: 0
-  isRightSide: 0
-  rayDistance: 1.3
-  CT: {fileID: 947456978}
-  CameraObj: {fileID: 6047523575534152428}
-  rb: {fileID: 6047523575731723143}
-  wallrunscript: {fileID: 6047523575731723136}
+  DetectConfig:
+    raySegments: 12
+    rayLength: 2
+  EFoundWall:
+    m_PersistentCalls:
+      m_Calls: []
+  ELostWall:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6047523575731723152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11784,6 +11838,18 @@ MonoBehaviour:
   IIC: {fileID: 6047523576148543966}
   maxDashes: 3
   dashesLeft: 3
+--- !u!114 &6047523575731723153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6047523575731723149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1990e784bde34c0429273a4de1dca524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6047523575731723256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12268,12 +12334,11 @@ MonoBehaviour:
   infoSliding: {fileID: 6047523575731723263}
   GroundMovment: {fileID: 6047523575731723258}
   _AirMovment: {fileID: 6047523575731723256}
-  _AirDash: {fileID: 6047523575731723152}
   hook: {fileID: 6047523576666963859}
   input: {x: 0, y: 0}
   worldInput: {x: 0, y: 0, z: 0}
   AirTime: {fileID: 6047523575731723150}
-  WallrunDetect: {fileID: 6047523575731723151}
+  detect: {fileID: 0}
   Wallrunning: {fileID: 6047523575731723136}
   holdJump: 0
   holdSprint: 0
@@ -12618,7 +12683,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c131a472fb28c1a48ab521b266f1d6ed, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -22,8 +22,8 @@ public class PlayerPortalState : PlayerBaseState
     public override void EnterState(Context player)
     {
         player.IIC._AirMovment.enabled = false;
-        player.IIC.WallrunDetect.enabled = false;
-        player.Wallrun2.enabled = false;
+        player.IIC.detect.enabled = false;
+        player.Wallrun.enabled = false;
 
         rb = player.playerGO.GetComponent<Rigidbody>();
         onEnterVeclocity = rb.velocity;

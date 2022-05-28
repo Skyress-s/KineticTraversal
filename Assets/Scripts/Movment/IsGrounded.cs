@@ -25,7 +25,7 @@ public class IsGrounded : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, -transform.up, Color.blue,  maxRayDistance);
+        // Debug.DrawRay(transform.position, -transform.up, Color.blue,  maxRayDistance);
         RaycastHit hit;
         
         if (Physics.Raycast(transform.position, -transform.up, out hit, maxRayDistance, layermask, QueryTriggerInteraction.Ignore))

@@ -88,8 +88,6 @@ public class GrapplingHookStates : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        
-
         switch (currentState)
         {
             case (GHStates.rest):

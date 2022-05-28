@@ -55,13 +55,13 @@ public class CameraManager : MonoBehaviour
     }
 
     private void PlayResetPlayerPostProcessEffect() {
-        Debug.Log("RESTART EFFEECT");
+        // Debug.Log("RESTART EFFEECT");
         PlayPostProcessEffect(ref _resetplayerPostProcessEffect);
     }
     
     
     public void PlayPostProcessEffect(ref PostProcessEffect _postProcessEffect) {
-        Debug.Log("Play camera effect");
+        // Debug.Log("Play camera effect");
         Volume volumeComp = gameObject.AddComponent<Volume>();
         volumeComp.weight = 0f;
         volumeComp.isGlobal = true;

@@ -18,7 +18,7 @@ public class InputInfoCenter : MonoBehaviour
 
     public AirMovment _AirMovment;
 
-    public AirDash _AirDash;
+    // public AirDash _AirDash;
 
     public GameObject hook;
 
@@ -28,7 +28,7 @@ public class InputInfoCenter : MonoBehaviour
 
     public AirTime AirTime;
     
-    public WallrunWallDetect WallrunDetect;
+    public WallDetect detect;
 
     public Wallrunning Wallrunning;
 

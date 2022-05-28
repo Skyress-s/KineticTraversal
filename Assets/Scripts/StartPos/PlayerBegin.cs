@@ -21,5 +21,6 @@ public class PlayerBegin : MonoBehaviour
     {
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawFrustum(Vector3.zero, 60f, 15f, 3f, 1f);
+        Gizmos.DrawCube(Vector3.zero, new Vector3(1f,2f,1f));
     }
 }

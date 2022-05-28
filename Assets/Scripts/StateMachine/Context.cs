@@ -8,7 +8,9 @@ public class Context : MonoBehaviour
 
     public InputInfoCenter IIC;
 
-    public Wallrunning Wallrun2;
+    public Wallrunning Wallrun;
+
+    public WallDetect WallDetect;
 
     public static PortalMain connectedPortal;
 

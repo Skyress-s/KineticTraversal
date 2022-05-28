@@ -68,10 +68,6 @@ public class Jump : MonoBehaviour
         {
             hoverJumpPhase = false;
         }
-        if (IIC.WallrunDetect.detected == true) // if wallrunning disable hoverun phase
-        {
-            hoverJumpPhase = false;
-        }
     }
 
 
