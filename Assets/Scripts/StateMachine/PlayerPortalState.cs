@@ -10,69 +10,57 @@ public class PlayerPortalState : PlayerBaseState
     private Rigidbody rb;
     public Vector3 onEnterVeclocity;
 
-    private float t;
+    private float stateTime;
 
-    public static float maxduration = 2.2f;
+    public float maxduration = 2.2f;
 
-
-    public delegate void ExitPortalDelegate();
-    public static ExitPortalDelegate ExitPortalEvent;
-    public static ExitPortalDelegate EnterPortalEvent;
+    private Context _player;
 
     public override void EnterState(Context player)
     {
+        //enable disable components
         player.IIC._AirMovment.enabled = false;
-        player.IIC.detect.enabled = false;
         player.Wallrun.enabled = false;
-
+        player._airDash.enabled = false;
+        
+        //sets _player
+        _player = player;
+        
+        //gets rb
         rb = player.playerGO.GetComponent<Rigidbody>();
         onEnterVeclocity = rb.velocity;
-        Debug.Log(onEnterVeclocity);
+        rb.isKinematic = true;
 
-        if (player.IIC.grapplingHookStates.currentState == GrapplingHookStates.GHStates.rest) { }
-        else player.IIC.grapplingHookStates.ReturningMiddleStep();
-
+        //reset variables
+        stateTime = 0f;
 
         //events
-        EnterPortalEvent.Invoke();
-    
+        PlayerController.instance.Control.Player.Jump.performed += OnJump;
+
     }
 
-    public override void Update(Context player)
-    {
-        t += Time.deltaTime;
+    
 
-        //aligs player to center of portal
-        player.playerGO.transform.position = PortalMain.centerOfPortal;
-        //resets velocity
-        rb.velocity = Vector3.zero;
-
-        if (player.IIC.controls.Player.Jump.triggered || t > maxduration)
-        {
-            //what to do when player is ready to travel further
-            //
-            Context.connectedPortal.currentState = PortalMain.State.dorment;
-            Context.connectedPortal.isTriggerd = false;
-            PortalMain.staticIsTriggerd = false;
-
-            var exitVelocity = Camera.main.transform.forward * onEnterVeclocity.magnitude;
-            rb.velocity = exitVelocity;
-            player.TransitionToState(player.airState);
-
-        }
+    public override void Update(Context player) {
+        rb.transform.position = Vector3.Lerp(rb.transform.position, player.activePortal.transform.position, Time.deltaTime * 4f);
     }
 
     public override void ExitState(Context player)
     {
-        ExitPortalEvent.Invoke();
-        t = 0f;
-        onEnterVeclocity = Vector3.zero;
-        
+        PlayerController.instance.Control.Player.Jump.performed -= OnJump;
     }
 
     public override void DebugState(Context player)
     {
         if (player.debugState) Debug.Log(this);
     }
+    
+    private void OnJump(InputAction.CallbackContext obj) {
+        Debug.LogError("JUMP");
+        rb.isKinematic = false;
+        rb.velocity = Camera.main.transform.forward * onEnterVeclocity.magnitude ;
+        _player.TransitionToState(_player.airState);
+    }
+    
 
 }

@@ -53,7 +53,6 @@ public class FOVcoltroller : MonoBehaviour
 
         GrapplingHookStates.hooked += hookedFOV;
         GrapplingHookStates.hookRetractedEvent += hookRetractedFOV;
-        PlayerPortalState.ExitPortalEvent += exitPortalFOV;
         SlidingOBSTrigger.SlidingBoostEvent += slidingBoostFOV;
 
 

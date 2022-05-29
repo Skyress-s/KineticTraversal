@@ -20,12 +20,13 @@ public class Wallrunning : MonoBehaviour {
     }
 
     private void OnEnable() {
-        WallrunState.CurrentWallrunState = EWallrunState.wallrun;
+        WallrunState.Reset();
         
     }
     private void OnDisable() {
         wallDetect.ELostWall.RemoveListener(OnLostWall);
         PlayerController.instance.Control.Player.Jump.performed -= Jump;
+        rb.useGravity = true;
     }
     void FixedUpdate()
     {
@@ -69,18 +70,28 @@ public class Wallrunning : MonoBehaviour {
             WallrunState.bEnter = false;
             wallDetect.ELostWall.AddListener(OnLostWall);
             PlayerController.instance.Control.Player.Jump.performed += Jump;
+            rb.useGravity = false;
         }
-
-        if (WallrunState.bEnter) {
-            WallrunState.CurrentWallrunState = EWallrunState.exit;
+        
+        //guard clause
+        if (WallrunState.bExit) {
             return;
         }
-        
-        
+
+        //antiWallrun
         float yVelocity = rb.velocity.y;
         if (yVelocity < 0f) {
-            rb.AddForce(-Vector3.up * yVelocity * WallrunConfig.AntiGravityForce, ForceMode.Acceleration);
+
+            float UpVectorMul = WallrunState.stateTime / 0.7f;
+            UpVectorMul = UpVectorMul < 1f ? 1f : UpVectorMul; // min clamps
+            
+            rb.AddForce(-Vector3.up * yVelocity * WallrunConfig.AntiGravityForce * UpVectorMul, ForceMode.Acceleration);
         }
+        
+        //wall stick
+        rb.AddForce(-wallDetect.DetectState.Direction * WallrunConfig.StickToWallForce, ForceMode.Acceleration);
+        
+        
     }
 
     void OnLostWall() {
@@ -93,18 +104,19 @@ public class Wallrunning : MonoBehaviour {
         velocityMagnitude = Mathf.Clamp(velocityMagnitude, 0, WallrunConfig.JumpSpeedSpeedClamp);
         
 
+        //sets new vel
         Vector3 newDirection = Camera.main.transform.forward;
         Vector3 newVelocity = newDirection * velocityMagnitude;
         rb.velocity = newVelocity;
         WallrunState.bExit = true;
+        rb.useGravity = true;
         
-        // rb.AddForce(Camera.main.transform.forward * WallrunConfig.JumpForce, ForceMode.VelocityChange);
     }
 
     [Serializable]
     public class FWallrunState {
 
-        private EWallrunState currentWallrunState = EWallrunState.walldetect;
+        private EWallrunState currentWallrunState = EWallrunState.wallrun;
         public EWallrunState CurrentWallrunState {
             get => currentWallrunState;
             set {
@@ -118,6 +130,14 @@ public class Wallrunning : MonoBehaviour {
         public bool bEnter { get;  set; }
         public float stateTime { get;  set; }
         public bool bExit = false;
+
+
+        public void Reset() {
+            currentWallrunState = EWallrunState.wallrun;
+            bEnter = true;
+            stateTime = 0f;
+            bExit = false;
+        }
     }
     
     [Serializable]
@@ -136,6 +156,7 @@ public class Wallrunning : MonoBehaviour {
         public float StickToWallForce;
     }
     
+    [Serializable]
     public enum EWallrunState
     {
         walldetect,

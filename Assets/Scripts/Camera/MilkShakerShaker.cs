@@ -21,9 +21,6 @@ public class MilkShakerShaker : MonoBehaviour
     {
         kb = InputSystem.GetDevice<Keyboard>();
 
-        PlayerPortalState.EnterPortalEvent += StartPortalShake;
-        PlayerPortalState.ExitPortalEvent += StopPortalShake;
-
         GrapplingHookStates.hookRetractedEvent += StartHookRetractedShake;
     }
 
@@ -44,7 +41,7 @@ public class MilkShakerShaker : MonoBehaviour
 
     private void StartPortalShake()
     {
-        StartCoroutine(WaitAndStartPortalShake());
+       
         
     }
 
@@ -59,18 +56,10 @@ public class MilkShakerShaker : MonoBehaviour
         SP.Stop(0.1f, true);
     }
     private ShakeInstance SP;
-    private IEnumerator WaitAndStartPortalShake()
-    {
-        var f = PlayerPortalState.maxduration - (PortalShake.FadeIn);
-        yield return new WaitForSeconds(f);
-        SP = ShakeManager.Shake(PortalShake);
-    }
+   
 
     private void OnDisable()
     {
-        PlayerPortalState.EnterPortalEvent -= StartPortalShake;
-        PlayerPortalState.ExitPortalEvent -= StopPortalShake;
-
         GrapplingHookStates.hookRetractedEvent -= StartHookRetractedShake;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Context : MonoBehaviour
 {
+    //dependencies
     public GameObject playerGO;
 
     public InputInfoCenter IIC;
@@ -17,10 +18,13 @@ public class Context : MonoBehaviour
     public AirDash _airDash;
     public GrapplingHookStates _GrapplingHookStates;
 
+    //state
+    public PortalMain activePortal;
+
+
+    //state machine
     public bool debugState;
-
     private PlayerBaseState currentState;
-
     public readonly PlayerGroundState groundState = new PlayerGroundState();
     public readonly PlayerSlideState slideState = new PlayerSlideState();
     public readonly PlayerAirState airState = new PlayerAirState();

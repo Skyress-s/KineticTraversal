@@ -87,7 +87,7 @@ public class DebugResetPlayer : MonoBehaviour
 
         Debug.Log(PlayerBegin.startRot.eulerAngles);
 
-
+        rb.isKinematic = false;
         IIC.grapplingHookStates.currentState = GrapplingHookStates.GHStates.rest;
         IIC.grapplingHookStates.AnimHooked(false);
 

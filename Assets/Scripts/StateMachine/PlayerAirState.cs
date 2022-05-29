@@ -5,22 +5,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerAirState : PlayerBaseState
 {
-    public float t = 0f;
+    public float stateTime;
     private float wallrunCooldown;
     private float portalCooldown;
     Context _player;
     public override void EnterState(Context player) {
         _player = player;
-        t = 0f;
+        stateTime = 0f;
         wallrunCooldown = 0f;
-        portalCooldown = 0.3f;
         if (player.stateStack[1] == player.wallrunState.ToString())
         {
-            wallrunCooldown = 0.45f;
+            wallrunCooldown = 0.15f;
         }
+        portalCooldown = 0.3f;
 
 
-        player.WallDetect.EFoundWall.AddListener(OnWallDetect);
 
         
         player.IIC._AirMovment.enabled = true;
@@ -30,44 +29,30 @@ public class PlayerAirState : PlayerBaseState
         player._airDash.enabled = false;
         player.IIC.GroundMovment.enabled = false;
         player.IIC.infoSliding.enabled = false;
+        
+        //events
+        PortalMain.EEnterPortal.AddListener(OnEnterPortal);
+        player.WallDetect.EFoundWall.AddListener(OnWallDetect);
+        // PortalMain.EEnterPortalBingus += OnEnterPortal;
     }
+    
 
     public override void Update(Context player)
     {
-        t += Time.deltaTime;
+        stateTime += Time.deltaTime;
 
-        if (!player.IIC.AirTime.b_airTime && t > 0.2f) {
+        if (!player.IIC.AirTime.b_airTime && stateTime > 0.2f) {
        
             player.TransitionToState(player.groundState);
             return;
         }
 
-        if (t > 0.2f) {
+        if (stateTime > 0.2f) {
             player._airDash.enabled = true;
         }
-
         
 
-        
-
-
-        if (PortalMain.staticIsTriggerd)
-        {
-            if (player.stateStack[1] == player.portalState.ToString())
-            {
-                if (t > portalCooldown)
-                {
-                    player.TransitionToState(player.portalState);
-                }
-            }
-            else
-            {
-                player.TransitionToState(player.portalState);
-            }
-            //Debug.Log("Ready to tranition to portalState");
-        }
-
-
+        //disables airdash
         if (player._GrapplingHookStates.currentState == GrapplingHookStates.GHStates.hooked) {
             player._airDash.enabled = false;
         }
@@ -78,7 +63,11 @@ public class PlayerAirState : PlayerBaseState
 
     public override void ExitState(Context player)
     {
+       
+       //events
        _player.WallDetect.EFoundWall.RemoveListener(OnWallDetect);
+       PortalMain.EEnterPortal.RemoveListener(OnEnterPortal);
+       // PortalMain.EEnterPortalBingus -= OnEnterPortal;
     }
 
     public override void DebugState(Context player)
@@ -88,6 +77,17 @@ public class PlayerAirState : PlayerBaseState
 
     private void OnWallDetect() {
         _player.TransitionToState(_player.wallrunState);
+    }
+
+    private void OnEnterPortal(PortalMain portalMain) {
+        Debug.Log(stateTime + "  " + portalCooldown);
+        if (stateTime > portalCooldown) {
+             Debug.Log("Should Enter portal!");
+            _player.activePortal = portalMain;
+            _player.TransitionToState(_player.portalState);
+            
+        }
+        
     }
 
     
